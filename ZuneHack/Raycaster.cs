@@ -220,8 +220,9 @@ namespace ZuneHack
                 if (splices[x] != null)
                 {
                     // Draws the splices for this column.
-                    foreach (ScreenSplice drawSplice in splices[x])
+                    for(int i = 0; i < splices[x].Count; i++)
                     {
+                        ScreenSplice drawSplice = splices[x][i];
                         spriteBatch.Draw(drawSplice.texture, new Rectangle(spliceWidth * x, -drawSplice.lineHeight / 2 + 240 / 2, spliceWidth, drawSplice.lineHeight),
                         new Rectangle((1 * (int)(drawSplice.texture.Width * drawSplice.texPos)), 0, 1, drawSplice.texture.Height), drawSplice.color, 0, new Vector2(), SpriteEffects.None, drawSplice.z);
                     }
@@ -230,8 +231,9 @@ namespace ZuneHack
 
             // Draw the entities, or quit if none
             if (map.entities == null) return;
-            foreach (Entity entity in map.entities)
+            for (int x = 0; x < map.entities.Count; x++)
             {
+                Entity entity = map.entities[x];
                 if(entity.directional == false)
                     DrawEntity(entity);
             }
@@ -296,8 +298,9 @@ namespace ZuneHack
         {
             if (map.entities == null) return;
 
-            foreach (Entity entity in map.entities)
+            for(int i = 0; i < map.entities.Count; i++)
             {
+                Entity entity = map.entities[i];
                 if (entity.directional)
                 {
                     CollisionResult col = CollisionHelpers.LineLineIntersection(rayPos, rayPos + (rayDir * (hitDistance + 0.2f)), entity.pos, entity.pos + entity.dir);

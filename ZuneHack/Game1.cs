@@ -75,10 +75,13 @@ namespace ZuneHack
             playstate.LoadTexture(@"Walls\brick-bloody");
             playstate.LoadTexture(@"Walls\brick-torch");
             playstate.LoadTexture(@"Walls\door");
+            playstate.LoadTexture(@"Walls\door-grate");
             playstate.LoadTexture(@"Deco\column");
             playstate.LoadTexture(@"Actors\goblin");
             playstate.LoadTexture(@"Actors\kobold");
             playstate.LoadTexture(@"Actors\rat");
+
+            playstate.LoadFont(@"Gebrider");
 
             map = new Map();
             playstate.SetMap(map);
@@ -126,8 +129,11 @@ namespace ZuneHack
             raycaster.Draw();
             spriteBatch.End();
 
+            spriteBatch.Begin();
+            playstate.Draw(spriteBatch);
+            spriteBatch.End();
+
             GraphicsDevice.SetRenderTarget(0, null);
-            GraphicsDevice.Clear(Color.GreenYellow);
             spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.BackToFront, SaveStateMode.None);
             spriteBatch.Draw(background.GetTexture(), new Vector2(140,160), null, Color.White, -1.57079633f, new Vector2(160,140), 1, SpriteEffects.None, 1 );
             spriteBatch.End();

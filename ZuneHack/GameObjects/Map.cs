@@ -30,25 +30,25 @@ namespace ZuneHack
             {1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,2,0,1,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,1,1,0,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,1},
-            {1,5,2,0,3,1,2,0,1,0,2,0,0,1,0,0,0,1,0,0,3,0,0,1},
+            {1,0,2,0,3,1,2,0,1,0,2,0,0,1,0,0,0,1,0,0,3,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,1,0,2,0,0,0,0,0,1,0,0,0,0,0,0,1,4,1,1,0,0,1},
             {1,0,1,0,2,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,1,0,1,1,3,1,0,1,4,1,0,0,0,1,2,2,0,0,0,0,0,1},
-            {2,0,2,0,0,0,0,1,0,4,0,4,0,0,0,4,0,2,0,0,0,0,0,1},
+            {2,0,2,0,0,0,0,1,0,4,0,4,0,0,0,4,0,2,1,0,1,1,2,1},
             {2,0,2,0,0,0,0,1,0,1,4,1,0,0,0,1,1,1,0,0,0,0,0,1},
             {1,0,1,1,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,2,0,1,0,0,0,1,0,1,2,4,1,0,2,0,2,0,0,1},
+            {1,0,0,0,0,2,0,1,0,0,0,1,0,1,2,4,1,0,2,0,2,0,1,1},
             {1,0,2,0,0,2,0,4,0,0,0,1,0,0,0,2,2,2,2,0,2,0,0,1},
-            {1,0,0,0,0,2,0,1,0,2,0,2,0,0,0,2,0,0,0,0,2,0,0,1},
+            {1,0,0,0,0,2,0,1,0,2,0,2,0,0,0,2,0,0,0,0,2,0,1,1},
             {1,1,1,0,1,1,0,1,1,0,1,0,0,0,0,2,0,2,2,2,2,0,0,1},
-            {1,0,0,0,0,0,0,0,0,2,0,2,0,0,0,2,0,2,0,0,0,0,1,1},
+            {1,0,0,0,0,0,0,0,0,2,0,2,1,0,1,2,0,2,0,0,0,0,1,1},
             {1,0,0,3,0,0,0,0,0,1,0,0,0,0,0,1,0,2,2,2,2,0,0,1},
             {1,0,0,4,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,1,0,2,1,1,2,3,0,1,2,2,0,1,0,1,0,0,0,1,0,1},
+            {1,0,4,1,0,2,1,1,2,3,0,1,2,2,1,1,0,1,0,0,0,1,0,1},
             {1,0,0,1,0,2,0,0,0,0,0,0,0,0,0,1,0,1,0,1,1,1,0,1},
-            {1,0,0,0,0,0,0,0,4,0,0,0,0,0,0,1,0,1,1,1,1,1,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,1,0,0,0,0,4,0,0,0,0,0,0,1,0,1,1,1,1,1,0,1},
+            {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
             };
 
@@ -61,13 +61,26 @@ namespace ZuneHack
             mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-torch");
             mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\door");
 
-            entities = new List<Entity>();
-            //entities.Add(new Actor(new Vector2(21.5f, 12.5f), "rat"));
-            entities.Add(new Actor(new Vector2(1.5f, 19.5f), "kobold"));
-            entities.Add(new Actor(new Vector2(2.5f, 2.5f), "goblin"));
-            entities.Add(new Entity(new Vector2(2.5f, 3.5f), @"Deco\column", true));
-            entities.Add(new Entity(new Vector2(3.5f, 2.5f), @"Deco\column", true));
-            entities.Add(new Door(new Vector2(19.5f, 10.0f), @"Walls\door", true, true));
+            AddEntity(new Actor(new Vector2(20.5f, 12.5f), "rat"));
+            AddEntity(new Actor(new Vector2(1.5f, 19.5f), "kobold"));
+            AddEntity(new Actor(new Vector2(2.5f, 2.5f), "goblin"));
+            AddEntity(new Entity(new Vector2(2.5f, 3.5f), @"Deco\column", true));
+            AddEntity(new Entity(new Vector2(3.5f, 2.5f), @"Deco\column", true));
+            AddEntity(new Door(new Vector2(19.5f, 10.5f), @"Walls\door", true, true));
+            AddEntity(new Door(new Vector2(20.5f, 8.5f), @"Walls\door-grate", true, true));
+            AddEntity(new Door(new Vector2(4.5f, 1.5f), @"Walls\door", true, true));
+        }
+
+        /// <summary>
+        /// Adds an entity to the map's entity list
+        /// </summary>
+        public void AddEntity(Entity newEntity)
+        {
+            if (entities == null) entities = new List<Entity>();
+
+            entities.Add(newEntity);
+            newEntity.SetMap(this);
+            newEntity.Initialize();
         }
 
         public Map(int[,] data, int Width, int Height, List<Entity> Entities)
@@ -96,13 +109,16 @@ namespace ZuneHack
 
         public bool checkHit(Vector2 checkLoc)
         {
-            return checkHit((int)checkLoc.X, (int)checkLoc.Y);
+            if (checkLoc.X > 0 && checkLoc.X < width - 1 && checkLoc.Y > 0 && checkLoc.Y < height - 1)
+                return checkHit((int)checkLoc.X, (int)checkLoc.Y);
+            return true;
         }
 
         public Entity checkEntityHit(Vector2 checkLoc)
         {
-            foreach (Entity entity in entities)
+            for (int i = 0; i < entities.Count; i++)
             {
+                Entity entity = entities[i];
                 if (entity.blockMovement)
                 {
                     bool entityHit = (int)entity.pos.X == (int)checkLoc.X && (int)entity.pos.Y == (int)checkLoc.Y;

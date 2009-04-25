@@ -117,6 +117,8 @@ namespace ZuneHack
             pause = 0.4f;
             if (hit != null)
                 GameManager.GetInstance().Map.entities.Remove(hit);
+
+            GameManager.GetInstance().AddMessage("You eviscarate the monster.");
         }
 
         public override void Update(float timescale)

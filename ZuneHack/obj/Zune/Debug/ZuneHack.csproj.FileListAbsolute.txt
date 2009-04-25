@@ -139,3 +139,36 @@ C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack
 C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-24-09\ZuneHack\bin\Zune\Debug\ZuneHack.exe
 C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-24-09\ZuneHack\bin\Zune\Debug\ZuneHack.pdb
 C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-24-09\ZuneHack\obj\Zune\Debug\ZuneHack.pdb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\Zune\Debug\ResolveAssemblyReference.cache
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\Zune\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\Zune\Debug\ZuneHack.exe
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\blue.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\brick-bloody.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\brick-grey.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\brick-mossy.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\brick-torch.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\door.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\green.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\grey.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\red.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\Smudge.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\bag.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\gold.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\potion-black.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\potion-blue.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\potion-green.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\potion-orange.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\potion-purple.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\potion-red.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\potion-white.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\potion.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\sword.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Deco\column.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\goblin.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\kobold.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\rat.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\ZuneHack.exe
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\ZuneHack.pdb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\Zune\Debug\ZuneHack.pdb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\door-grate.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Gebrider.xnb

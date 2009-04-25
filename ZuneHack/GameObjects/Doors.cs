@@ -24,7 +24,20 @@ namespace ZuneHack
             isOpen = !isClosed;
             directional = Directional;
             movePercentage = 1;
+        }
+
+        public override void Initialize()
+        {
+            // Sets the initial direction of the door based on adjacent open squares
+            if (!ownerMap.checkHit(pos + dir))
+            {
+                dir = new Vector2(-1, 0);
+            }
+
+            // Sets the closed direction and position. Position needs to be set to make the door flush with the wall.
             closedDir = dir;
+            pos -= (closedDir * 0.49f);
+            pos += (RayHelpers.rotate(closedDir,  (-2.0 * Math.PI) / 4.0)) * 0.45f;
         }
 
         public override void Update(float timescale)

@@ -75,8 +75,17 @@ namespace ZuneHack
             }
 
             // Check to see if we can walk here
-            if (newPos != playerPos && newPos != pos)
-                action = new MoveAction(0.15f, newPos, this);
+            if (newPos != pos)
+            {
+                if (newPos != playerPos)
+                {
+                    action = new MoveAction(0.2f, newPos, this);
+                }
+                else
+                {
+                    GameManager.GetInstance().AddMessage("Monster attacks!");
+                }
+            }
         }
 
         public override void Update(float timescale)

@@ -15,6 +15,7 @@ namespace ZuneHack
         public Texture2D texture;
         public bool blockMovement = false;
         public bool directional;
+        protected Map ownerMap;
 
         public Entity()
         {
@@ -38,14 +39,40 @@ namespace ZuneHack
             directional = Directional;
         }
 
+        // Easy ways to find which tile of the map the entity is on
+        public int MapPosX { get { return (int)pos.X; } }
+        public int MapPosY { get { return (int)pos.Y; } }
+
+        /// <summary>
+        /// Initializes the entity on the map
+        /// </summary>
+        public void SetMap(Map map)
+        {
+            ownerMap = map;
+        }
+
+        /// <summary>
+        /// Occurs when this entity can do it's turn, used to select and perform the next action
+        /// </summary>
         public virtual void DoTurn()
         {
             
         }
 
+        /// <summary>
+        /// Gets called every game update, used for animation and logic
+        /// </summary>
         public virtual void Update(float timescale)
         {
             displayPos = pos;
+        }
+
+        /// <summary>
+        /// Initializes the entity, occurs when the entity is added to a map
+        /// </summary>
+        public virtual void Initialize()
+        {
+
         }
     }
 }
