@@ -8,9 +8,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ZuneHack
 {
+    enum MapType
+    {
+        dungeon,
+        forest,
+        cave
+    }
+
     class Map
     {
-        protected int[,] mapData;
+        public int[,] mapData;
         protected int width;
         protected int height;
         public List<Entity> entities;
@@ -20,6 +27,9 @@ namespace ZuneHack
         public Color rowSideShading = Color.White;
         public float distanceShadingScale = 100.0f;
 
+        /// <summary>
+        /// Generates a default test map
+        /// </summary>
         public Map()
         {
             width = 24;
@@ -28,17 +38,17 @@ namespace ZuneHack
             mapData = new int[24, 24] {
             {1,1,2,1,3,1,2,1,2,1,1,1,3,1,2,1,1,2,1,3,1,1,1,1},
             {1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,2,0,1,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,1,1,0,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,2,0,1,0,2,0,2,0,0,0,0,0,1,0,0,0,0,0,0,1},
+            {1,0,0,1,1,0,0,0,0,0,2,1,1,1,0,2,1,3,0,0,0,0,0,1},
             {1,0,2,0,3,1,2,0,1,0,2,0,0,1,0,0,0,1,0,0,3,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,1,0,2,0,0,0,0,0,1,0,0,0,0,0,0,1,4,1,1,0,0,1},
-            {1,0,1,0,2,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,1,0,1,1,3,1,0,1,4,1,0,0,0,1,2,2,0,0,0,0,0,1},
-            {2,0,2,0,0,0,0,1,0,4,0,4,0,0,0,4,0,2,1,0,1,1,2,1},
+            {2,0,2,0,0,0,0,1,0,4,0,4,1,2,0,4,0,2,1,0,1,1,2,1},
             {2,0,2,0,0,0,0,1,0,1,4,1,0,0,0,1,1,1,0,0,0,0,0,1},
-            {1,0,1,1,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,2,0,1,0,0,0,1,0,1,2,4,1,0,2,0,2,0,1,1},
+            {1,0,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,2,0,1,0,0,0,1,1,0,2,4,1,0,2,0,2,0,1,1},
             {1,0,2,0,0,2,0,4,0,0,0,1,0,0,0,2,2,2,2,0,2,0,0,1},
             {1,0,0,0,0,2,0,1,0,2,0,2,0,0,0,2,0,0,0,0,2,0,1,1},
             {1,1,1,0,1,1,0,1,1,0,1,0,0,0,0,2,0,2,2,2,2,0,0,1},
@@ -71,12 +81,36 @@ namespace ZuneHack
             AddEntity(new Door(new Vector2(4.5f, 1.5f), @"Walls\door", true, true));
         }
 
+        /// <summary>
+        /// Creates a map via an array of map data and a list of entities
+        /// </summary>
         public Map(int[,] data, int Width, int Height, List<Entity> Entities)
         {
             mapData = data;
             width = Width;
             height = Height;
             entities = Entities;
+        }
+
+        /// <summary>
+        /// Generates a map based on the dungeon level and type
+        /// </summary>
+        public Map(int level, MapType type)
+        {
+            width = 30;
+            height = 30;
+
+            MapGenerator generator = new MapGenerator(type, this);
+        }
+
+        /// <summary>
+        ///  Sets the level data
+        /// </summary>
+        public void setData(int Width, int Height, int[,] data)
+        {
+            mapData = data;
+            width = Width;
+            height = Height;
         }
 
         /// <summary>
@@ -137,6 +171,18 @@ namespace ZuneHack
         {
             if(checkHit(x,y)) return mapData[x, y] - 1;
             return 0;
+        }
+
+        public Vector2 GetStairUpLoc()
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    if (mapData[x, y] == -1) return new Vector2(x + 0.5f, y + 0.5f);
+                }
+            }
+            return new Vector2(1.5f, 1.5f);
         }
     }
 }

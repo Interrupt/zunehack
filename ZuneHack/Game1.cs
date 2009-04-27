@@ -83,9 +83,12 @@ namespace ZuneHack
 
             playstate.LoadFont(@"Gebrider");
 
+            //map = new Map(1, MapType.dungeon);
             map = new Map();
             playstate.SetMap(map);
             raycaster.SetMap(map);
+
+            //cam.SetPosition(map.GetStairUpLoc());
 
             base.LoadContent();
         }

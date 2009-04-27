@@ -75,6 +75,8 @@ namespace ZuneHack
             }
             else if (input == PlayerInput.forward)
             {
+                action = new PlayerMoveAction(0.2f, pos + dir, GameManager.GetInstance().Camera);
+
                 if (!GameManager.GetInstance().Map.checkMovability(pos + dir))
                 {
                     action = new PlayerMoveAction(0.2f, pos + dir, GameManager.GetInstance().Camera);
@@ -84,7 +86,7 @@ namespace ZuneHack
                     Entity toAttack = GameManager.GetInstance().Map.checkEntityHit(pos + dir);
                     if (toAttack as Actor != null)
                     {
-                        action = new PlayerMeleeAction(0.2f);
+                        action = new PlayerMeleeAction(0.10f);
                         MeleeAttack((Actor)toAttack);
                     }
                     else if (toAttack as Door != null)
