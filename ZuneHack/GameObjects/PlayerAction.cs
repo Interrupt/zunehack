@@ -112,13 +112,9 @@ namespace ZuneHack
         float pause;
         float donePercentage;
 
-        public PlayerMeleeAction(Entity hit)
+        public PlayerMeleeAction(float speed)
         {
-            pause = 0.4f;
-            if (hit != null)
-                GameManager.GetInstance().Map.entities.Remove(hit);
-
-            GameManager.GetInstance().AddMessage("You eviscarate the monster.");
+            pause = speed;
         }
 
         public override void Update(float timescale)

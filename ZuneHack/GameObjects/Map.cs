@@ -61,14 +61,22 @@ namespace ZuneHack
             mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-torch");
             mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\door");
 
-            AddEntity(new Actor(new Vector2(20.5f, 12.5f), "rat"));
-            AddEntity(new Actor(new Vector2(1.5f, 19.5f), "kobold"));
-            AddEntity(new Actor(new Vector2(2.5f, 2.5f), "goblin"));
+            AddEntity(new Rat(1, new Vector2(20.5f, 12.5f)));
+            AddEntity(new Kobold(1, new Vector2(1.5f, 19.5f)));
+            AddEntity(new Goblin(1, new Vector2(2.5f, 2.5f)));
             AddEntity(new Entity(new Vector2(2.5f, 3.5f), @"Deco\column", true));
             AddEntity(new Entity(new Vector2(3.5f, 2.5f), @"Deco\column", true));
             AddEntity(new Door(new Vector2(19.5f, 10.5f), @"Walls\door", true, true));
             AddEntity(new Door(new Vector2(20.5f, 8.5f), @"Walls\door-grate", true, true));
             AddEntity(new Door(new Vector2(4.5f, 1.5f), @"Walls\door", true, true));
+        }
+
+        public Map(int[,] data, int Width, int Height, List<Entity> Entities)
+        {
+            mapData = data;
+            width = Width;
+            height = Height;
+            entities = Entities;
         }
 
         /// <summary>
@@ -81,14 +89,6 @@ namespace ZuneHack
             entities.Add(newEntity);
             newEntity.SetMap(this);
             newEntity.Initialize();
-        }
-
-        public Map(int[,] data, int Width, int Height, List<Entity> Entities)
-        {
-            mapData = data;
-            width = Width;
-            height = Height;
-            entities = Entities;
         }
 
         public void SetShading(Color colSide, Color rowSide)

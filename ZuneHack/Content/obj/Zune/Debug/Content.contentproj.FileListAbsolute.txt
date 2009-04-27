@@ -4,3 +4,4 @@ C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack
 C:\Users\chadc\Documents\Development\Lab\ZuneHack 4-23-09b\ZuneHack\Content\obj\Zune\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-24-09\ZuneHack\Content\obj\Zune\Debug\ResolveAssemblyReference.cache
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\Content\obj\Zune\Debug\ResolveAssemblyReference.cache
+C:\Devspace\ZuneHack\zunehack\ZuneHack\Content\obj\Zune\Debug\ResolveAssemblyReference.cache

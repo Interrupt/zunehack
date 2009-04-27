@@ -21,14 +21,14 @@ namespace ZuneHack
         protected Hashtable textures;
         protected SpriteFont font;
 
-        protected Vector2 playerPos;
+        protected Player player;
         protected Camera camera;
         protected Map map;
 
-        protected Action playerAction = null;
-        protected bool turnDone = false;
         protected string messages;
         protected int numMessages;
+
+        public Player Player { get { return player; } }
 
         public static GameManager GetInstance()
         {
@@ -43,6 +43,7 @@ namespace ZuneHack
             map = Map;
             textures = new Hashtable();
 
+            player = new Player(new Vector2(21.5f, 11.5f));
             AddMessage("The air here is stale and musty.");
         }
 
@@ -100,14 +101,6 @@ namespace ZuneHack
         }
 
         /// <summary>
-        /// Checks to see if there is an outstanding player action
-        /// </summary>
-        protected bool IsTurnReady()
-        {
-            return playerAction == null;
-        }
-
-        /// <summary>
         /// Adds a line to the displayed messages
         /// </summary>
         public void AddMessage(string newMessage)
@@ -130,27 +123,20 @@ namespace ZuneHack
         /// </summary>
         public void Update(float timescale)
         {
-            playerPos = camera.pos;
-            Input(timescale);
+            player.pos = camera.pos;
+            player.dir = camera.dir;
 
-            if (playerAction != null)
+            if (player.IsTurnDone())
             {
-                if (!playerAction.IsDone())
-                {
-                    playerAction.Update(timescale);
-                }
-                else
-                {
-                    playerAction = null;
-
-                    if (turnDone == true)
-                        UpdateTurn();
-                }
+                UpdateTurn();
             }
 
-            foreach (Entity entities in map.entities)
+            Input(timescale);
+
+            player.Update(timescale);
+            for (int i = 0; i < map.entities.Count; i++)
             {
-                entities.Update(timescale);
+                map.entities[i].Update(timescale);
             }
         }
 
@@ -159,8 +145,9 @@ namespace ZuneHack
         /// </summary>
         public void Draw(SpriteBatch batch)
         {
+            batch.DrawString(font, String.Format("HP: {0}/{1} MP: {2}/{3}", player.Stats.curHealth, player.Stats.maxHealth, player.Stats.curMana, player.Stats.maxMana), new Vector2(2,2), Color.White);
             if(messages != "")
-                batch.DrawString(font, messages, new Vector2(2, 240 - (16 * numMessages)), Color.White);
+                batch.DrawString(font, messages, new Vector2(2, 240 - (19 * numMessages)), Color.White);
         }
 
         public void Input(float timescale)
@@ -168,68 +155,39 @@ namespace ZuneHack
             float rotSpeed = 0.4f * timescale;
             float moveSpeed = 0.4f * timescale;
 
-            if (IsTurnReady())
+            if (player.IsActionDone())
             {
                 if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed)
                 {
-                    if (!map.checkMovability(camera.pos - camera.dir))
-                        playerAction = new PlayerMoveAction(0.2f, camera.pos - camera.dir, camera);
-                    else
-                    {
-                        playerAction = new PlayerPauseAction(0.4f);
-                        AddMessage("Ouch!");
-                    }
-                    EndTurn();
+                    player.TurnInput(PlayerInput.backward);
                 }
                 else if (GamePad.GetState(PlayerIndex.One).DPad.Left == ButtonState.Pressed)
                 {
-                    if (!map.checkMovability(camera.pos + camera.dir))
-                        playerAction = new PlayerMoveAction(0.2f, camera.pos + camera.dir, camera);
-                    else
-                    {
-                        Entity toAttack = map.checkEntityHit(camera.pos + camera.dir);
-                        if (toAttack as Actor != null)
-                        {
-                            playerAction = new PlayerMeleeAction(toAttack);
-                        }
-                        else if (toAttack as Door != null)
-                        {
-                            (toAttack as Door).Toggle(0.16f);
-                            playerAction = new PlayerPauseAction(0.2f);
-                        }
-                        else
-                        {
-                            playerAction = new PlayerPauseAction(0.4f);
-                            AddMessage("Ouch!");
-                        }
-                    }
-                    EndTurn();
+                    player.TurnInput(PlayerInput.forward);
                 }
                 else if (GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
                 {
-                    playerAction = new PlayerTurnAction(0.2f, -1, camera);
+                    player.TurnInput(PlayerInput.right);
                 }
                 else if (GamePad.GetState(PlayerIndex.One).DPad.Down == ButtonState.Pressed)
                 {
-                    playerAction = new PlayerTurnAction(0.2f, 1, camera);
+                    player.TurnInput(PlayerInput.left);
                 }
             }
-        }
-
-        public void EndTurn()
-        {
-            turnDone = true;
         }
 
         public void UpdateTurn()
         {
-            foreach (Entity entity in map.entities)
+            for (int i = 0; i < map.entities.Count; i++)
             {
-                entity.DoTurn();
+                if (map.entities[i] as Actor != null)
+                {
+                    ((Actor)map.entities[i]).DoTurn();
+                }
             }
 
             // It's now the player's turn again
-            turnDone = false;
+            player.StartTurn();
         }
     }
 }

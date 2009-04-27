@@ -52,19 +52,10 @@ namespace ZuneHack
         }
 
         /// <summary>
-        /// Occurs when this entity can do it's turn, used to select and perform the next action
-        /// </summary>
-        public virtual void DoTurn()
-        {
-            
-        }
-
-        /// <summary>
         /// Gets called every game update, used for animation and logic
         /// </summary>
         public virtual void Update(float timescale)
         {
-            displayPos = pos;
         }
 
         /// <summary>
@@ -72,7 +63,7 @@ namespace ZuneHack
         /// </summary>
         public virtual void Initialize()
         {
-
+            displayPos = pos;
         }
     }
 }
