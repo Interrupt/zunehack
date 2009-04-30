@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace ZuneHack
 {
-    abstract class Action
+    public abstract class Action
     {
         protected bool isDone;
 

@@ -5,37 +5,102 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ZuneHack
+namespace ZuneHack.Generation
 {
+    enum Direction
+    {
+        north = 1,
+        east,
+        south,
+        west
+    }
+
+    /// <summary>
+    /// Data for a generated room feature
+    /// </summary>
+    struct Room
+    {
+        public int width;
+        public int height;
+        public int posX;
+        public int posY;
+    }
+
+    /// <summary>
+    /// Connections between features
+    /// </summary>
+    struct Connector
+    {
+        public bool noDoor;
+        public int posX;
+        public int posY;
+        public Direction dir;
+    }
+
     class MapGenerator
     {
         MapType type;
         Map map;
         int width;
         int height;
+        List<Connector> available_conns;
+        Random rnd;
 
         public MapGenerator(MapType Type, Map Map)
         {
+            // List of map connections available
+            available_conns = new List<Connector>();
+            rnd = new Random();
+
             type = Type;
             map = Map;
 
-            width = 30;
-            height = 30;
+            width = 50;
+            height = 50;
 
             map.mapData = new int[width, height];
+            map.Width = width;
+            map.Height = height;
+
             map.entities = new List<Entity>();
 
             SetTypeTextures();
 
             // Fills map
-            FillRect(0, 0, width - 1, height - 1, 1);
+            FillRandRect(0, 0, width - 1, height - 1, 1, 3);
+
+            // Randomly place the first connector
+            Connector connection = new Connector();
+            connection.posX = width / 2;
+            connection.posY = height / 2;
+            connection.dir = GetRandomDirection();
+            connection.noDoor = true;
+
+            available_conns.Add(connection);
 
             // Generate some rooms
             int numGenerated = 0;
-            while (numGenerated < 9)
+            int tries = 0;
+            while (numGenerated < 9 && tries < 1000 && available_conns.Count > 0)
             {
-                bool didGenerate = MakeRoom();
-                if (didGenerate) numGenerated++;
+                // Attempt to make a room with the first connector
+                Connector tryThis = available_conns.First();
+                bool didGenerate = MakeRoom(tryThis);
+                if (didGenerate)
+                {
+                    // This connection generated fine, remove the connector
+                    numGenerated++;
+                    available_conns.Remove(tryThis);
+                }
+                else
+                {
+                    // Check to see if we've tried too many times already
+                    if (tries++ > 3)
+                    {
+                        tries = 0;
+                        available_conns.Remove(tryThis);
+                    }
+                }
             }
 
             PlaceStairsUp();
@@ -54,6 +119,25 @@ namespace ZuneHack
                     map.mapData[x, y] = tile;
                 }
             }
+        }
+
+        /// <summary>
+        /// Fills a square of tiles on the map with random data
+        /// </summary>
+        protected void FillRandRect(int startx, int starty, int endx, int endy, int startRand, int endRand)
+        {
+            for (int x = startx; x < endx; x++)
+            {
+                for (int y = starty; y < endy; y++)
+                {
+                    map.mapData[x, y] = rnd.Next(startRand, endRand);
+                }
+            }
+        }
+
+        protected void SetTile(int x, int y, int tile)
+        {
+            map.mapData[x, y] = tile;
         }
 
         /// <summary>
@@ -77,20 +161,63 @@ namespace ZuneHack
         /// <summary>
         /// Makes a random room, return false if it couldn't generate
         /// </summary>
-        protected bool MakeRoom()
+        protected bool MakeRoom(Connector connection)
         {
-            Random rnd = new Random();
-
-            int roomWidth = 3 + rnd.Next(8);
-            int roomHeight = 3 + rnd.Next(8);
+            int roomWidth = 2 + rnd.Next(4);
+            int roomHeight = 2 + rnd.Next(4);
             
-            int x = rnd.Next(1, width - roomWidth - 2);
-            int y = rnd.Next(1, height - roomHeight - 2);
+            int x = rnd.Next(1, roomWidth - 1);
+            int y = rnd.Next(1, roomHeight - 1);
 
-            if (CheckArea(x, y, x + roomWidth, y + roomWidth, 0)) return false;
+            if (connection.dir == Direction.east)
+                x = -1;
+            else if (connection.dir == Direction.north)
+                y = roomHeight;
+            else if (connection.dir == Direction.south)
+                y = -1;
+            else if (connection.dir == Direction.west)
+                x = roomWidth;
+
+            int placeX = connection.posX - x;
+            int placeY = connection.posY - y;
+
+            if (CheckArea(placeX, placeY, placeX + roomWidth, placeY + roomHeight, 0)) return false;
 
             // Carve out this rectangle of the map
-            FillRect(x, y, x + roomWidth, y + roomWidth, 0);
+            FillRect(placeX, placeY, placeX + roomWidth, placeY + roomHeight, 0);
+
+            // Place the door
+            if(!connection.noDoor)
+                SetTile(connection.posX, connection.posY, -3);
+
+            // Add some new connections
+            int numCon = rnd.Next(2, 5);
+            for (int i = 0; i < numCon; i++)
+            {
+                Connector newConnector = new Connector();
+                newConnector.dir = GetRandomDirection();
+                newConnector.posX = rnd.Next(placeX, placeX + roomWidth);
+                newConnector.posY = rnd.Next(placeY, placeY + roomHeight);
+
+                if (newConnector.dir == Direction.north)
+                    newConnector.posY = placeY - 1;
+                else if (newConnector.dir == Direction.south)
+                    newConnector.posY = placeY + roomHeight;
+                else if (newConnector.dir == Direction.east)
+                    newConnector.posX = placeX + roomWidth;
+                else if (newConnector.dir == Direction.west)
+                    newConnector.posX = placeX - 1;
+
+                available_conns.Add(newConnector);
+
+                // Add some monsters, perhaps
+                int genNum = rnd.Next(-2, 2);
+                for (int m = 0; m < genNum; m++)
+                {
+                    Kobold k = new Kobold(1, new Vector2(rnd.Next(placeX, placeX + roomWidth) + 0.5f, rnd.Next(placeY, placeY + roomHeight) + 0.5f));
+                    map.entities.Add(k);
+                }
+            }
 
             return true;
         }
@@ -98,6 +225,11 @@ namespace ZuneHack
         // Checks to see if this area contains the specified tile
         protected bool CheckArea(int startx, int starty, int endx, int endy, int tile)
         {
+            if (startx < 1 || startx > width - 2) return true;
+            if (endx < 1 || endx > width - 2) return true;
+            if (starty < 1 || starty > width - 2) return true;
+            if (endy < 1 || endy > width - 2) return true;
+
             for (int x = startx; x < endx; x++)
             {
                 for (int y = starty; y < endy; y++)
@@ -125,7 +257,6 @@ namespace ZuneHack
 
         protected void PlaceStairsUp()
         {
-            Random rnd = new Random();
             bool didPlace = false;
 
             while (didPlace == false)
@@ -140,7 +271,6 @@ namespace ZuneHack
 
         protected void PlaceStairsDown()
         {
-            Random rnd = new Random();
             bool didPlace = false;
 
             while (didPlace == false)
@@ -166,6 +296,26 @@ namespace ZuneHack
                 map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-torch");
                 map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\door");
             }
+        }
+
+        /// <summary>
+        /// Returns a random direction
+        /// </summary>
+        protected Direction GetRandomDirection()
+        {
+            int dir = rnd.Next(1,4);
+            return (Direction)dir;
+        }
+
+        /// <summary>
+        /// Checks whether two directions are opposite
+        /// </summary>
+        protected static bool AreOpposite(Direction first, Direction second)
+        {
+            // If the numbers are both even or both odd, then they're opposite
+            int f = (int)first % 2;
+            int s = (int)second % 2;
+            return f == s;
         }
     }
 }

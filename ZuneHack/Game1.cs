@@ -35,8 +35,13 @@ namespace ZuneHack
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = @"Content/Assets";
 
+#if (ZUNE)
             graphics.PreferredBackBufferHeight = 320;
             graphics.PreferredBackBufferWidth = 240;
+#else
+            graphics.PreferredBackBufferHeight = 240;
+            graphics.PreferredBackBufferWidth = 320;
+#endif
 
             // Frame rate is 30 fps by default for Zune.
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0);
@@ -84,11 +89,11 @@ namespace ZuneHack
             playstate.LoadFont(@"Gebrider");
 
             //map = new Map(1, MapType.dungeon);
-            map = new Map();
+            map = new Map(1, MapType.dungeon);
             playstate.SetMap(map);
             raycaster.SetMap(map);
 
-            //cam.SetPosition(map.GetStairUpLoc());
+            cam.SetPosition(map.GetStairUpLoc());
 
             base.LoadContent();
         }
@@ -126,7 +131,9 @@ namespace ZuneHack
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+#if (ZUNE)
             GraphicsDevice.SetRenderTarget(0, background);
+#endif
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.BackToFront, SaveStateMode.None);
             raycaster.Draw();
@@ -136,10 +143,12 @@ namespace ZuneHack
             playstate.Draw(spriteBatch);
             spriteBatch.End();
 
+#if (ZUNE)
             GraphicsDevice.SetRenderTarget(0, null);
             spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.BackToFront, SaveStateMode.None);
             spriteBatch.Draw(background.GetTexture(), new Vector2(140,160), null, Color.White, -1.57079633f, new Vector2(160,140), 1, SpriteEffects.None, 1 );
             spriteBatch.End();
+#endif
 
             base.Draw(gameTime);
         }

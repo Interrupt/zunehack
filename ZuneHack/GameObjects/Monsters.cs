@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ZuneHack
 {
-    class Rat : NpcActor
+    public class Rat : NpcActor
     {
         public Rat(int level, Vector2 startPos)
         {
@@ -26,7 +26,7 @@ namespace ZuneHack
         }
     }
 
-    class Goblin : NpcActor
+    public class Goblin : NpcActor
     {
         public Goblin(int level, Vector2 startPos)
         {
@@ -46,7 +46,7 @@ namespace ZuneHack
         }
     }
 
-    class Kobold : NpcActor
+    public class Kobold : NpcActor
     {
         public Kobold(int level, Vector2 startPos)
         {
@@ -55,11 +55,11 @@ namespace ZuneHack
             pos = startPos;
             displayPos = pos;
 
-            attributes.agility = 7;
+            attributes.agility = 4;
             attributes.speed = 4;
-            attributes.strength = 4;
-            attributes.constitution = 3;
-            attributes.endurance = 5;
+            attributes.strength = 2;
+            attributes.constitution = 2;
+            attributes.endurance = 2;
 
             stats.Initialize(level, attributes);
         }

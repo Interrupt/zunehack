@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ZuneHack
 {
-    class Entity
+    public class Entity
     {
         public Vector2 pos;
         public Vector2 displayPos;

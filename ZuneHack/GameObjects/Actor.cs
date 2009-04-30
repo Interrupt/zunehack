@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ZuneHack
 {
-    struct Attributes
+    public struct Attributes
     {
         public int strength;
         public int constitution;
@@ -27,7 +27,7 @@ namespace ZuneHack
         }
     }
 
-    struct Stats
+    public struct Stats
     {
         public int level;
         public int maxHealth;
@@ -45,7 +45,7 @@ namespace ZuneHack
         }
     }
 
-    abstract class Actor : Entity
+    public abstract class Actor : Entity
     {
         protected Attributes attributes;
         protected Stats stats;

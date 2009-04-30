@@ -5,17 +5,18 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ZuneHack.Generation;
 
 namespace ZuneHack
 {
-    enum MapType
+    public enum MapType
     {
         dungeon,
         forest,
         cave
     }
 
-    class Map
+    public class Map
     {
         public int[,] mapData;
         protected int width;
@@ -26,6 +27,9 @@ namespace ZuneHack
         public Color columnSideShading = Color.LightGray;
         public Color rowSideShading = Color.White;
         public float distanceShadingScale = 100.0f;
+
+        public int Width { get { return width; } set { width = value; } }
+        public int Height { get { return height; } set { height = value; } }
 
         /// <summary>
         /// Generates a default test map
@@ -97,9 +101,6 @@ namespace ZuneHack
         /// </summary>
         public Map(int level, MapType type)
         {
-            width = 30;
-            height = 30;
-
             MapGenerator generator = new MapGenerator(type, this);
         }
 

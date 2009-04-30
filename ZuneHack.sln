@@ -3,18 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZuneHack", "ZuneHack\ZuneHack.csproj", "{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows ZuneHack", "ZuneHack\Windows ZuneHack.csproj", "{30667EFC-7612-4234-A264-3F98612A40B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
 		Debug|Xbox 360 = Debug|Xbox 360
 		Debug|Zune = Debug|Zune
+		Release|Any CPU = Release|Any CPU
 		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 		Release|Xbox 360 = Release|Xbox 360
 		Release|Zune = Release|Zune
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Debug|Any CPU.ActiveCfg = Debug|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Debug|Mixed Platforms.ActiveCfg = Debug|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Debug|Mixed Platforms.Build.0 = Debug|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Debug|Mixed Platforms.Deploy.0 = Debug|Zune
@@ -22,7 +27,7 @@ Global
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Debug|Xbox 360.ActiveCfg = Debug|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Debug|Zune.ActiveCfg = Debug|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Debug|Zune.Build.0 = Debug|Zune
-		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Debug|Zune.Deploy.0 = Debug|Zune
+		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Release|Any CPU.ActiveCfg = Release|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Release|Mixed Platforms.ActiveCfg = Release|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Release|Mixed Platforms.Build.0 = Release|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Release|Mixed Platforms.Deploy.0 = Release|Zune
@@ -31,10 +36,27 @@ Global
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Release|Zune.ActiveCfg = Release|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Release|Zune.Build.0 = Release|Zune
 		{76F0C9D8-85D9-4591-95CC-8A26A411A7B4}.Release|Zune.Deploy.0 = Release|Zune
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Debug|x86.ActiveCfg = Debug|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Debug|x86.Build.0 = Debug|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Debug|Xbox 360.ActiveCfg = Debug|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Debug|Zune.ActiveCfg = Debug|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Debug|Zune.Build.0 = Debug|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Release|Any CPU.ActiveCfg = Release|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Release|Mixed Platforms.Build.0 = Release|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Release|x86.ActiveCfg = Release|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Release|x86.Build.0 = Release|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Release|Xbox 360.ActiveCfg = Release|x86
+		{30667EFC-7612-4234-A264-3F98612A40B3}.Release|Zune.ActiveCfg = Release|x86
+		{F7F0E334-F35C-4324-A8B0-8AB0A77E9761}.Debug|Any CPU.ActiveCfg = Debug|Zune
 		{F7F0E334-F35C-4324-A8B0-8AB0A77E9761}.Debug|Mixed Platforms.ActiveCfg = Debug|Zune
 		{F7F0E334-F35C-4324-A8B0-8AB0A77E9761}.Debug|x86.ActiveCfg = Debug|Zune
 		{F7F0E334-F35C-4324-A8B0-8AB0A77E9761}.Debug|Xbox 360.ActiveCfg = Debug|Zune
 		{F7F0E334-F35C-4324-A8B0-8AB0A77E9761}.Debug|Zune.ActiveCfg = Debug|Zune
+		{F7F0E334-F35C-4324-A8B0-8AB0A77E9761}.Release|Any CPU.ActiveCfg = Release|Zune
 		{F7F0E334-F35C-4324-A8B0-8AB0A77E9761}.Release|Mixed Platforms.ActiveCfg = Release|Zune
 		{F7F0E334-F35C-4324-A8B0-8AB0A77E9761}.Release|x86.ActiveCfg = Release|Zune
 		{F7F0E334-F35C-4324-A8B0-8AB0A77E9761}.Release|Xbox 360.ActiveCfg = Release|Zune

@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\blue.xnb</Output>
-      <Time>2009-04-20T21:55:20.390625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\blue.xnb</Output>
+      <Time>2009-04-24T22:23:06.265625-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\brick-bloody.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-bloody.xnb</Output>
-      <Time>2009-04-20T21:55:20.390625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-bloody.xnb</Output>
+      <Time>2009-04-24T22:23:06.265625-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\brick-grey.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-grey.xnb</Output>
-      <Time>2009-04-20T21:55:20.390625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-grey.xnb</Output>
+      <Time>2009-04-24T22:23:06.28125-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\brick-mossy.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-mossy.xnb</Output>
-      <Time>2009-04-20T21:55:20.390625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-mossy.xnb</Output>
+      <Time>2009-04-24T22:23:06.28125-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\brick-torch.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-torch.xnb</Output>
-      <Time>2009-04-20T21:55:20.390625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-torch.xnb</Output>
+      <Time>2009-04-24T22:23:06.28125-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\door.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\door.xnb</Output>
-      <Time>2009-04-20T21:55:20.40625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\door.xnb</Output>
+      <Time>2009-04-24T22:23:06.28125-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\green.jpg</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\green.xnb</Output>
-      <Time>2009-04-20T21:55:20.40625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\green.xnb</Output>
+      <Time>2009-04-24T22:23:06.28125-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\grey.jpg</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\grey.xnb</Output>
-      <Time>2009-04-20T21:55:20.40625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\grey.xnb</Output>
+      <Time>2009-04-24T22:23:06.28125-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\red.jpg</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\red.xnb</Output>
-      <Time>2009-04-20T21:55:20.40625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\red.xnb</Output>
+      <Time>2009-04-24T22:23:06.28125-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\Smudge.jpg</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Walls\Smudge.xnb</Output>
-      <Time>2009-04-20T21:55:20.375-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\Smudge.xnb</Output>
+      <Time>2009-04-24T22:23:06.265625-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\bag.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\bag.xnb</Output>
-      <Time>2009-04-20T21:55:35.640625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\bag.xnb</Output>
+      <Time>2009-04-24T22:23:06.25-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\gold.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\gold.xnb</Output>
-      <Time>2009-04-20T21:55:35.640625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\gold.xnb</Output>
+      <Time>2009-04-24T22:23:06.25-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-black.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-black.xnb</Output>
-      <Time>2009-04-20T21:55:35.65625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-black.xnb</Output>
+      <Time>2009-04-24T22:23:06.25-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-blue.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-blue.xnb</Output>
-      <Time>2009-04-20T21:55:35.65625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-blue.xnb</Output>
+      <Time>2009-04-24T22:23:06.25-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-green.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-green.xnb</Output>
-      <Time>2009-04-20T21:55:35.65625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-green.xnb</Output>
+      <Time>2009-04-24T22:23:06.25-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-orange.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-orange.xnb</Output>
-      <Time>2009-04-20T21:55:35.65625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-orange.xnb</Output>
+      <Time>2009-04-24T22:23:06.25-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-purple.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-purple.xnb</Output>
-      <Time>2009-04-20T21:55:35.671875-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-purple.xnb</Output>
+      <Time>2009-04-24T22:23:06.265625-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-red.png</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-red.xnb</Output>
-      <Time>2009-04-20T21:55:35.671875-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-red.xnb</Output>
+      <Time>2009-04-24T22:23:06.265625-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-white.png</Source>
@@ -169,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-white.xnb</Output>
-      <Time>2009-04-20T21:55:35.671875-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-white.xnb</Output>
+      <Time>2009-04-24T22:23:06.265625-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion.png</Source>
@@ -178,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion.xnb</Output>
-      <Time>2009-04-20T21:55:35.65625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion.xnb</Output>
+      <Time>2009-04-24T22:23:06.265625-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\sword.png</Source>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Items\sword.xnb</Output>
-      <Time>2009-04-20T21:55:35.640625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\sword.xnb</Output>
+      <Time>2009-04-24T22:23:06.265625-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Deco\column.png</Source>
@@ -196,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Deco\column.xnb</Output>
-      <Time>2009-04-20T21:55:46.09375-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\column.xnb</Output>
+      <Time>2009-04-24T22:23:06.25-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\goblin.png</Source>
@@ -205,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Actors\goblin.xnb</Output>
-      <Time>2009-04-20T21:55:58.515625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\goblin.xnb</Output>
+      <Time>2009-04-24T22:23:06.21875-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\kobold.png</Source>
@@ -214,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Actors\kobold.xnb</Output>
-      <Time>2009-04-20T21:55:58.515625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\kobold.xnb</Output>
+      <Time>2009-04-24T22:23:06.21875-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\rat.png</Source>
@@ -223,18 +223,36 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\Assets\Actors\rat.xnb</Output>
-      <Time>2009-04-20T21:55:58.515625-05:00</Time>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\rat.xnb</Output>
+      <Time>2009-04-24T22:23:06.21875-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Walls\door-grate.png</Source>
+      <Name>Assets\Walls\door-grate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\door-grate.xnb</Output>
+      <Time>2009-04-24T22:23:06.28125-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Gebrider.spritefont</Source>
+      <Name>Assets\Gebrider</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Gebrider.xnb</Output>
+      <Time>2009-04-26T17:14:08.1875-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Chad\My Documents\Visual Studio 2008\Projects\ZuneHack 4-21-09\ZuneHack\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Devspace\ZuneHack\zunehack\ZuneHack\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Devspace\ZuneHack\zunehack\ZuneHack\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Devspace\ZuneHack\zunehack\ZuneHack\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

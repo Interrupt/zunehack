@@ -155,21 +155,24 @@ namespace ZuneHack
             float rotSpeed = 0.4f * timescale;
             float moveSpeed = 0.4f * timescale;
 
+            KeyboardState keyState = Keyboard.GetState(PlayerIndex.One);
+            GamePadState gamepadState = GamePad.GetState(PlayerIndex.One);
+
             if (player.IsActionDone())
             {
-                if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed)
+                if (gamepadState.DPad.Right == ButtonState.Pressed || keyState.IsKeyDown(Keys.Down))
                 {
                     player.TurnInput(PlayerInput.backward);
                 }
-                else if (GamePad.GetState(PlayerIndex.One).DPad.Left == ButtonState.Pressed)
+                else if (gamepadState.DPad.Left == ButtonState.Pressed || keyState.IsKeyDown(Keys.Up))
                 {
                     player.TurnInput(PlayerInput.forward);
                 }
-                else if (GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
+                else if (gamepadState.DPad.Up == ButtonState.Pressed || keyState.IsKeyDown(Keys.Right))
                 {
                     player.TurnInput(PlayerInput.right);
                 }
-                else if (GamePad.GetState(PlayerIndex.One).DPad.Down == ButtonState.Pressed)
+                else if (gamepadState.DPad.Down == ButtonState.Pressed || keyState.IsKeyDown(Keys.Left))
                 {
                     player.TurnInput(PlayerInput.left);
                 }

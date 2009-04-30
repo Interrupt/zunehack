@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ZuneHack
 {
-    class NpcActor : Actor
+    public class NpcActor : Actor
     {
         protected bool isAggro;
 
