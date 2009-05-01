@@ -234,7 +234,7 @@ namespace ZuneHack
             for (int x = 0; x < map.entities.Count; x++)
             {
                 Entity entity = map.entities[x];
-                if(entity.directional == false)
+                if(entity.directional == false && entity.IsVisible())
                     DrawEntity(entity);
             }
         }
@@ -303,19 +303,13 @@ namespace ZuneHack
                 Entity entity = map.entities[i];
                 if (entity.directional)
                 {
-                    CollisionResult col = CollisionHelpers.LineLineIntersection(rayPos, rayPos + (rayDir * (hitDistance + 0.2f)), entity.pos, entity.pos + entity.dir);
+                    float checkDistance = hitDistance + 0.2f;
+                    CollisionResult col = CollisionHelpers.LineLineIntersection(rayPos, rayPos + (rayDir * checkDistance), entity.pos, entity.pos + entity.dir);
                     if (col != null)
                     {
                         Vector2 dist = col.CollisionPos - rayPos;
 
-                        // Quick way to find the angle between the current ray dir and the camera
-                        /*float startAngle = camera.GetFOV();
-                        float endAngle = -0.574730933f;
-                        float rayAngle = ((float)x / (numSplices - 1)) * (endAngle - startAngle) + startAngle;*/
-
-                        float rayAngle = RayHelpers.AngleBetweenRays(rayDir, camera.dir);
-
-                        float distance = (float)(Math.Abs(dist.Length()) * Math.Cos(rayAngle));
+                        float distance = col.LineOrigPos * checkDistance;
                         int lineHeight = (int)Math.Abs((int)(240 / (distance)));
 
                         CreateSlice(entity.texture, screenWidth, x, lineHeight, distance, true, col.LinePos);

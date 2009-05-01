@@ -28,7 +28,7 @@ namespace ZuneHack
 
         public override void DoTurn()
         {
-            if (isAggro)
+            if (isAggro && IsVisible())
             {
                 // Finds the direction to move in that will get closer to the player
                 Vector2 playerPos = GameManager.GetInstance().Camera.pos;

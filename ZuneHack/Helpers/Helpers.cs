@@ -11,14 +11,17 @@ namespace ZuneHack
     {
         protected Vector2 atPos;
         protected float linePosAt;
+        protected float lineOrigPosAt;
 
         public Vector2 CollisionPos { get { return atPos; } }
         public float LinePos { get { return linePosAt; } }
+        public float LineOrigPos { get { return lineOrigPosAt; } }
 
-        public CollisionResult(Vector2 pos, float LinePosAt)
+        public CollisionResult(Vector2 pos, float LinePosAt, float FirstLinePosAt)
         {
             atPos = pos;
             linePosAt = LinePosAt;
+            lineOrigPosAt = FirstLinePosAt;
         }
     }
 
@@ -40,7 +43,7 @@ namespace ZuneHack
                 if (Math.Abs(ua) <= 0.00001f && Math.Abs(ub) <= 0.00001f)
                 {
                     Vector2 intersectionPoint = (point1 + point2) / 2;
-                    result = new CollisionResult(intersectionPoint, ua / denominator);
+                    result = new CollisionResult(intersectionPoint, ua / denominator, ub / denominator);
                 }
             }
             else
@@ -53,7 +56,7 @@ namespace ZuneHack
                     Vector2 intersectionPoint = new Vector2();
                     intersectionPoint.X = point1.X + ua * (point2.X - point1.X);
                     intersectionPoint.Y = point1.Y + ua * (point2.Y - point1.Y);
-                    result = new CollisionResult(intersectionPoint, ub);
+                    result = new CollisionResult(intersectionPoint, ub, ua);
                 }
             }
 

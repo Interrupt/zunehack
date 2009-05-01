@@ -65,5 +65,15 @@ namespace ZuneHack
         {
             displayPos = pos;
         }
+
+        /// <summary>
+        /// Check to see if this monster is visible. For now is just checking the distance from the player
+        /// </summary>
+        public bool IsVisible()
+        {
+            Vector2 playerPos = GameManager.GetInstance().Player.pos;
+            if (Math.Abs(playerPos.X - pos.X) > 15 || Math.Abs(playerPos.Y - pos.Y) > 15) return false;
+            return true;
+        }
     }
 }
