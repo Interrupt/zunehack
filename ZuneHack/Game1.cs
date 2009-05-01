@@ -30,6 +30,9 @@ namespace ZuneHack
 
         GameManager playstate;
 
+        float waitBeforeQuit = 100;
+        float timeWaitedForQuit = 0;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -115,12 +118,22 @@ namespace ZuneHack
         {
             float timescale = gameTime.ElapsedGameTime.Milliseconds / 100.0f;
 
-            playstate.Update(timescale);
-            raycaster.Update();
-
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+
+            // Update the game, unless we should quit
+            if (!playstate.doQuit)
+            {
+                playstate.Update(timescale);
+                raycaster.Update();
+            }
+            else
+            {
+                timeWaitedForQuit += 2 * timescale;
+                if (timeWaitedForQuit > waitBeforeQuit)
+                    this.Exit();
+            }
 
             base.Update(gameTime);
         }

@@ -52,6 +52,8 @@ namespace ZuneHack
 
         public void TurnInput(PlayerInput input)
         {
+            GameManager.GetInstance().didTurnAction();
+
             if (input == PlayerInput.right)
             {
                 action = new PlayerTurnAction(0.2f, -1, GameManager.GetInstance().Camera);
@@ -126,6 +128,7 @@ namespace ZuneHack
             if (stats.curHealth <= 0)
             {
                 GameManager.GetInstance().AddMessage("You die.");
+                GameManager.GetInstance().Quit();
             }
         }
 

@@ -81,7 +81,7 @@ namespace ZuneHack.Generation
             // Generate some rooms
             int numGenerated = 0;
             int tries = 0;
-            while (numGenerated < 9 && tries < 1000 && available_conns.Count > 0)
+            while (numGenerated < 18 && tries < 1000 && available_conns.Count > 0)
             {
                 // Attempt to make a room with the first connector
                 Connector tryThis = available_conns.First();
@@ -181,7 +181,8 @@ namespace ZuneHack.Generation
             int placeX = connection.posX - x;
             int placeY = connection.posY - y;
 
-            if (CheckArea(placeX, placeY, placeX + roomWidth, placeY + roomHeight, 0)) return false;
+            Rectangle roomRect = new Rectangle(placeX, placeY, roomWidth, roomHeight);
+            if (!AreaInBounds(roomRect) || CheckArea(roomRect, 0)) return false;
 
             // Carve out this rectangle of the map
             FillRect(placeX, placeY, placeX + roomWidth, placeY + roomHeight, 0);
@@ -211,7 +212,7 @@ namespace ZuneHack.Generation
                 available_conns.Add(newConnector);
 
                 // Add some monsters, perhaps
-                int genNum = rnd.Next(-2, 2);
+                int genNum = rnd.Next(-3, 2);
                 for (int m = 0; m < genNum; m++)
                 {
                     Kobold k = new Kobold(1, new Vector2(rnd.Next(placeX, placeX + roomWidth) + 0.5f, rnd.Next(placeY, placeY + roomHeight) + 0.5f));
@@ -223,22 +224,28 @@ namespace ZuneHack.Generation
         }
 
         // Checks to see if this area contains the specified tile
-        protected bool CheckArea(int startx, int starty, int endx, int endy, int tile)
+        protected bool CheckArea(Rectangle rect, int tile)
         {
-            if (startx < 1 || startx > width - 2) return true;
-            if (endx < 1 || endx > width - 2) return true;
-            if (starty < 1 || starty > width - 2) return true;
-            if (endy < 1 || endy > width - 2) return true;
-
-            for (int x = startx; x < endx; x++)
+            rect.Inflate(1, 1);
+            for (int x = rect.Left; x < rect.Right; x++)
             {
-                for (int y = starty; y < endy; y++)
+                for (int y = rect.Top; y < rect.Bottom; y++)
                 {
                     if (map.mapData[x, y] == tile) return true;
                 }
             }
-
             return false;
+        }
+
+        // Checks to see if this area is in bounds
+        protected bool AreaInBounds(Rectangle rect)
+        {
+            rect.Inflate(1, 1);
+            if (rect.Left < 1 || rect.Left > width - 2) return false;
+            if (rect.Right < 1 || rect.Right > width - 2) return false;
+            if (rect.Top < 1 || rect.Top > width - 2) return false;
+            if (rect.Bottom < 1 || rect.Bottom > width - 2) return false;
+            return true;
         }
 
         // Checks if this area is clear

@@ -30,6 +30,8 @@ namespace ZuneHack
 
         public Player Player { get { return player; } }
 
+        public bool doQuit = false;
+
         public static GameManager GetInstance()
         {
             if (instance == null) instance = new GameManager(null, null, null);
@@ -44,6 +46,8 @@ namespace ZuneHack
             textures = new Hashtable();
 
             player = new Player(new Vector2(21.5f, 11.5f));
+            messages = "";
+
             AddMessage("The air here is stale and musty.");
         }
 
@@ -105,17 +109,8 @@ namespace ZuneHack
         /// </summary>
         public void AddMessage(string newMessage)
         {
-            messages = newMessage + "\n" + messages;
-
-            int stripEnd = 0;
-            for (int i = 0; i < 3; i++, numMessages = i)
-            {
-                int thisTime = messages.IndexOf('\n', stripEnd);
-                if (thisTime == -1) break;
-                stripEnd = thisTime + 1;
-            }
-
-            messages = messages.Substring(0, stripEnd);
+            messages = messages + "\n" + newMessage;
+            numMessages = messages.Split('\n').Count();
         }
 
         /// <summary>
@@ -179,6 +174,11 @@ namespace ZuneHack
             }
         }
 
+        public void didTurnAction()
+        {
+            messages = "";
+        }
+
         public void UpdateTurn()
         {
             for (int i = 0; i < map.entities.Count; i++)
@@ -189,8 +189,12 @@ namespace ZuneHack
                 }
             }
 
-            // It's now the player's turn again
             player.StartTurn();
+        }
+
+        public void Quit()
+        {
+            doQuit = true;
         }
     }
 }
