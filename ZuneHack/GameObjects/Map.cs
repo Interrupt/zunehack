@@ -28,6 +28,9 @@ namespace ZuneHack
         public Color rowSideShading = Color.White;
         public float distanceShadingScale = 100.0f;
 
+        public Color ceilingColor = new Color(0.15f,0.15f,0.15f);
+        public Color floorColor = new Color(0.25f, 0.25f, 0.25f);
+
         public int Width { get { return width; } set { width = value; } }
         public int Height { get { return height; } set { height = value; } }
 

@@ -64,3 +64,4 @@ C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\x86\Debug\Resolve
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\x86\Debug\ZuneHack.exe
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\x86\Debug\ZuneHack.pdb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\background-gradient.xnb

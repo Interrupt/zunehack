@@ -236,6 +236,15 @@
       <Time>2009-04-24T19:56:46.4045716-05:00</Time>
     </Item>
     <Item>
+      <Source>Assets\background-gradient.png</Source>
+      <Name>Assets\background-gradient</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\background-gradient.xnb</Output>
+      <Time>2009-05-01T14:10:12.0289951-05:00</Time>
+    </Item>
+    <Item>
       <Source>Assets\Gebrider.spritefont</Source>
       <Name>Assets\Gebrider</Name>
       <Importer>FontDescriptionImporter</Importer>

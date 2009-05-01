@@ -39,12 +39,22 @@ namespace ZuneHack
         protected Map map;
         public SpriteBatch spriteBatch;
         public float posOffset;
+        protected Texture2D backGradient;
 
         protected int numSplices;
         protected int spliceWidth;
         protected int screenDispHeight;
 
         List<ScreenSplice>[] splices;
+
+        /// <summary>
+        /// The background gradient that gets drawn before slices
+        /// </summary>
+        public Texture2D BackgroundGradient
+        {
+            get { return backGradient; }
+            set { backGradient = value; }
+        }
 
         public Raycaster(Camera cam, SpriteBatch batch, float CameraOffset)
         {
@@ -215,6 +225,12 @@ namespace ZuneHack
 
         public void Draw()
         {
+            if (backGradient != null)
+            {
+                spriteBatch.Draw(backGradient, new Rectangle(0,0,320,120), null, map.ceilingColor, 0, new Vector2(0,0), SpriteEffects.None, 1);
+                spriteBatch.Draw(backGradient, new Rectangle(0, 120, 320, 120), null, map.floorColor, 0, new Vector2(0, 0), SpriteEffects.FlipVertically, 1);
+            }
+
             for (int x = 0; x < numSplices; x++)
             {
                 if (splices[x] != null)

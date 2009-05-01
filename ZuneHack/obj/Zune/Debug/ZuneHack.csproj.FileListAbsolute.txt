@@ -205,3 +205,4 @@ C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\door-
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Gebrider.xnb
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\ZuneHack.exe
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\ZuneHack.pdb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\background-gradient.xnb

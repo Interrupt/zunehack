@@ -88,6 +88,7 @@ namespace ZuneHack
             playstate.LoadTexture(@"Actors\goblin");
             playstate.LoadTexture(@"Actors\kobold");
             playstate.LoadTexture(@"Actors\rat");
+            playstate.LoadTexture(@"background-gradient");
 
             playstate.LoadFont(@"Gebrider");
 
@@ -95,6 +96,8 @@ namespace ZuneHack
             map = new Map(1, MapType.dungeon);
             playstate.SetMap(map);
             raycaster.SetMap(map);
+
+            raycaster.BackgroundGradient = playstate.GetTexture("background-gradient");
 
             cam.SetPosition(map.GetStairUpLoc());
 
