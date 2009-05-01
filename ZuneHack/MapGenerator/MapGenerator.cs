@@ -81,7 +81,7 @@ namespace ZuneHack.Generation
             // Generate some rooms
             int numGenerated = 0;
             int tries = 0;
-            while (numGenerated < 18 && tries < 1000 && available_conns.Count > 0)
+            while (numGenerated < 20 && tries < 30 && available_conns.Count > 0)
             {
                 // Attempt to make a room with the first connector
                 Connector tryThis = available_conns.First();
@@ -95,7 +95,7 @@ namespace ZuneHack.Generation
                 else
                 {
                     // Check to see if we've tried too many times already
-                    if (tries++ > 3)
+                    if (tries++ > 2)
                     {
                         tries = 0;
                         available_conns.Remove(tryThis);
@@ -188,8 +188,12 @@ namespace ZuneHack.Generation
             FillRect(placeX, placeY, placeX + roomWidth, placeY + roomHeight, 0);
 
             // Place the door
-            if(!connection.noDoor)
+            if (!connection.noDoor)
+            {
                 SetTile(connection.posX, connection.posY, -3);
+                Door newDoor = new Door(new Vector2(connection.posX + 0.5f, connection.posY + 0.5f), @"Walls\door", true, true);
+                map.AddEntity(newDoor);
+            }
 
             // Add some new connections
             int numCon = rnd.Next(2, 5);
@@ -212,11 +216,10 @@ namespace ZuneHack.Generation
                 available_conns.Add(newConnector);
 
                 // Add some monsters, perhaps
-                int genNum = rnd.Next(-3, 2);
+                int genNum = rnd.Next(-2, 2);
                 for (int m = 0; m < genNum; m++)
                 {
-                    Kobold k = new Kobold(1, new Vector2(rnd.Next(placeX, placeX + roomWidth) + 0.5f, rnd.Next(placeY, placeY + roomHeight) + 0.5f));
-                    map.entities.Add(k);
+                    AddRandomMonster(roomRect);
                 }
             }
 
@@ -257,9 +260,22 @@ namespace ZuneHack.Generation
         /// <summary>
         /// Generates the monsters for the map
         /// </summary>
-        protected void GenerateMonsters()
+        protected void AddRandomMonster(Rectangle area)
         {
-            
+            if (type == MapType.dungeon)
+            {
+                int mt = rnd.Next(1, 4);
+                Actor m = null;
+
+                if (mt == 1)
+                    m = new Kobold(1, new Vector2(rnd.Next(area.Left, area.Right) + 0.5f, rnd.Next(area.Top, area.Bottom) + 0.5f));
+                else if (mt == 2)
+                    m = new Rat(1, new Vector2(rnd.Next(area.Left, area.Right) + 0.5f, rnd.Next(area.Top, area.Bottom) + 0.5f));
+                else if (mt == 3)
+                    m = new Goblin(1, new Vector2(rnd.Next(area.Left, area.Right) + 0.5f, rnd.Next(area.Top, area.Bottom) + 0.5f));
+
+                if (m != null) map.AddEntity(m);
+            }
         }
 
         protected void PlaceStairsUp()

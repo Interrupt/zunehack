@@ -52,6 +52,9 @@ namespace ZuneHack
         protected Action action;
         protected string name;
 
+        protected float healthRegenTimer;
+        protected float manaRegenTimer;
+
         public Stats Stats { get { return stats; } }
         public Attributes Attributes { get { return attributes; } }
         public string Name { get { return name; } }
@@ -62,6 +65,19 @@ namespace ZuneHack
 
         public virtual void DoTurn()
         {
+            healthRegenTimer += attributes.endurance / 55.0f;
+            if (healthRegenTimer >= 1.0f)
+            {
+                AddHealth(this, 1);
+                healthRegenTimer = 0;
+            }
+
+            manaRegenTimer += attributes.intelligence / 30.0f;
+            if (manaRegenTimer >= 1.0f)
+            {
+                AddMana(this, 1);
+                manaRegenTimer = 0;
+            }
         }
 
         /// <summary>
@@ -90,6 +106,19 @@ namespace ZuneHack
                 GameManager.GetInstance().AddMessage(String.Format("The {0} dies.", name));
                 GameManager.GetInstance().Map.entities.Remove(this);
             }
+        }
+
+        public virtual void AddHealth(Actor from, int points)
+        {
+            stats.curHealth += points;
+            if (stats.curHealth > stats.maxHealth) stats.curHealth = stats.maxHealth;
+        }
+        
+
+        public virtual void AddMana(Actor from, int points)
+        {
+            stats.curMana += points;
+            if (stats.curMana > stats.maxMana) stats.curMana = stats.maxMana;
         }
 
         public virtual void MeleeAttack(Actor target)

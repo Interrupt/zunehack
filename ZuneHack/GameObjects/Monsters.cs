@@ -16,9 +16,9 @@ namespace ZuneHack
             pos = startPos;
             displayPos = pos;
 
-            attributes.agility = 7;
-            attributes.speed = 4;
-            attributes.strength = 2;
+            attributes.agility = 6;
+            attributes.speed = 5;
+            attributes.strength = 1;
             attributes.constitution = 3;
             attributes.endurance = 3;
 
@@ -35,11 +35,11 @@ namespace ZuneHack
             pos = startPos;
             displayPos = pos;
 
-            attributes.agility = 4;
+            attributes.agility = 3;
             attributes.speed = 4;
-            attributes.strength = 7;
+            attributes.strength = 4;
             attributes.constitution = 3;
-            attributes.endurance = 5;
+            attributes.endurance = 3;
 
             stats.Initialize(level, attributes);
 

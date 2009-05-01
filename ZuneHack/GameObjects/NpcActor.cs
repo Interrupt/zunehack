@@ -90,6 +90,8 @@ namespace ZuneHack
                     }
                 }
             }
+
+            base.DoTurn();
         }
     }
 }

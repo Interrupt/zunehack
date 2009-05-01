@@ -29,7 +29,7 @@ namespace ZuneHack
             // Bam, average player.
             attributes.strength = 5;
             attributes.endurance = 5;
-            attributes.agility = 5;
+            attributes.agility = 7;
             attributes.intelligence = 5;
             attributes.speed = 5;
             attributes.constitution = 5;
@@ -43,6 +43,7 @@ namespace ZuneHack
         public void EndTurn()
         {
             turnDone = true;
+            DoTurn();
         }
 
         public void StartTurn()
