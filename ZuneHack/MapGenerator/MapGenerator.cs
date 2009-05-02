@@ -326,8 +326,7 @@ namespace ZuneHack.Generation
         /// </summary>
         protected Direction GetRandomDirection()
         {
-            int dir = rnd.Next(1,4);
-            return (Direction)dir;
+            return (Direction)rnd.Next(1, 5);
         }
 
         /// <summary>

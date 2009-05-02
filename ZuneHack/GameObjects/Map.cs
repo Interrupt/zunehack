@@ -26,7 +26,7 @@ namespace ZuneHack
         public Texture2D[] mapTextures;
         public Color columnSideShading = Color.LightGray;
         public Color rowSideShading = Color.White;
-        public float distanceShadingScale = 100.0f;
+        public float distanceShadingScale = 180.0f;
 
         public Color ceilingColor = new Color(0.15f,0.15f,0.15f);
         public Color floorColor = new Color(0.25f, 0.25f, 0.25f);
