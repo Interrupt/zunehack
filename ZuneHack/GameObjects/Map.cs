@@ -34,6 +34,8 @@ namespace ZuneHack
         public int Width { get { return width; } set { width = value; } }
         public int Height { get { return height; } set { height = value; } }
 
+        public int level;
+
         /// <summary>
         /// Generates a default test map
         /// </summary>
@@ -102,9 +104,10 @@ namespace ZuneHack
         /// <summary>
         /// Generates a map based on the dungeon level and type
         /// </summary>
-        public Map(int level, MapType type)
+        public Map(int Level, MapType type)
         {
             MapGenerator generator = new MapGenerator(type, this);
+            level = Level;
         }
 
         /// <summary>
@@ -175,6 +178,11 @@ namespace ZuneHack
         {
             if(checkHit(x,y)) return mapData[x, y] - 1;
             return 0;
+        }
+
+        public int GetTileAt(int x, int y)
+        {
+            return mapData[x, y];
         }
 
         public Vector2 GetStairUpLoc()

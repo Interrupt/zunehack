@@ -171,6 +171,10 @@ namespace ZuneHack
                 {
                     player.TurnInput(PlayerInput.left);
                 }
+                else if (gamepadState.Buttons.A == ButtonState.Pressed || keyState.IsKeyDown(Keys.Space))
+                {
+                    player.TurnInput(PlayerInput.button);
+                }
             }
         }
 
@@ -195,6 +199,12 @@ namespace ZuneHack
         public void Quit()
         {
             doQuit = true;
+        }
+
+        public void GoDownLevel()
+        {
+            map = new Map(map.level + 1, MapType.dungeon);
+            camera.SetPosition(map.GetStairUpLoc());
         }
     }
 }

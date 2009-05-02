@@ -288,7 +288,11 @@ namespace ZuneHack.Generation
                 int locY = rnd.Next(1, height - 1);
                 didPlace = CheckIsClear(locX, locY);
 
-                if (didPlace) map.mapData[locX, locY] = -1;
+                if (didPlace)
+                {
+                    map.mapData[locX, locY] = -1;
+                    map.AddEntity(new Entity(new Vector2(locX + 0.5f, locY + 0.5f), @"Deco\up", false));
+                }
             }
         }
 
@@ -302,7 +306,11 @@ namespace ZuneHack.Generation
                 int locY = rnd.Next(1, height - 1);
                 didPlace = CheckIsClear(locX, locY);
 
-                if (didPlace) map.mapData[locX, locY] = -2;
+                if (didPlace)
+                {
+                    map.mapData[locX, locY] = -2;
+                    map.AddEntity(new Entity(new Vector2(locX + 0.5f, locY + 0.5f), @"Deco\down", false));
+                }
             }
         }
 

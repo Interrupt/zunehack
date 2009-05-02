@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\column.xnb</Output>
-      <Time>2009-04-20T21:55:46-05:00</Time>
+      <Time>2009-05-02T06:37:30.9209951-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\goblin.png</Source>
@@ -252,6 +252,24 @@
       <Options>None</Options>
       <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Gebrider.xnb</Output>
       <Time>2009-04-27T17:54:56.6015716-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Deco\down.png</Source>
+      <Name>Assets\Deco\down</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\down.xnb</Output>
+      <Time>2009-05-02T07:00:28.0589951-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Deco\up.png</Source>
+      <Name>Assets\Deco\up</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\up.xnb</Output>
+      <Time>2009-05-02T07:01:38.2169951-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

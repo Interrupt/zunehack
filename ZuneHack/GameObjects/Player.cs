@@ -105,6 +105,13 @@ namespace ZuneHack
                 }
                 EndTurn();
             }
+            else if (input == PlayerInput.button)
+            {
+                if (GameManager.GetInstance().Map.GetTileAt(MapPosX, MapPosY) == -2)
+                {
+                    GameManager.GetInstance().GoDownLevel();
+                }
+            }
         }
 
         public override void MeleeAttack(Actor target)

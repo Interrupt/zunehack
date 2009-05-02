@@ -119,6 +119,8 @@ namespace ZuneHack
             int screenWidth = spliceWidth;
             int height = screenDispHeight;
 
+            if (map != GameManager.GetInstance().Map) map = GameManager.GetInstance().Map;
+
             for (int x = 0; x < width; x++)
             {
                 // Clears the list of splices for this column from the last update

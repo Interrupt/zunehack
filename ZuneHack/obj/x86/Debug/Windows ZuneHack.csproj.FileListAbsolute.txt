@@ -65,3 +65,5 @@ C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\x86\Debug\Microso
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\x86\Debug\ZuneHack.exe
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\x86\Debug\ZuneHack.pdb
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\background-gradient.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\down.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\up.xnb

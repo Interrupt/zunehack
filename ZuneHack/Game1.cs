@@ -85,6 +85,8 @@ namespace ZuneHack
             playstate.LoadTexture(@"Walls\door");
             playstate.LoadTexture(@"Walls\door-grate");
             playstate.LoadTexture(@"Deco\column");
+            playstate.LoadTexture(@"Deco\up");
+            playstate.LoadTexture(@"Deco\down");
             playstate.LoadTexture(@"Actors\goblin");
             playstate.LoadTexture(@"Actors\kobold");
             playstate.LoadTexture(@"Actors\rat");
