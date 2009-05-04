@@ -91,6 +91,9 @@ namespace ZuneHack
             playstate.LoadTexture(@"Actors\kobold");
             playstate.LoadTexture(@"Actors\rat");
             playstate.LoadTexture(@"background-gradient");
+            playstate.LoadTexture(@"Items\moneybag");
+            playstate.LoadTexture(@"Items\potion-red");
+            playstate.LoadTexture(@"Items\sword");
 
             playstate.LoadFont(@"Gebrider");
 

@@ -107,10 +107,27 @@ namespace ZuneHack
             }
             else if (input == PlayerInput.button)
             {
-                if (GameManager.GetInstance().Map.GetTileAt(MapPosX, MapPosY) == -2)
+                int tileType = GameManager.GetInstance().Map.GetTileAt(MapPosX, MapPosY);
+                Item itemHit = GameManager.GetInstance().Map.GetItemAt(new Vector2(MapPosX, MapPosY));
+
+                if (tileType == -2)
                 {
+                    GameManager.GetInstance().AddMessage("You climb down the ladder");
                     GameManager.GetInstance().GoDownLevel();
                 }
+                else if (itemHit != null)
+                {
+                    GameManager.GetInstance().AddMessage("You pick up a " + itemHit.Name);
+                    GameManager.GetInstance().Map.entities.Remove(itemHit);
+                    action = new PlayerPauseAction(0.4f);
+                }
+                else
+                {
+                    GameManager.GetInstance().AddMessage("You see nothing here");
+                }
+
+                action = new PlayerPauseAction(0.4f);
+                EndTurn();
             }
         }
 

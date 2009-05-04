@@ -67,3 +67,7 @@ C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\obj\x86\Debug\ZuneHac
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\background-gradient.xnb
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\down.xnb
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\up.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\background-gradient.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\down.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\up.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\moneybag.xnb

@@ -221,6 +221,8 @@ namespace ZuneHack.Generation
                 {
                     AddRandomMonster(roomRect);
                 }
+
+                AddItems(roomRect);
             }
 
             return true;
@@ -275,6 +277,38 @@ namespace ZuneHack.Generation
                     m = new Goblin(1, new Vector2(rnd.Next(area.Left, area.Right) + 0.5f, rnd.Next(area.Top, area.Bottom) + 0.5f));
 
                 if (m != null) map.AddEntity(m);
+            }
+        }
+
+        /// <summary>
+        /// Add some items to the area
+        /// </summary>
+        protected void AddItems(Rectangle area)
+        {
+            for (int x = area.Left; x < area.Right; x++)
+            {
+                for (int y = area.Top; y < area.Bottom; y++)
+                {
+                    // A 1 in 20 chance of making an item
+                    bool doMake = rnd.Next(-20, 2) > 0;
+                    if (!doMake) return;
+
+                    int type = rnd.Next(1, 3);
+                    Item item = null;
+
+                    if (type == 1)
+                        item = ItemCreator.CreateGold(100);
+                    else if (type == 2)
+                        item = ItemCreator.CreateHealthPotion();
+                    else if (type == 3)
+                        item = new Weapon(WeaponType.Longsword);
+
+                    if (item != null)
+                    {
+                        item.pos = new Vector2(x + 0.5f, y + 0.5f);
+                        map.AddEntity(item);
+                    }
+                }
             }
         }
 

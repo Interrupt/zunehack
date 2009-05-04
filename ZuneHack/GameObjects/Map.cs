@@ -169,6 +169,20 @@ namespace ZuneHack
             return null;
         }
 
+        public Item GetItemAt(Vector2 checkLoc)
+        {
+            for (int i = 0; i < entities.Count; i++)
+            {
+                Item item = entities[i] as Item;
+                if (item != null)
+                {
+                    bool hit = (int)item.pos.X == (int)checkLoc.X && (int)item.pos.Y == (int)checkLoc.Y;
+                    if (hit) return item;
+                }
+            }
+            return null;
+        }
+
         public bool checkMovability(Vector2 checkLoc)
         {
             return checkHit(checkLoc) || checkEntityHit(checkLoc) != null;
