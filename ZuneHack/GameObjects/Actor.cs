@@ -16,14 +16,18 @@ namespace ZuneHack
         public int speed;
         public int intelligence;
 
-        public bool CheckHit()
+        public bool CheckHit(Attributes theirAttribs)
         {
-            return new Random().Next(1, 12) <= agility;
+            Random rnd = GameManager.GetInstance().Random;
+
+            int myCheck = rnd.Next(1, agility);
+            int theirCheck = rnd.Next(1, theirAttribs.agility);
+            return myCheck >= theirCheck;
         }
 
         public int CheckMeleeDamage()
         {
-            return new Random().Next(1, strength);
+            return GameManager.GetInstance().Random.Next(1, strength);
         }
     }
 
@@ -123,9 +127,13 @@ namespace ZuneHack
 
         public virtual void MeleeAttack(Actor target)
         {
-            if (attributes.CheckHit())
+            if (attributes.CheckHit(target.Attributes))
             {
                 target.TakeDamage(this, attributes.CheckMeleeDamage());
+            }
+            else
+            {
+                GameManager.GetInstance().AddMessage(String.Format("The {0} attacks, but misses.", Name));
             }
         }
 

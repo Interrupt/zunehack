@@ -82,14 +82,7 @@ namespace ZuneHack
                         }
                         else
                         {
-                            if (attributes.CheckHit())
-                            {
-                                MeleeAttack(GameManager.GetInstance().Player);
-                            }
-                            else
-                            {
-                                GameManager.GetInstance().AddMessage(String.Format("The {0} attacks, but misses.", Name));
-                            }
+                            MeleeAttack(GameManager.GetInstance().Player);
                         }
                     }
                 }

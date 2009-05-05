@@ -29,7 +29,7 @@ namespace ZuneHack
             // Bam, average player.
             attributes.strength = 5;
             attributes.endurance = 5;
-            attributes.agility = 7;
+            attributes.agility = 6;
             attributes.intelligence = 5;
             attributes.speed = 5;
             attributes.constitution = 5;
@@ -133,7 +133,7 @@ namespace ZuneHack
 
         public override void MeleeAttack(Actor target)
         {
-            if (attributes.CheckHit())
+            if (attributes.CheckHit(target.Attributes))
             {
                 int dmgPoints = attributes.CheckMeleeDamage();
                 GameManager.GetInstance().AddMessage(String.Format("You hit the {0} for {1} damage.", target.Name, dmgPoints));

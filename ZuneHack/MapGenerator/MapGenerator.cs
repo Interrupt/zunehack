@@ -195,6 +195,9 @@ namespace ZuneHack.Generation
                 map.AddEntity(newDoor);
             }
 
+            AddMonsters(roomRect);
+            AddItems(roomRect);
+
             // Add some new connections
             int numCon = rnd.Next(2, 5);
             for (int i = 0; i < numCon; i++)
@@ -214,9 +217,6 @@ namespace ZuneHack.Generation
                     newConnector.posX = placeX - 1;
 
                 available_conns.Add(newConnector);
-
-                AddMonsters(roomRect);
-                AddItems(roomRect);
             }
 
             return true;
@@ -280,7 +280,8 @@ namespace ZuneHack.Generation
         protected void AddMonsters(Rectangle area)
         {
             int size = (area.Bottom - area.Top) * (area.Right - area.Left);
-            int num = rnd.Next(-3, size / 4);
+            int num = rnd.Next(-2, size / 4);
+            if (num > 4) num = 4;
 
             for(int i = 0; i < num; i++)
             {
@@ -298,11 +299,11 @@ namespace ZuneHack.Generation
             {
                 for (int y = area.Top; y < area.Bottom; y++)
                 {
-                    // A 1 in 20 chance of making an item
-                    bool doMake = rnd.Next(-20, 2) > 0;
+                    // A 1 in 10 chance of making an item
+                    bool doMake = rnd.Next(-4, 2) >= 0;
                     if (!doMake) return;
 
-                    int type = rnd.Next(1, 3);
+                    int type = rnd.Next(1, 4);
                     Item item = null;
 
                     if (type == 1)

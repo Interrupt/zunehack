@@ -28,6 +28,8 @@ namespace ZuneHack
         protected string messages;
         protected int numMessages;
 
+        protected Random rnd;
+
         public Player Player { get { return player; } }
 
         public bool doQuit = false;
@@ -49,6 +51,8 @@ namespace ZuneHack
             messages = "";
 
             AddMessage("The air here is stale and musty.");
+
+            rnd = new Random();
         }
 
         public GameManager Initialize(Camera Camera, ContentManager ContentManager)
@@ -58,6 +62,8 @@ namespace ZuneHack
 
             return this;
         }
+
+        public Random Random { get { return rnd; } }
 
         public void SetMap(Map Map)
         {
@@ -131,7 +137,8 @@ namespace ZuneHack
             player.Update(timescale);
             for (int i = 0; i < map.entities.Count; i++)
             {
-                map.entities[i].Update(timescale);
+                if(player.Stats.curHealth > 0)
+                    map.entities[i].Update(timescale);
             }
         }
 
