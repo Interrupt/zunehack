@@ -109,7 +109,7 @@ namespace ZuneHack
     {
         public static Item CreateGold(int goldAmount)
         {
-            Item newItem = new Item(ItemType.Money, "bag of gold");
+            Item newItem = new Item(ItemType.Money, String.Format("bag of {0} gold", goldAmount));
             newItem.Amount = goldAmount;
             newItem.texture = GameManager.GetInstance().GetTexture(@"Items\moneybag");
             return newItem;

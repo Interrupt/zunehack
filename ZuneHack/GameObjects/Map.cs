@@ -183,6 +183,20 @@ namespace ZuneHack
             return null;
         }
 
+        public Door GetDoorAt(Vector2 checkLoc)
+        {
+            for (int i = 0; i < entities.Count; i++)
+            {
+                Door door = entities[i] as Door;
+                if (door != null)
+                {
+                    bool hit = (int)door.pos.X == (int)checkLoc.X && (int)door.pos.Y == (int)checkLoc.Y;
+                    if (hit) return door;
+                }
+            }
+            return null;
+        }
+
         public bool checkMovability(Vector2 checkLoc)
         {
             return checkHit(checkLoc) || checkEntityHit(checkLoc) != null;
@@ -209,6 +223,73 @@ namespace ZuneHack
                 }
             }
             return new Vector2(1.5f, 1.5f);
+        }
+
+        /// <summary>
+        /// Does a line of sight check to see if the line is clear of hits
+        /// </summary>
+        public bool checkLOS(int x1, int y1, int x2, int y2)
+        {
+            int delta_x = Math.Abs(x2 - x1) << 1;
+            int delta_y = Math.Abs(y2 - y1) << 1;
+
+            // if x1 == x2 or y1 == y2, then it does not matter what we set here
+            int ix = x2 > x1 ? 1 : -1;
+            int iy = y2 > y1 ? 1 : -1;
+
+            if (delta_x >= delta_y)
+            {
+                // error may go below zero
+                int error = delta_y - (delta_x >> 1);
+
+                while (x1 != x2)
+                {
+                    if (error >= 0)
+                    {
+                        if (error == 1 || (ix > 0))
+                        {
+                            y1 += iy;
+                            error -= delta_x;
+                        }
+                        // else do nothing
+                    }
+                    // else do nothing
+
+                    x1 += ix;
+                    error += delta_y;
+
+                    // Check wall and door hits
+                    if (mapData[x1, y1] > 0) return false;
+                    else if (mapData[x1, y1] == -3) return false;
+                }
+            }
+            else
+            {
+                // error may go below zero
+                int error = delta_x - (delta_y >> 1);
+
+                while (y1 != y2)
+                {
+                    if (error >= 0)
+                    {
+                        if (error == 1 || (iy > 0))
+                        {
+                            x1 += ix;
+                            error -= delta_y;
+                        }
+                        // else do nothing
+                    }
+                    // else do nothing
+
+                    y1 += iy;
+                    error += delta_x;
+
+                    // Check wall and door hits
+                    if (mapData[x1, y1] > 0) return false;
+                    else if (mapData[x1, y1] == -3) return false;
+                }
+            }
+            return true;
         }
     }
 }

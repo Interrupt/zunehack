@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ZuneHack
 {
-    class Door : Entity
+    public class Door : Entity
     {
         public float movePercentage;
         public float moveSpeed;
@@ -42,8 +42,6 @@ namespace ZuneHack
 
         public override void Update(float timescale)
         {
-            blockMovement = !isOpen;
-
             if (movePercentage < 1)
             {
                 movePercentage += moveSpeed * timescale;
@@ -59,8 +57,11 @@ namespace ZuneHack
             moveSpeed = speed;
             movePercentage = 0;
 
-            blockMovement = !isOpen;
             isOpen = !isOpen;
+            blockMovement = !isOpen;
+
+            // Change the map tile
+            ownerMap.mapData[(int)pos.X, (int)pos.Y] = blockMovement == true ? -3 : -4;
 
             endRadians = (2.0 * Math.PI) / 4.2; // A rotation of 1/4th of a circle
         }

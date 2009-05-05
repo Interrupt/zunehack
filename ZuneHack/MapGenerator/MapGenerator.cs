@@ -215,13 +215,7 @@ namespace ZuneHack.Generation
 
                 available_conns.Add(newConnector);
 
-                // Add some monsters, perhaps
-                int genNum = rnd.Next(-2, 2);
-                for (int m = 0; m < genNum; m++)
-                {
-                    AddRandomMonster(roomRect);
-                }
-
+                AddMonsters(roomRect);
                 AddItems(roomRect);
             }
 
@@ -260,9 +254,9 @@ namespace ZuneHack.Generation
         }
 
         /// <summary>
-        /// Generates the monsters for the map
+        /// Makes a monster at the location
         /// </summary>
-        protected void AddRandomMonster(Rectangle area)
+        protected void AddRandomMonster(Vector2 pos)
         {
             if (type == MapType.dungeon)
             {
@@ -270,13 +264,28 @@ namespace ZuneHack.Generation
                 Actor m = null;
 
                 if (mt == 1)
-                    m = new Kobold(1, new Vector2(rnd.Next(area.Left, area.Right) + 0.5f, rnd.Next(area.Top, area.Bottom) + 0.5f));
+                    m = new Kobold(1, pos);
                 else if (mt == 2)
-                    m = new Rat(1, new Vector2(rnd.Next(area.Left, area.Right) + 0.5f, rnd.Next(area.Top, area.Bottom) + 0.5f));
+                    m = new Rat(1, pos);
                 else if (mt == 3)
-                    m = new Goblin(1, new Vector2(rnd.Next(area.Left, area.Right) + 0.5f, rnd.Next(area.Top, area.Bottom) + 0.5f));
+                    m = new Goblin(1, pos);
 
                 if (m != null) map.AddEntity(m);
+            }
+        }
+
+        /// <summary>
+        /// Add some monsters to the area
+        /// </summary>
+        protected void AddMonsters(Rectangle area)
+        {
+            int size = (area.Bottom - area.Top) * (area.Right - area.Left);
+            int num = rnd.Next(-3, size / 4);
+
+            for(int i = 0; i < num; i++)
+            {
+                Vector2 genpos = new Vector2(rnd.Next(area.Left, area.Right) + 0.5f, rnd.Next(area.Top, area.Bottom) + 0.5f);
+                AddRandomMonster(genpos);
             }
         }
 
