@@ -32,7 +32,7 @@ namespace ZuneHack
             attributes.agility = 6;
             attributes.intelligence = 5;
             attributes.speed = 5;
-            attributes.constitution = 5;
+            attributes.constitution = 6;
 
             stats.Initialize(1, attributes);
 

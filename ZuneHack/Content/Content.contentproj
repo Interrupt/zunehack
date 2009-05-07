@@ -50,11 +50,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Walls\brick-mossy.png">
-      <Name>brick-mossy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Assets\Walls\brick-torch.png">
       <Name>brick-torch</Name>
       <Importer>TextureImporter</Importer>
@@ -205,6 +200,11 @@
   <ItemGroup>
     <Compile Include="Assets\Items\moneybag.png">
       <Name>moneybag</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Assets\Walls\brick-mossy.png">
+      <Name>brick-mossy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
