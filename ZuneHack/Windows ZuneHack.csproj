@@ -75,6 +75,9 @@
     <Compile Include="GameObjects\Entity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\monsters.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +96,7 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System">
       <Private>False</Private>
     </Reference>

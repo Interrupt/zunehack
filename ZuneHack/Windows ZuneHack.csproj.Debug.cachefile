@@ -1,7 +1,6 @@
 Content\Assets\Walls\blue.xnb
 Content\Assets\Walls\brick-bloody.xnb
 Content\Assets\Walls\brick-grey.xnb
-Content\Assets\Walls\brick-mossy.xnb
 Content\Assets\Walls\brick-torch.xnb
 Content\Assets\Walls\door.xnb
 Content\Assets\Walls\green.xnb
@@ -28,4 +27,12 @@ Content\Assets\background-gradient.xnb
 Content\Assets\Deco\down.xnb
 Content\Assets\Deco\up.xnb
 Content\Assets\Items\moneybag.xnb
+Content\Assets\Walls\brick-mossy.xnb
+Content\Assets\Actors\bat.xnb
+Content\Assets\Actors\mouse.xnb
+Content\Assets\Actors\cat.xnb
+Content\Assets\Actors\r-alien.xnb
+Content\Assets\Actors\slime.xnb
+Content\Assets\Actors\blue-slime.xnb
 Content\Assets\Gebrider.xnb
+Data\monsters.json

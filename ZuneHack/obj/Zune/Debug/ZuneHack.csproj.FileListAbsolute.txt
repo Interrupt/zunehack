@@ -213,3 +213,11 @@ C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Deco\down.x
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Deco\up.xnb
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\moneybag.xnb
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Items\moneybag.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Newtonsoft.Json.dll
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\bat.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\mouse.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\cat.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\r-alien.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\slime.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\blue-slime.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Data\monsters.json

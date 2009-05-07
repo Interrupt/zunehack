@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Storage;
+using System.Collections;
+using Newtonsoft.Json;
 
 namespace ZuneHack.Generation
 {
@@ -105,6 +108,8 @@ namespace ZuneHack.Generation
 
             PlaceStairsUp();
             PlaceStairsDown();
+
+            LoadMonsters();
         }
 
         /// <summary>
@@ -390,6 +395,36 @@ namespace ZuneHack.Generation
             int f = (int)first % 2;
             int s = (int)second % 2;
             return f == s;
+        }
+
+        protected static void LoadMonsters()
+        {
+            string path = StorageContainer.TitleLocation + @"\Data\monsters.json";
+            System.IO.TextReader reader = new System.IO.StreamReader(path);
+
+            Hashtable monsters = new Hashtable();
+            Hashtable curMonster = null;
+
+            JsonTextReader json = new JsonTextReader(reader);
+            while (json.Read())
+            {
+                if (json.Value == null && (json.TokenType == JsonToken.StartObject || json.TokenType == JsonToken.EndObject))
+                {
+                    json.Read();
+                    if (json.TokenType == JsonToken.PropertyName)
+                    {
+                        curMonster = new Hashtable();
+                        monsters[(string)json.Value] = curMonster;
+                        json.Read();
+                    }
+                }
+                else if(json.TokenType == JsonToken.PropertyName)
+                {
+                    object val = json.Value;
+                    json.Read();
+                    curMonster[val] = json.Value;
+                }
+            }
         }
     }
 }

@@ -1,0 +1,82 @@
+{
+	mouse: {
+		image: "Actors\mouse",
+		agility: 6,
+		speed: 5,
+		strength: 1,
+		constitution: 1,
+		endurance: 1
+	},
+
+	bat: {
+		image: "Actors\bat",
+		agility: 6,
+		speed: 5,
+		strength: 1,
+		constitution: 1,
+		endurance: 1
+	},
+
+	cat: {
+		image: "Actors\cat",
+		agility: 6,
+		speed: 5,
+		strength: 1,
+		constitution: 2,
+		endurance: 3
+	},
+
+	rat: {
+		image: "Actors\rat",
+		agility: 6,
+		speed: 5,
+		strength: 1,
+		constitution: 2,
+		endurance: 3
+	},
+
+	goblin: {
+		image: "Actors\goblin",
+		agility: 4,
+		speed: 4,
+		strength: 3,
+		constitution: 4,
+		endurance: 4
+	},
+
+	kobold: {
+		image: "Actors\kobold",
+		agility: 6,
+		speed: 4,
+		strength: 2,
+		constitution: 3,
+		endurance: 2
+	},
+
+	slime: {
+		image: "Actors\slime",
+		agility: 6,
+		speed: 4,
+		strength: 3,
+		constitution: 3,
+		endurance: 3
+	},
+
+	blueslime: {
+		image: "Actors\blue-slime",
+		agility: 8,
+		speed: 4,
+		strength: 3,
+		constitution: 4,
+		endurance: 4
+	},
+
+	alien: {
+		image: "Actors\r-alien",
+		agility: 4,
+		speed: 4,
+		strength: 8,
+		constitution: 4,
+		endurance: 8
+	}
+}
