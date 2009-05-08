@@ -79,3 +79,5 @@ C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\r-ali
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\slime.xnb
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\blue-slime.xnb
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Data\monsters.json
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\rockwall.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\dirtwall.xnb

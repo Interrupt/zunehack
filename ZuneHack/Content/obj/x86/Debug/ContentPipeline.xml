@@ -334,6 +334,24 @@
       <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Gebrider.xnb</Output>
       <Time>2009-04-26T17:14:08.1875-05:00</Time>
     </Item>
+    <Item>
+      <Source>Assets\Walls\rockwall.png</Source>
+      <Name>Assets\Walls\rockwall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\rockwall.xnb</Output>
+      <Time>2009-05-06T21:47:39.4375-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Walls\dirtwall.png</Source>
+      <Name>Assets\Walls\dirtwall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\dirtwall.xnb</Output>
+      <Time>2009-05-06T21:47:39.421875-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

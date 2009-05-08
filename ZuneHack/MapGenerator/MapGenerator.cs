@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Storage;
 using System.Collections;
 using Newtonsoft.Json;
+using ZuneHack;
 
 namespace ZuneHack.Generation
 {
@@ -47,6 +48,7 @@ namespace ZuneHack.Generation
         int width;
         int height;
         List<Connector> available_conns;
+        List<MonsterData> monsters;
         Random rnd;
 
         public MapGenerator(MapType Type, Map Map)
@@ -68,6 +70,7 @@ namespace ZuneHack.Generation
             map.entities = new List<Entity>();
 
             SetTypeTextures();
+            monsters = LoadMonsters();
 
             // Fills map
             FillRandRect(0, 0, width - 1, height - 1, 1, 3);
@@ -84,7 +87,7 @@ namespace ZuneHack.Generation
             // Generate some rooms
             int numGenerated = 0;
             int tries = 0;
-            while (numGenerated < 20 && tries < 30 && available_conns.Count > 0)
+            while (numGenerated < 16 && tries < 30 && available_conns.Count > 0)
             {
                 // Attempt to make a room with the first connector
                 Connector tryThis = available_conns.First();
@@ -108,8 +111,6 @@ namespace ZuneHack.Generation
 
             PlaceStairsUp();
             PlaceStairsDown();
-
-            LoadMonsters();
         }
 
         /// <summary>
@@ -263,20 +264,10 @@ namespace ZuneHack.Generation
         /// </summary>
         protected void AddRandomMonster(Vector2 pos)
         {
-            if (type == MapType.dungeon)
-            {
-                int mt = rnd.Next(1, 4);
-                Actor m = null;
+            MonsterData data = monsters[rnd.Next(0, monsters.Count)];
+            Actor m = new Monster(data, pos);
 
-                if (mt == 1)
-                    m = new Kobold(1, pos);
-                else if (mt == 2)
-                    m = new Rat(1, pos);
-                else if (mt == 3)
-                    m = new Goblin(1, pos);
-
-                if (m != null) map.AddEntity(m);
-            }
+            if (m != null) map.AddEntity(m);
         }
 
         /// <summary>
@@ -285,8 +276,8 @@ namespace ZuneHack.Generation
         protected void AddMonsters(Rectangle area)
         {
             int size = (area.Bottom - area.Top) * (area.Right - area.Left);
-            int num = rnd.Next(-2, size / 4);
-            if (num > 4) num = 4;
+            int num = rnd.Next(-1, size / 4);
+            if (num > 5) num = 5;
 
             for(int i = 0; i < num; i++)
             {
@@ -363,18 +354,32 @@ namespace ZuneHack.Generation
             }
         }
 
+        // Sets the textures to use as map tiles
         protected void SetTypeTextures()
         {
             if (type == MapType.dungeon)
             {
-                // Sets the textures to use as map tiles
-                int mdx = 0;
-                map.mapTextures = new Texture2D[6];
-                map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-grey");
-                map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-mossy");
-                map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-bloody");
-                map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-torch");
-                map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\door");
+                if (map.level <= 2)
+                {
+                    int mdx = 0;
+                    map.mapTextures = new Texture2D[2];
+                    map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-grey");
+                    map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-mossy");
+                }
+                else if(map.level <= 4)
+                {
+                    int mdx = 0;
+                    map.mapTextures = new Texture2D[2];
+                    map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\rockwall");
+                    map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\rockwall");
+                }
+                else
+                {
+                    int mdx = 0;
+                    map.mapTextures = new Texture2D[2];
+                    map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\dirtwall");
+                    map.mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\dirtwall");
+                }
             }
         }
 
@@ -397,14 +402,15 @@ namespace ZuneHack.Generation
             return f == s;
         }
 
-        protected static void LoadMonsters()
+        protected static List<MonsterData> LoadMonsters()
         {
             string path = StorageContainer.TitleLocation + @"\Data\monsters.json";
             System.IO.TextReader reader = new System.IO.StreamReader(path);
+            List<MonsterData> monsters = new List<MonsterData>();
 
-            Hashtable monsters = new Hashtable();
-            Hashtable curMonster = null;
+            Hashtable cur = null;
 
+            // Read through each object in the file
             JsonTextReader json = new JsonTextReader(reader);
             while (json.Read())
             {
@@ -413,18 +419,41 @@ namespace ZuneHack.Generation
                     json.Read();
                     if (json.TokenType == JsonToken.PropertyName)
                     {
-                        curMonster = new Hashtable();
-                        monsters[(string)json.Value] = curMonster;
+                        if (cur != null) monsters.Add(MonsterFromHash(cur));
+                        cur = new Hashtable();
+                        cur["name"] = (string)json.Value;
                         json.Read();
                     }
                 }
                 else if(json.TokenType == JsonToken.PropertyName)
                 {
-                    object val = json.Value;
+                    string val = (string)json.Value;
                     json.Read();
-                    curMonster[val] = json.Value;
+                    cur[val] = json.Value;
                 }
             }
+
+            // Add the last monster
+            if (cur != null) monsters.Add(MonsterFromHash(cur));
+
+            return monsters;
+        }
+
+        protected static MonsterData MonsterFromHash(Hashtable data)
+        {
+            MonsterData mon = new MonsterData();
+            mon.name = (string)data["name"];
+            mon.image = (string)data["image"];
+            mon.level = 1;
+
+            mon.attribs.agility = Convert.ToInt32(data["agility"]);
+            mon.attribs.constitution = Convert.ToInt32(data["constitution"]);
+            mon.attribs.endurance = Convert.ToInt32(data["endurance"]);
+            mon.attribs.intelligence = Convert.ToInt32(data["intelligence"]);
+            mon.attribs.speed = Convert.ToInt32(data["speed"]);
+            mon.attribs.strength = Convert.ToInt32(data["strength"]);
+
+            return mon;
         }
     }
 }

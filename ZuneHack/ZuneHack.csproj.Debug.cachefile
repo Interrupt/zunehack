@@ -35,4 +35,6 @@ Content\Assets\Actors\r-alien.xnb
 Content\Assets\Actors\slime.xnb
 Content\Assets\Actors\blue-slime.xnb
 Content\Assets\Gebrider.xnb
+Content\Assets\Walls\rockwall.xnb
+Content\Assets\Walls\dirtwall.xnb
 Data\monsters.json

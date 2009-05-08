@@ -221,3 +221,5 @@ C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\r-al
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\slime.xnb
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\blue-slime.xnb
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Data\monsters.json
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\rockwall.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\dirtwall.xnb

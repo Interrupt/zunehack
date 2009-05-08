@@ -106,8 +106,8 @@ namespace ZuneHack
         /// </summary>
         public Map(int Level, MapType type)
         {
-            MapGenerator generator = new MapGenerator(type, this);
             level = Level;
+            MapGenerator generator = new MapGenerator(type, this);
         }
 
         /// <summary>
