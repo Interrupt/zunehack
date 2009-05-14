@@ -223,3 +223,13 @@ C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\blue
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Data\monsters.json
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\rockwall.xnb
 C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\dirtwall.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Data\monsters.json
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\bat.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\mouse.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\cat.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\r-alien.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\slime.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Actors\blue-slime.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\rockwall.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\dirtwall.xnb
+C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Newtonsoft.Json.dll

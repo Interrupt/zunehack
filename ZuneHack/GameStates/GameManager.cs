@@ -25,14 +25,17 @@ namespace ZuneHack
         protected Camera camera;
         protected Map map;
 
-        protected string messages;
-        protected int numMessages;
+        public string messages;
+        public int numMessages;
 
         protected Random rnd;
 
         public Player Player { get { return player; } }
 
         public bool doQuit = false;
+
+        // The queue of gamestates to use
+        protected Queue<GameState> gamestates;
 
         public static GameManager GetInstance()
         {
@@ -42,6 +45,7 @@ namespace ZuneHack
 
         public GameManager(Camera Camera, Map Map, ContentManager ContentManager)
         {
+            gamestates = new Queue<GameState>();
             contentManager = ContentManager;
             camera = Camera;
             map = Map;
@@ -55,12 +59,22 @@ namespace ZuneHack
             rnd = new Random();
         }
 
-        public GameManager Initialize(Camera Camera, ContentManager ContentManager)
+        public GameManager Initialize(ContentManager ContentManager)
         {
             contentManager = ContentManager;
-            camera = Camera;
 
             return this;
+        }
+
+        public void PushState(GameState newstate)
+        {
+            gamestates.Enqueue(newstate);
+            newstate.Start();
+        }
+
+        public void PopState()
+        {
+            gamestates.Dequeue().End();
         }
 
         public Random Random { get { return rnd; } }
@@ -78,6 +92,7 @@ namespace ZuneHack
         public Camera Camera
         {
             get { return camera; }
+            set { camera = value; }
         }
 
         public SpriteFont Font
@@ -124,6 +139,10 @@ namespace ZuneHack
         /// </summary>
         public void Update(float timescale)
         {
+            // Update the game states
+            if (gamestates.Count > 0)
+                gamestates.Peek().Update(timescale);
+
             player.pos = camera.pos;
             player.dir = camera.dir;
 
@@ -147,42 +166,15 @@ namespace ZuneHack
         /// </summary>
         public void Draw(SpriteBatch batch)
         {
-            batch.DrawString(font, String.Format("HP: {0}/{1} MP: {2}/{3}", player.Stats.curHealth, player.Stats.maxHealth, player.Stats.curMana, player.Stats.maxMana), new Vector2(2,2), Color.White);
-            if(messages != "")
-                batch.DrawString(font, messages, new Vector2(2, 240 - (19 * numMessages)), Color.White);
+            // Draw the game states
+            if(gamestates.Count > 0)
+                gamestates.Peek().Draw(batch);
         }
 
         public void Input(float timescale)
         {
-            float rotSpeed = 0.4f * timescale;
-            float moveSpeed = 0.4f * timescale;
-
-            KeyboardState keyState = Keyboard.GetState(PlayerIndex.One);
-            GamePadState gamepadState = GamePad.GetState(PlayerIndex.One);
-
-            if (player.IsActionDone())
-            {
-                if (gamepadState.DPad.Right == ButtonState.Pressed || keyState.IsKeyDown(Keys.Down))
-                {
-                    player.TurnInput(PlayerInput.backward);
-                }
-                else if (gamepadState.DPad.Left == ButtonState.Pressed || keyState.IsKeyDown(Keys.Up))
-                {
-                    player.TurnInput(PlayerInput.forward);
-                }
-                else if (gamepadState.DPad.Up == ButtonState.Pressed || keyState.IsKeyDown(Keys.Right))
-                {
-                    player.TurnInput(PlayerInput.right);
-                }
-                else if (gamepadState.DPad.Down == ButtonState.Pressed || keyState.IsKeyDown(Keys.Left))
-                {
-                    player.TurnInput(PlayerInput.left);
-                }
-                else if (gamepadState.Buttons.A == ButtonState.Pressed || keyState.IsKeyDown(Keys.Space))
-                {
-                    player.TurnInput(PlayerInput.button);
-                }
-            }
+            if (gamestates.Count > 0)
+                gamestates.Peek().Input(timescale);
         }
 
         public void didTurnAction()

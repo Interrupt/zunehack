@@ -37,7 +37,6 @@ namespace ZuneHack
     {
         protected Camera camera;
         protected Map map;
-        public SpriteBatch spriteBatch;
         public float posOffset;
         protected Texture2D backGradient;
 
@@ -56,10 +55,9 @@ namespace ZuneHack
             set { backGradient = value; }
         }
 
-        public Raycaster(Camera cam, SpriteBatch batch, float CameraOffset)
+        public Raycaster(Camera cam, float CameraOffset)
         {
             camera = cam;
-            spriteBatch = batch;
             posOffset = CameraOffset;
 
             numSplices = 100;                   //Number of screen splices for drawing
@@ -225,7 +223,7 @@ namespace ZuneHack
             }
         }
 
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
             if (backGradient != null)
             {
@@ -253,11 +251,11 @@ namespace ZuneHack
             {
                 Entity entity = map.entities[x];
                 if(entity.directional == false && entity.IsVisible())
-                    DrawEntity(entity);
+                    DrawEntity(entity, spriteBatch);
             }
         }
 
-        protected void DrawEntity(Entity entity)
+        protected void DrawEntity(Entity entity, SpriteBatch spriteBatch)
         {
             float spriteX = entity.displayPos.X - OffsetPos.X;
             float spriteY = entity.displayPos.Y - OffsetPos.Y;

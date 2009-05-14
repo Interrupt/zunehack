@@ -24,11 +24,9 @@ namespace ZuneHack
         RenderTarget2D background;
         Rectangle viewportRect;
 
-        Camera cam;
         Map map;
-        Raycaster raycaster;
 
-        GameManager playstate;
+        GameManager gameManager;
 
         float waitBeforeQuit = 100;
         float timeWaitedForQuit = 0;
@@ -51,21 +49,13 @@ namespace ZuneHack
         }
 
         /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
+        /// Initializes the game and loads any components
         /// </summary>
         protected override void Initialize()
         {
-            cam = new Camera();
-            cam.SetPosition(new Vector2(21.5f, 11.5f));
-            cam.Turn((float)(Math.PI * 2) / 4.0f);
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
             viewportRect = new Rectangle(0, 0, 320, 240);
-            playstate = GameManager.GetInstance().Initialize(cam, Content);
-            raycaster = new Raycaster(cam, spriteBatch, -0.35f);
+            gameManager = GameManager.GetInstance().Initialize(Content);
 
             base.Initialize();
         }
@@ -78,32 +68,24 @@ namespace ZuneHack
         {
             background = new RenderTarget2D(GraphicsDevice, 320, 240, 1, SurfaceFormat.Color);
 
-            playstate.LoadTexture(@"Walls\brick-grey");
-            playstate.LoadTexture(@"Walls\brick-mossy");
-            playstate.LoadTexture(@"Walls\brick-bloody");
-            playstate.LoadTexture(@"Walls\brick-torch");
-            playstate.LoadTexture(@"Walls\rockwall");
-            playstate.LoadTexture(@"Walls\dirtwall");
-            playstate.LoadTexture(@"Walls\door");
-            playstate.LoadTexture(@"Walls\door-grate");
-            playstate.LoadTexture(@"Deco\column");
-            playstate.LoadTexture(@"Deco\up");
-            playstate.LoadTexture(@"Deco\down");
-            playstate.LoadTexture(@"background-gradient");
-            playstate.LoadTexture(@"Items\moneybag");
-            playstate.LoadTexture(@"Items\potion-red");
-            playstate.LoadTexture(@"Items\sword");
+            gameManager.LoadTexture(@"Walls\brick-grey");
+            gameManager.LoadTexture(@"Walls\brick-mossy");
+            gameManager.LoadTexture(@"Walls\brick-bloody");
+            gameManager.LoadTexture(@"Walls\brick-torch");
+            gameManager.LoadTexture(@"Walls\rockwall");
+            gameManager.LoadTexture(@"Walls\dirtwall");
+            gameManager.LoadTexture(@"Walls\door");
+            gameManager.LoadTexture(@"Walls\door-grate");
+            gameManager.LoadTexture(@"Deco\column");
+            gameManager.LoadTexture(@"Deco\up");
+            gameManager.LoadTexture(@"Deco\down");
+            gameManager.LoadTexture(@"background-gradient");
+            gameManager.LoadTexture(@"Items\moneybag");
+            gameManager.LoadTexture(@"Items\potion-red");
+            gameManager.LoadTexture(@"Items\sword");
+            gameManager.LoadFont(@"Gebrider");
 
-            playstate.LoadFont(@"Gebrider");
-
-            //map = new Map(1, MapType.dungeon);
-            map = new Map(1, MapType.dungeon);
-            playstate.SetMap(map);
-            raycaster.SetMap(map);
-
-            raycaster.BackgroundGradient = playstate.GetTexture("background-gradient");
-
-            cam.SetPosition(map.GetStairUpLoc());
+            gameManager.PushState(new PlayState(gameManager));
 
             base.LoadContent();
         }
@@ -130,10 +112,9 @@ namespace ZuneHack
                 this.Exit();
 
             // Update the game, unless we should quit
-            if (!playstate.doQuit)
+            if (!gameManager.doQuit)
             {
-                playstate.Update(timescale);
-                raycaster.Update();
+                gameManager.Update(timescale);
             }
             else
             {
@@ -156,11 +137,7 @@ namespace ZuneHack
 #endif
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.BackToFront, SaveStateMode.None);
-            raycaster.Draw();
-            spriteBatch.End();
-
-            spriteBatch.Begin();
-            playstate.Draw(spriteBatch);
+            gameManager.Draw(spriteBatch);
             spriteBatch.End();
 
 #if (ZUNE)
