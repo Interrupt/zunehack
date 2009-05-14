@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ZuneHack
 {
-    class GameState
+    public class GameState
     {
         protected GameManager manager;
 

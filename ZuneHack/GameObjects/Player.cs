@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace ZuneHack
 {
-    enum PlayerInput
+    public enum PlayerInput
     {
         forward,
         backward,
@@ -15,17 +15,21 @@ namespace ZuneHack
         button
     }
 
-    class Player : Actor
+    public class Player : Actor
     {
         protected bool turnDone;
+        protected Camera camera;
 
         public bool IsTurnDone()
         {
             return turnDone && IsActionDone();
         }
 
-        public Player(Vector2 StartPos)
+        public Player(Camera cam)
         {
+            // The camera for the player to look out of
+            camera = cam;
+
             // Bam, average player.
             attributes.strength = 5;
             attributes.endurance = 5;
@@ -36,7 +40,6 @@ namespace ZuneHack
 
             stats.Initialize(1, attributes);
 
-            pos = StartPos;
             turnDone = false;
         }
 
@@ -57,17 +60,17 @@ namespace ZuneHack
 
             if (input == PlayerInput.right)
             {
-                action = new PlayerTurnAction(0.2f, -1, GameManager.GetInstance().Camera);
+                action = new PlayerTurnAction(0.2f, -1, camera);
             }
             else if (input == PlayerInput.left)
             {
-                action = new PlayerTurnAction(0.2f, 1, GameManager.GetInstance().Camera);
+                action = new PlayerTurnAction(0.2f, 1, camera);
             }
             else if (input == PlayerInput.backward)
             {
-                if (!GameManager.GetInstance().Map.checkMovability(pos - dir))
+                if (!ownerMap.checkMovability(pos - dir))
                 {
-                    action = new PlayerMoveAction(0.2f, pos - dir, GameManager.GetInstance().Camera);
+                    action = new PlayerMoveAction(0.2f, pos - dir, camera);
                 }
                 else
                 {
@@ -78,15 +81,15 @@ namespace ZuneHack
             }
             else if (input == PlayerInput.forward)
             {
-                action = new PlayerMoveAction(0.2f, pos + dir, GameManager.GetInstance().Camera);
+                action = new PlayerMoveAction(0.2f, pos + dir, camera);
 
-                if (!GameManager.GetInstance().Map.checkMovability(pos + dir))
+                if (!ownerMap.checkMovability(pos + dir))
                 {
-                    action = new PlayerMoveAction(0.2f, pos + dir, GameManager.GetInstance().Camera);
+                    action = new PlayerMoveAction(0.2f, pos + dir, camera);
                 }
                 else
                 {
-                    Entity toAttack = GameManager.GetInstance().Map.checkEntityHit(pos + dir);
+                    Entity toAttack = ownerMap.checkEntityHit(pos + dir);
                     if (toAttack as Actor != null)
                     {
                         action = new PlayerMeleeAction(0.10f);
@@ -107,18 +110,18 @@ namespace ZuneHack
             }
             else if (input == PlayerInput.button)
             {
-                int tileType = GameManager.GetInstance().Map.GetTileAt(MapPosX, MapPosY);
-                Item itemHit = GameManager.GetInstance().Map.GetItemAt(new Vector2(MapPosX, MapPosY));
+                int tileType = ownerMap.GetTileAt(MapPosX, MapPosY);
+                Item itemHit = ownerMap.GetItemAt(new Vector2(MapPosX, MapPosY));
 
                 if (tileType == -2)
                 {
                     GameManager.GetInstance().AddMessage("You climb down the ladder");
-                    GameManager.GetInstance().GoDownLevel();
+                    ownerMap.Gamestate.GoDownLevel();
                 }
                 else if (itemHit != null)
                 {
                     GameManager.GetInstance().AddMessage("You pick up a " + itemHit.Name);
-                    GameManager.GetInstance().Map.entities.Remove(itemHit);
+                    ownerMap.entities.Remove(itemHit);
                     action = new PlayerPauseAction(0.4f);
                 }
                 else

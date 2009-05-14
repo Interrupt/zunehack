@@ -8,30 +8,77 @@ using Microsoft.Xna.Framework;
 
 namespace ZuneHack
 {
-    class PlayState : GameState
+    public class PlayState : GameState
     {
-        Camera cam;
-        Map map;
-        Raycaster raycaster;
+        protected Player player;
+        protected Camera cam;
+        protected Map map;
+        protected Raycaster raycaster;
 
         public PlayState(GameManager manager) : base(manager)
         {
             cam = new Camera();
             cam.Turn((float)(Math.PI * 2) / 4.0f);
-            manager.Camera = cam;
+
+            player = new Player(cam);
 
             raycaster = new Raycaster(cam, -0.35f);
             raycaster.BackgroundGradient = manager.GetTexture("background-gradient");
 
-            map = new Map(1, MapType.dungeon);
-            manager.SetMap(map);
+            map = new Map(1, MapType.dungeon, this);
             raycaster.SetMap(map);
 
+            Vector2 startLoc = map.GetStairUpLoc();
+            cam.SetPosition(startLoc);
+        }
+
+        // Returns the current player
+        public Player Player { get { return player; } }
+
+        // Runs each entities turn
+        public void UpdateTurn()
+        {
+            for (int i = 0; i < map.entities.Count; i++)
+            {
+                if (map.entities[i] as Actor != null)
+                {
+                    ((Actor)map.entities[i]).DoTurn();
+                }
+            }
+
+            player.StartTurn();
+        }
+
+        public void GoDownLevel()
+        {
+            // Unload the old map
+            map.entities.Clear();
+
+            // Load a new map
+            map = new Map(map.level + 1, MapType.dungeon, this);
+
+            // Let everything know about the new map
             cam.SetPosition(map.GetStairUpLoc());
+            raycaster.SetMap(map);
         }
 
         public override void Update(float timescale)
         {
+            if (player.IsTurnDone())
+            {
+                UpdateTurn();
+            }
+
+            player.pos = cam.pos;
+            player.dir = cam.dir;
+            player.Update(timescale);
+
+            for (int i = 0; i < map.entities.Count; i++)
+            {
+                if (player.Stats.curHealth > 0)
+                    map.entities[i].Update(timescale);
+            }
+
             raycaster.Update();
         }
 
@@ -40,10 +87,10 @@ namespace ZuneHack
             raycaster.Draw(batch);
 
             batch.DrawString(manager.Font, String.Format("HP: {0}/{1} MP: {2}/{3}",
-                manager.Player.Stats.curHealth,
-                manager.Player.Stats.maxHealth,
-                manager.Player.Stats.curMana,
-                manager.Player.Stats.maxMana), new Vector2(2, 2), Color.White);
+                player.Stats.curHealth,
+                player.Stats.maxHealth,
+                player.Stats.curMana,
+                player.Stats.maxMana), new Vector2(2, 2), Color.White);
 
             if (manager.messages != "")
                 batch.DrawString(manager.Font, manager.messages, new Vector2(2, 240 - (19 * manager.numMessages)), Color.White);
@@ -57,27 +104,27 @@ namespace ZuneHack
             KeyboardState keyState = Keyboard.GetState(PlayerIndex.One);
             GamePadState gamepadState = GamePad.GetState(PlayerIndex.One);
 
-            if (manager.Player.IsActionDone())
+            if (player.IsActionDone())
             {
                 if (gamepadState.DPad.Right == ButtonState.Pressed || keyState.IsKeyDown(Keys.Down))
                 {
-                    manager.Player.TurnInput(PlayerInput.backward);
+                    player.TurnInput(PlayerInput.backward);
                 }
                 else if (gamepadState.DPad.Left == ButtonState.Pressed || keyState.IsKeyDown(Keys.Up))
                 {
-                    manager.Player.TurnInput(PlayerInput.forward);
+                    player.TurnInput(PlayerInput.forward);
                 }
                 else if (gamepadState.DPad.Up == ButtonState.Pressed || keyState.IsKeyDown(Keys.Right))
                 {
-                    manager.Player.TurnInput(PlayerInput.right);
+                    player.TurnInput(PlayerInput.right);
                 }
                 else if (gamepadState.DPad.Down == ButtonState.Pressed || keyState.IsKeyDown(Keys.Left))
                 {
-                    manager.Player.TurnInput(PlayerInput.left);
+                    player.TurnInput(PlayerInput.left);
                 }
                 else if (gamepadState.Buttons.A == ButtonState.Pressed || keyState.IsKeyDown(Keys.Space))
                 {
-                    manager.Player.TurnInput(PlayerInput.button);
+                    player.TurnInput(PlayerInput.button);
                 }
             }
         }

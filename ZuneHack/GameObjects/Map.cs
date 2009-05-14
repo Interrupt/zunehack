@@ -21,6 +21,9 @@ namespace ZuneHack
         public int[,] mapData;
         protected int width;
         protected int height;
+
+        protected PlayState gamestate;
+        protected Player player;
         public List<Entity> entities;
 
         public Texture2D[] mapTextures;
@@ -104,11 +107,20 @@ namespace ZuneHack
         /// <summary>
         /// Generates a map based on the dungeon level and type
         /// </summary>
-        public Map(int Level, MapType type)
+        public Map(int Level, MapType type, PlayState theState)
         {
+            gamestate = theState;
+
+            player = gamestate.Player;
+            player.SetMap(this);
+
             level = Level;
             MapGenerator generator = new MapGenerator(type, this);
         }
+
+        // Returns the playstate that owns the map
+        public PlayState Gamestate { get { return gamestate; } }
+        public Player Player { get { return player; } }
 
         /// <summary>
         ///  Sets the level data
@@ -118,6 +130,15 @@ namespace ZuneHack
             mapData = data;
             width = Width;
             height = Height;
+        }
+
+        /// <summary>
+        /// Sets the player for the game to use
+        /// </summary>
+        public void SetPlayer(Player ThePlayer)
+        {
+            player = ThePlayer;
+            player.SetMap(this);
         }
 
         /// <summary>

@@ -24,8 +24,6 @@ namespace ZuneHack
         RenderTarget2D background;
         Rectangle viewportRect;
 
-        Map map;
-
         GameManager gameManager;
 
         float waitBeforeQuit = 100;
@@ -61,8 +59,7 @@ namespace ZuneHack
         }
 
         /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
+        /// Loads any initial content needed for the game
         /// </summary>
         protected override void LoadContent()
         {
@@ -91,18 +88,13 @@ namespace ZuneHack
         }
 
         /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
+        /// Any created content should be unloaded here
         /// </summary>
         protected override void UnloadContent()
         {
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        // Updates the game with the elapsed time since the last tick
         protected override void Update(GameTime gameTime)
         {
             float timescale = gameTime.ElapsedGameTime.Milliseconds / 100.0f;
@@ -126,10 +118,7 @@ namespace ZuneHack
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        // Draws the game elements
         protected override void Draw(GameTime gameTime)
         {
 #if (ZUNE)

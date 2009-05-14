@@ -108,7 +108,7 @@ namespace ZuneHack
             if (stats.curHealth <= 0)
             {
                 GameManager.GetInstance().AddMessage(String.Format("The {0} dies.", name));
-                GameManager.GetInstance().Map.entities.Remove(this);
+                ownerMap.entities.Remove(this);
             }
         }
 

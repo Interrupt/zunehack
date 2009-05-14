@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ZuneHack
 {
-    class ScreenSplice
+    public class ScreenSplice
     {
         public ScreenSplice(Texture2D Texture, int X, int LineHeight, float Distance, float TexPos, Color Color)
         {
@@ -33,7 +33,7 @@ namespace ZuneHack
         public float z;
     }
 
-    class Raycaster
+    public class Raycaster
     {
         protected Camera camera;
         protected Map map;
@@ -117,7 +117,7 @@ namespace ZuneHack
             int screenWidth = spliceWidth;
             int height = screenDispHeight;
 
-            if (map != GameManager.GetInstance().Map) map = GameManager.GetInstance().Map;
+            //if (map != GameManager.GetInstance().Map) map = GameManager.GetInstance().Map;
 
             for (int x = 0; x < width; x++)
             {

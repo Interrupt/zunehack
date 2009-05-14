@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ZuneHack
 {
-    class Camera
+    public class Camera
     {
         public Vector2 pos;
         public Vector2 dir;

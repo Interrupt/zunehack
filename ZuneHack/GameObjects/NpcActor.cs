@@ -31,7 +31,7 @@ namespace ZuneHack
             if (isAggro && IsVisible())
             {
                 // Finds the direction to move in that will get closer to the player
-                Vector2 playerPos = GameManager.GetInstance().Camera.pos;
+                Vector2 playerPos = ownerMap.Player.pos;
 
                 if(ownerMap.checkLOS((int)pos.X, (int)pos.Y, (int)playerPos.X, (int)playerPos.Y))
                 {
@@ -82,7 +82,7 @@ namespace ZuneHack
                         }
                         else
                         {
-                            MeleeAttack(GameManager.GetInstance().Player);
+                            MeleeAttack(ownerMap.Player);
                         }
                     }
                 }

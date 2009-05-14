@@ -13,7 +13,7 @@ namespace ZuneHack
     /// <summary>
     /// Handles the game state, implements the singleton pattern
     /// </summary>
-    class GameManager
+    public class GameManager
     {
         protected static GameManager instance;
 
@@ -21,16 +21,10 @@ namespace ZuneHack
         protected Hashtable textures;
         protected SpriteFont font;
 
-        protected Player player;
-        protected Camera camera;
-        protected Map map;
-
         public string messages;
         public int numMessages;
 
         protected Random rnd;
-
-        public Player Player { get { return player; } }
 
         public bool doQuit = false;
 
@@ -39,21 +33,17 @@ namespace ZuneHack
 
         public static GameManager GetInstance()
         {
-            if (instance == null) instance = new GameManager(null, null, null);
+            if (instance == null) instance = new GameManager(null);
             return instance;
         }
 
-        public GameManager(Camera Camera, Map Map, ContentManager ContentManager)
+        public GameManager(ContentManager ContentManager)
         {
             gamestates = new Queue<GameState>();
             contentManager = ContentManager;
-            camera = Camera;
-            map = Map;
             textures = new Hashtable();
 
-            player = new Player(new Vector2(21.5f, 11.5f));
             messages = "";
-
             AddMessage("The air here is stale and musty.");
 
             rnd = new Random();
@@ -62,7 +52,6 @@ namespace ZuneHack
         public GameManager Initialize(ContentManager ContentManager)
         {
             contentManager = ContentManager;
-
             return this;
         }
 
@@ -78,22 +67,6 @@ namespace ZuneHack
         }
 
         public Random Random { get { return rnd; } }
-
-        public void SetMap(Map Map)
-        {
-            map = Map;
-        }
-
-        public Map Map
-        {
-            get { return map; }
-        }
-
-        public Camera Camera
-        {
-            get { return camera; }
-            set { camera = value; }
-        }
 
         public SpriteFont Font
         {
@@ -143,22 +116,7 @@ namespace ZuneHack
             if (gamestates.Count > 0)
                 gamestates.Peek().Update(timescale);
 
-            player.pos = camera.pos;
-            player.dir = camera.dir;
-
-            if (player.IsTurnDone())
-            {
-                UpdateTurn();
-            }
-
             Input(timescale);
-
-            player.Update(timescale);
-            for (int i = 0; i < map.entities.Count; i++)
-            {
-                if(player.Stats.curHealth > 0)
-                    map.entities[i].Update(timescale);
-            }
         }
 
         /// <summary>
@@ -182,28 +140,9 @@ namespace ZuneHack
             messages = "";
         }
 
-        public void UpdateTurn()
-        {
-            for (int i = 0; i < map.entities.Count; i++)
-            {
-                if (map.entities[i] as Actor != null)
-                {
-                    ((Actor)map.entities[i]).DoTurn();
-                }
-            }
-
-            player.StartTurn();
-        }
-
         public void Quit()
         {
             doQuit = true;
-        }
-
-        public void GoDownLevel()
-        {
-            map = new Map(map.level + 1, MapType.dungeon);
-            camera.SetPosition(map.GetStairUpLoc());
         }
     }
 }

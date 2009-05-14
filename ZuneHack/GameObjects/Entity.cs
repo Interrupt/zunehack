@@ -15,6 +15,7 @@ namespace ZuneHack
         public Texture2D texture;
         public bool blockMovement = false;
         public bool directional;
+
         protected Map ownerMap;
 
         public Entity()
@@ -71,7 +72,7 @@ namespace ZuneHack
         /// </summary>
         public bool IsVisible()
         {
-            Vector2 playerPos = GameManager.GetInstance().Player.pos;
+            Vector2 playerPos = ownerMap.Player.pos;
             if (Math.Abs(playerPos.X - pos.X) > 15 || Math.Abs(playerPos.Y - pos.Y) > 15) return false;
             return true;
         }
