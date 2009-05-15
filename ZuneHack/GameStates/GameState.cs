@@ -36,7 +36,7 @@ namespace ZuneHack
 
         }
 
-        public virtual void Input(float timescale)
+        public virtual void Input(GamePadState gamepadState, KeyboardState keyState)
         {
 
         }

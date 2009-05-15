@@ -56,7 +56,7 @@ namespace ZuneHack
 
         public void TurnInput(PlayerInput input)
         {
-            GameManager.GetInstance().didTurnAction();
+            ownerMap.Gamestate.didTurnAction();
 
             if (input == PlayerInput.right)
             {
@@ -75,7 +75,7 @@ namespace ZuneHack
                 else
                 {
                     action = new PlayerPauseAction(0.4f);
-                    GameManager.GetInstance().AddMessage("Ouch!");
+                    ownerMap.Gamestate.AddMessage("Ouch!");
                 }
                 EndTurn();
             }
@@ -103,7 +103,7 @@ namespace ZuneHack
                     else
                     {
                         action = new PlayerPauseAction(0.4f);
-                        GameManager.GetInstance().AddMessage("Ouch!");
+                        ownerMap.Gamestate.AddMessage("Ouch!");
                     }
                 }
                 EndTurn();
@@ -115,18 +115,18 @@ namespace ZuneHack
 
                 if (tileType == -2)
                 {
-                    GameManager.GetInstance().AddMessage("You climb down the ladder");
+                    ownerMap.Gamestate.AddMessage("You climb down the ladder");
                     ownerMap.Gamestate.GoDownLevel();
                 }
                 else if (itemHit != null)
                 {
-                    GameManager.GetInstance().AddMessage("You pick up a " + itemHit.Name);
+                    ownerMap.Gamestate.AddMessage("You pick up a " + itemHit.Name);
                     ownerMap.entities.Remove(itemHit);
                     action = new PlayerPauseAction(0.4f);
                 }
                 else
                 {
-                    GameManager.GetInstance().AddMessage("You see nothing here");
+                    ownerMap.Gamestate.AddMessage("You see nothing here");
                 }
 
                 action = new PlayerPauseAction(0.4f);
@@ -139,24 +139,24 @@ namespace ZuneHack
             if (attributes.CheckHit(target.Attributes))
             {
                 int dmgPoints = attributes.CheckMeleeDamage();
-                GameManager.GetInstance().AddMessage(String.Format("You hit the {0} for {1} damage.", target.Name, dmgPoints));
+                ownerMap.Gamestate.AddMessage(String.Format("You hit the {0} for {1} damage.", target.Name, dmgPoints));
                 target.TakeDamage(this, dmgPoints);
             }
             else
             {
-                GameManager.GetInstance().AddMessage(String.Format("Your attack misses the {0}", target.Name));
+                ownerMap.Gamestate.AddMessage(String.Format("Your attack misses the {0}", target.Name));
             }
         }
 
         public override void TakeDamage(Actor from, int dmgPoints)
         {
-            GameManager.GetInstance().AddMessage(String.Format("The {0} attacks for {1} damage.", from.Name, dmgPoints));
+            ownerMap.Gamestate.AddMessage(String.Format("The {0} attacks for {1} damage.", from.Name, dmgPoints));
 
             stats.curHealth -= dmgPoints;
             if (stats.curHealth <= 0)
             {
-                GameManager.GetInstance().AddMessage("You die.");
-                GameManager.GetInstance().Quit();
+                 ownerMap.Gamestate.AddMessage("You die.");
+                GameManager.GetInstance().Quit(100);
             }
         }
 

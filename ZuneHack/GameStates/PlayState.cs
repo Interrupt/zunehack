@@ -14,54 +14,36 @@ namespace ZuneHack
         protected Camera cam;
         protected Map map;
         protected Raycaster raycaster;
+        protected string messages;
+        public int numMessages;
 
+        // Initializes the game state
         public PlayState(GameManager manager) : base(manager)
         {
             cam = new Camera();
             cam.Turn((float)(Math.PI * 2) / 4.0f);
 
-            player = new Player(cam);
-
             raycaster = new Raycaster(cam, -0.35f);
             raycaster.BackgroundGradient = manager.GetTexture("background-gradient");
+
+            messages = "";
+            numMessages = 0;
+        }
+
+        // Runs when the game state starts for the first time
+        public override void Start()
+        {
+            player = new Player(cam);
 
             map = new Map(1, MapType.dungeon, this);
             raycaster.SetMap(map);
 
-            Vector2 startLoc = map.GetStairUpLoc();
-            cam.SetPosition(startLoc);
-        }
-
-        // Returns the current player
-        public Player Player { get { return player; } }
-
-        // Runs each entities turn
-        public void UpdateTurn()
-        {
-            for (int i = 0; i < map.entities.Count; i++)
-            {
-                if (map.entities[i] as Actor != null)
-                {
-                    ((Actor)map.entities[i]).DoTurn();
-                }
-            }
-
-            player.StartTurn();
-        }
-
-        public void GoDownLevel()
-        {
-            // Unload the old map
-            map.entities.Clear();
-
-            // Load a new map
-            map = new Map(map.level + 1, MapType.dungeon, this);
-
-            // Let everything know about the new map
             cam.SetPosition(map.GetStairUpLoc());
-            raycaster.SetMap(map);
+
+            AddMessage("You step down into the musty air of the dungeon.");
         }
 
+        // Occurs on each update tick
         public override void Update(float timescale)
         {
             if (player.IsTurnDone())
@@ -82,6 +64,7 @@ namespace ZuneHack
             raycaster.Update();
         }
 
+        // Draws the state
         public override void Draw(SpriteBatch batch)
         {
             raycaster.Draw(batch);
@@ -92,18 +75,13 @@ namespace ZuneHack
                 player.Stats.curMana,
                 player.Stats.maxMana), new Vector2(2, 2), Color.White);
 
-            if (manager.messages != "")
-                batch.DrawString(manager.Font, manager.messages, new Vector2(2, 240 - (19 * manager.numMessages)), Color.White);
+            if (messages != "")
+                batch.DrawString(manager.Font, messages, new Vector2(2, 240 - (19 * numMessages)), Color.White);
         }
 
-        public override void Input(float timescale)
+        // Takes input for the state
+        public override void Input(GamePadState gamepadState, KeyboardState keyState)
         {
-            float rotSpeed = 0.4f * timescale;
-            float moveSpeed = 0.4f * timescale;
-
-            KeyboardState keyState = Keyboard.GetState(PlayerIndex.One);
-            GamePadState gamepadState = GamePad.GetState(PlayerIndex.One);
-
             if (player.IsActionDone())
             {
                 if (gamepadState.DPad.Right == ButtonState.Pressed || keyState.IsKeyDown(Keys.Down))
@@ -127,6 +105,50 @@ namespace ZuneHack
                     player.TurnInput(PlayerInput.button);
                 }
             }
+        }
+
+        // Returns the current player
+        public Player Player { get { return player; } }
+
+        // Adds a line to the displayed messages
+        public void AddMessage(string newMessage)
+        {
+            messages = messages + "\n" + newMessage;
+            numMessages = messages.Split('\n').Count();
+        }
+
+        // Loads the next map in the dungeon
+        public void GoDownLevel()
+        {
+            // Unload the old map
+            map.entities.Clear();
+
+            // Load a new map
+            map = new Map(map.level + 1, MapType.dungeon, this);
+
+            // Let everything know about the new map
+            cam.SetPosition(map.GetStairUpLoc());
+            raycaster.SetMap(map);
+        }
+
+        // Runs each entities turn
+        public void UpdateTurn()
+        {
+            for (int i = 0; i < map.entities.Count; i++)
+            {
+                if (map.entities[i] as Actor != null)
+                {
+                    ((Actor)map.entities[i]).DoTurn();
+                }
+            }
+
+            player.StartTurn();
+        }
+
+        // Resets things for the next turn
+        public void didTurnAction()
+        {
+            messages = "";
         }
     }
 }

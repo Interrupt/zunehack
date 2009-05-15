@@ -19,7 +19,7 @@
 		intelligence: 1
 	},
 
-	cat: {
+	wildcat: {
 		image: "Actors/cat",
 		agility: 6,
 		speed: 5,
@@ -69,7 +69,7 @@
 		intelligence: 1
 	},
 
-	blueslime: {
+	"blue slime": {
 		image: "Actors/blue-slime",
 		agility: 8,
 		speed: 4,

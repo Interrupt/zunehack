@@ -16,17 +16,13 @@ namespace ZuneHack
     public class GameManager
     {
         protected static GameManager instance;
-
         protected ContentManager contentManager;
         protected Hashtable textures;
         protected SpriteFont font;
-
-        public string messages;
-        public int numMessages;
-
         protected Random rnd;
 
         public bool doQuit = false;
+        public float waitBeforeQuit = 0;
 
         // The queue of gamestates to use
         protected Queue<GameState> gamestates;
@@ -42,9 +38,6 @@ namespace ZuneHack
             gamestates = new Queue<GameState>();
             contentManager = ContentManager;
             textures = new Hashtable();
-
-            messages = "";
-            AddMessage("The air here is stale and musty.");
 
             rnd = new Random();
         }
@@ -99,15 +92,6 @@ namespace ZuneHack
         }
 
         /// <summary>
-        /// Adds a line to the displayed messages
-        /// </summary>
-        public void AddMessage(string newMessage)
-        {
-            messages = messages + "\n" + newMessage;
-            numMessages = messages.Split('\n').Count();
-        }
-
-        /// <summary>
         /// Called every game tick
         /// </summary>
         public void Update(float timescale)
@@ -116,7 +100,7 @@ namespace ZuneHack
             if (gamestates.Count > 0)
                 gamestates.Peek().Update(timescale);
 
-            Input(timescale);
+            Input();
         }
 
         /// <summary>
@@ -129,20 +113,19 @@ namespace ZuneHack
                 gamestates.Peek().Draw(batch);
         }
 
-        public void Input(float timescale)
+        public void Input()
         {
+            KeyboardState keyState = Keyboard.GetState(PlayerIndex.One);
+            GamePadState gamepadState = GamePad.GetState(PlayerIndex.One);
+
             if (gamestates.Count > 0)
-                gamestates.Peek().Input(timescale);
+                gamestates.Peek().Input(gamepadState, keyState);
         }
 
-        public void didTurnAction()
-        {
-            messages = "";
-        }
-
-        public void Quit()
+        public void Quit(float waitTime)
         {
             doQuit = true;
+            waitBeforeQuit = waitTime;
         }
     }
 }

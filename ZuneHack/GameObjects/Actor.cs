@@ -107,7 +107,7 @@ namespace ZuneHack
             stats.curHealth -= dmgPoints;
             if (stats.curHealth <= 0)
             {
-                GameManager.GetInstance().AddMessage(String.Format("The {0} dies.", name));
+                ownerMap.Gamestate.AddMessage(String.Format("The {0} dies.", name));
                 ownerMap.entities.Remove(this);
             }
         }
@@ -133,7 +133,7 @@ namespace ZuneHack
             }
             else
             {
-                GameManager.GetInstance().AddMessage(String.Format("The {0} attacks, but misses.", Name));
+                ownerMap.Gamestate.AddMessage(String.Format("The {0} attacks, but misses.", Name));
             }
         }
 

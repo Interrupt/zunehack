@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\blue.xnb</Output>
-      <Time>2009-04-24T22:23:06.265625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\blue.xnb</Output>
+      <Time>2009-04-20T21:55:20.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\brick-bloody.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-bloody.xnb</Output>
-      <Time>2009-04-24T22:23:06.265625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-bloody.xnb</Output>
+      <Time>2009-04-20T21:55:20.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\brick-grey.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-grey.xnb</Output>
-      <Time>2009-05-06T21:47:39.421875-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-grey.xnb</Output>
+      <Time>2009-05-06T20:12:22.2953538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\brick-torch.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-torch.xnb</Output>
-      <Time>2009-04-24T22:23:06.28125-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-torch.xnb</Output>
+      <Time>2009-04-20T21:55:20.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\door.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\door.xnb</Output>
-      <Time>2009-05-06T21:47:39.421875-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\door.xnb</Output>
+      <Time>2009-05-06T20:23:37.0923538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\green.jpg</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\green.xnb</Output>
-      <Time>2009-04-24T22:23:06.28125-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\green.xnb</Output>
+      <Time>2009-04-20T21:55:20-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\grey.jpg</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\grey.xnb</Output>
-      <Time>2009-04-24T22:23:06.28125-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\grey.xnb</Output>
+      <Time>2009-04-20T21:55:20-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\red.jpg</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\red.xnb</Output>
-      <Time>2009-04-24T22:23:06.28125-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\red.xnb</Output>
+      <Time>2009-04-20T21:55:20-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\Smudge.jpg</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\Smudge.xnb</Output>
-      <Time>2009-04-24T22:23:06.265625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\Smudge.xnb</Output>
+      <Time>2009-04-20T21:55:20-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\bag.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\bag.xnb</Output>
-      <Time>2009-04-24T22:23:06.25-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\bag.xnb</Output>
+      <Time>2009-04-20T21:55:35.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\gold.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\gold.xnb</Output>
-      <Time>2009-04-24T22:23:06.25-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\gold.xnb</Output>
+      <Time>2009-04-20T21:55:35.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-black.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-black.xnb</Output>
-      <Time>2009-04-24T22:23:06.25-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-black.xnb</Output>
+      <Time>2009-04-20T21:55:35-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-blue.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-blue.xnb</Output>
-      <Time>2009-04-24T22:23:06.25-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-blue.xnb</Output>
+      <Time>2009-04-20T21:55:35-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-green.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-green.xnb</Output>
-      <Time>2009-04-24T22:23:06.25-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-green.xnb</Output>
+      <Time>2009-04-20T21:55:35-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-orange.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-orange.xnb</Output>
-      <Time>2009-04-24T22:23:06.25-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-orange.xnb</Output>
+      <Time>2009-04-20T21:55:35-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-purple.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-purple.xnb</Output>
-      <Time>2009-04-24T22:23:06.265625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-purple.xnb</Output>
+      <Time>2009-04-20T21:55:35.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-red.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-red.xnb</Output>
-      <Time>2009-04-24T22:23:06.265625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-red.xnb</Output>
+      <Time>2009-04-20T21:55:35.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion-white.png</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-white.xnb</Output>
-      <Time>2009-04-24T22:23:06.265625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion-white.xnb</Output>
+      <Time>2009-04-20T21:55:35.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\potion.png</Source>
@@ -169,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion.xnb</Output>
-      <Time>2009-04-24T22:23:06.265625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\potion.xnb</Output>
+      <Time>2009-04-20T21:55:35-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\sword.png</Source>
@@ -178,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\sword.xnb</Output>
-      <Time>2009-04-24T22:23:06.265625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\sword.xnb</Output>
+      <Time>2009-04-20T21:55:35.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Deco\column.png</Source>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\column.xnb</Output>
-      <Time>2009-05-03T21:01:04.984375-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\column.xnb</Output>
+      <Time>2009-05-02T06:37:30.9209951-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\goblin.png</Source>
@@ -196,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\goblin.xnb</Output>
-      <Time>2009-05-03T21:01:04.984375-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\goblin.xnb</Output>
+      <Time>2009-05-01T22:18:31.9499951-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\kobold.png</Source>
@@ -205,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\kobold.xnb</Output>
-      <Time>2009-04-24T22:23:06.21875-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\kobold.xnb</Output>
+      <Time>2009-04-20T21:55:58.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\rat.png</Source>
@@ -214,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\rat.xnb</Output>
-      <Time>2009-04-24T22:23:06.21875-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\rat.xnb</Output>
+      <Time>2009-04-20T21:55:58.000005-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\door-grate.png</Source>
@@ -223,8 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\door-grate.xnb</Output>
-      <Time>2009-04-24T22:23:06.28125-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\door-grate.xnb</Output>
+      <Time>2009-04-24T19:56:46.4045716-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\background-gradient.png</Source>
@@ -232,8 +232,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\background-gradient.xnb</Output>
-      <Time>2009-05-03T21:01:05-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\background-gradient.xnb</Output>
+      <Time>2009-05-01T14:10:12.0289951-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Deco\down.png</Source>
@@ -241,8 +241,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\down.xnb</Output>
-      <Time>2009-05-03T21:01:04.984375-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\down.xnb</Output>
+      <Time>2009-05-02T07:00:28.0589951-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Deco\up.png</Source>
@@ -250,8 +250,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\up.xnb</Output>
-      <Time>2009-05-03T21:01:04.984375-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Deco\up.xnb</Output>
+      <Time>2009-05-02T07:01:38.2169951-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Items\moneybag.png</Source>
@@ -259,8 +259,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\moneybag.xnb</Output>
-      <Time>2009-05-03T21:01:05-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Items\moneybag.xnb</Output>
+      <Time>2009-05-01T21:50:35.1439951-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\brick-mossy.png</Source>
@@ -268,8 +268,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-mossy.xnb</Output>
-      <Time>2009-05-06T21:47:39.421875-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\brick-mossy.xnb</Output>
+      <Time>2009-05-06T20:16:58.0553538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\bat.png</Source>
@@ -277,8 +277,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\bat.xnb</Output>
-      <Time>2009-05-06T21:47:39.359375-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\bat.xnb</Output>
+      <Time>2009-05-06T18:50:24.9503538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\mouse.png</Source>
@@ -286,8 +286,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\mouse.xnb</Output>
-      <Time>2009-05-06T21:47:39.375-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\mouse.xnb</Output>
+      <Time>2009-05-06T18:59:13.3593538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\cat.png</Source>
@@ -295,8 +295,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\cat.xnb</Output>
-      <Time>2009-05-06T21:47:39.359375-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\cat.xnb</Output>
+      <Time>2009-05-06T18:55:42.0623538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\r-alien.png</Source>
@@ -304,8 +304,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\r-alien.xnb</Output>
-      <Time>2009-05-06T21:47:39.40625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\r-alien.xnb</Output>
+      <Time>2009-05-06T15:58:31.5303538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\slime.png</Source>
@@ -313,8 +313,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\slime.xnb</Output>
-      <Time>2009-05-06T21:47:39.40625-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\slime.xnb</Output>
+      <Time>2009-05-06T19:19:08.5753538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Actors\blue-slime.png</Source>
@@ -322,8 +322,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\blue-slime.xnb</Output>
-      <Time>2009-05-06T21:47:39.359375-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Actors\blue-slime.xnb</Output>
+      <Time>2009-05-06T19:20:45.4183538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\rockwall.png</Source>
@@ -331,8 +331,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\rockwall.xnb</Output>
-      <Time>2009-05-06T21:47:39.4375-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\rockwall.xnb</Output>
+      <Time>2009-05-06T19:57:55.4833538-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Walls\dirtwall.png</Source>
@@ -340,8 +340,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\dirtwall.xnb</Output>
-      <Time>2009-05-06T21:47:39.421875-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\dirtwall.xnb</Output>
+      <Time>2009-05-06T20:06:57.8213538-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\title.png</Source>
+      <Name>Assets\title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\title.xnb</Output>
+      <Time>2009-05-14T16:30:20.0388-05:00</Time>
     </Item>
     <Item>
       <Source>Assets\Gebrider.spritefont</Source>
@@ -349,43 +358,43 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Gebrider.xnb</Output>
-      <Time>2009-04-26T17:14:08.1875-05:00</Time>
+      <Output>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Gebrider.xnb</Output>
+      <Time>2009-04-27T17:54:56.6015716-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Devspace\ZuneHack\zunehack\ZuneHack\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Devspace\ZuneHack\zunehack\ZuneHack\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Devspace\ZuneHack\zunehack\ZuneHack\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2008-10-10T17:42:32-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
         <Value>2008-10-10T17:43:28-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
         <Value>2008-10-10T17:43:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
         <Value>2008-10-10T17:48:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2008-10-10T17:48:50-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2009-04-09T21:08:48.671875-05:00</Value>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2009-04-23T09:15:24.6773717-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

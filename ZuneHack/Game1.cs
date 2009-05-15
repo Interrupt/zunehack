@@ -26,7 +26,7 @@ namespace ZuneHack
 
         GameManager gameManager;
 
-        float waitBeforeQuit = 100;
+        float waitBeforeQuit = 0;
         float timeWaitedForQuit = 0;
 
         public Game1()
@@ -82,7 +82,7 @@ namespace ZuneHack
             gameManager.LoadTexture(@"Items\sword");
             gameManager.LoadFont(@"Gebrider");
 
-            gameManager.PushState(new PlayState(gameManager));
+            gameManager.PushState(new IntroState(gameManager));
 
             base.LoadContent();
         }
@@ -110,6 +110,9 @@ namespace ZuneHack
             }
             else
             {
+                // If this is the first time here, check how long to wait
+                if (timeWaitedForQuit == 0) waitBeforeQuit = gameManager.waitBeforeQuit;
+
                 timeWaitedForQuit += 2 * timescale;
                 if (timeWaitedForQuit > waitBeforeQuit)
                     this.Exit();
