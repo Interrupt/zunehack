@@ -49,6 +49,49 @@ namespace ZuneHack
         }
     }
 
+    public class WornItems
+    {
+        protected Weapon wpn_equipped;
+        protected Item held_item;
+    }
+
+    /// <summary>
+    /// Inventory class, used to hold the items of an actor
+    /// </summary>
+    public class Inventory
+    {
+        List<Item> inventory;
+
+        public List<Item> Items { get { return inventory; } }
+
+        public Inventory()
+        {
+            inventory = new List<Item>();
+        }
+
+        public void Add(Item item)
+        {
+            inventory.Add(item);
+        }
+
+        public void Remove(Item item)
+        {
+            inventory.Remove(item);
+        }
+
+        public Item GetAt(int index)
+        {
+            return inventory[index];
+        }
+
+        public Item RemoveAt(int index)
+        {
+            Item itm = inventory[index];
+            inventory.RemoveAt(index);
+            return itm;
+        }
+    }
+
     public abstract class Actor : Entity
     {
         protected Attributes attributes;
@@ -62,6 +105,8 @@ namespace ZuneHack
         public Stats Stats { get { return stats; } }
         public Attributes Attributes { get { return attributes; } }
         public string Name { get { return name; } }
+
+        public Inventory inventory;
 
         public Actor()
         {

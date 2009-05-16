@@ -234,3 +234,4 @@ C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Conten
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\Walls\dirtwall.xnb
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Newtonsoft.Json.dll
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\Zune\Debug\Content\Assets\title.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\Zune\Debug\Content\Assets\title.xnb

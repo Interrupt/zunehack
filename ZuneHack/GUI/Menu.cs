@@ -8,7 +8,7 @@ namespace ZuneHack.GUI
     class MenuItem
     {
         public string text;
-        public string value;
+        public object value;
         public bool selected;
     }
 
@@ -17,7 +17,7 @@ namespace ZuneHack.GUI
         protected List<MenuItem> items;
         protected int selectedNum;
 
-        public void AddItem(string text, string value)
+        public void AddItem(string text, object value)
         {
             MenuItem item = new MenuItem();
             item.text = text;

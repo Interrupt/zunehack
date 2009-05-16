@@ -104,6 +104,10 @@ namespace ZuneHack
                 {
                     player.TurnInput(PlayerInput.button);
                 }
+                else if (gamepadState.Buttons.B == ButtonState.Pressed || keyState.IsKeyDown(Keys.Enter))
+                {
+                    manager.PushState(new InventoryState(player, manager));
+                }
             }
         }
 

@@ -25,7 +25,7 @@ namespace ZuneHack
         public float waitBeforeQuit = 0;
 
         // The queue of gamestates to use
-        protected Queue<GameState> gamestates;
+        protected Stack<GameState> gamestates;
 
         public static GameManager GetInstance()
         {
@@ -35,7 +35,7 @@ namespace ZuneHack
 
         public GameManager(ContentManager ContentManager)
         {
-            gamestates = new Queue<GameState>();
+            gamestates = new Stack<GameState>();
             contentManager = ContentManager;
             textures = new Hashtable();
 
@@ -50,13 +50,13 @@ namespace ZuneHack
 
         public void PushState(GameState newstate)
         {
-            gamestates.Enqueue(newstate);
+            gamestates.Push(newstate);
             newstate.Start();
         }
 
         public void PopState()
         {
-            gamestates.Dequeue().End();
+            gamestates.Pop().End();
         }
 
         public Random Random { get { return rnd; } }

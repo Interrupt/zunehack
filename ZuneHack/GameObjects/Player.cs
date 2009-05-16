@@ -12,7 +12,7 @@ namespace ZuneHack
         backward,
         left,
         right,
-        button
+        button,
     }
 
     public class Player : Actor
@@ -39,6 +39,9 @@ namespace ZuneHack
             attributes.constitution = 6;
 
             stats.Initialize(1, attributes);
+
+            // TODO: Give the player some random starting items
+            inventory = new Inventory();
 
             turnDone = false;
         }
@@ -121,6 +124,7 @@ namespace ZuneHack
                 else if (itemHit != null)
                 {
                     ownerMap.Gamestate.AddMessage("You pick up a " + itemHit.Name);
+                    inventory.Add(itemHit);
                     ownerMap.entities.Remove(itemHit);
                     action = new PlayerPauseAction(0.4f);
                 }

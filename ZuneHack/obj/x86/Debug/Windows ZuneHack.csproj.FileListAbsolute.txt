@@ -91,3 +91,4 @@ C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\rockwall.xnb
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\Walls\dirtwall.xnb
 C:\Users\chadc\Documents\Development\Lab\ZuneHack\ZuneHack\bin\x86\Debug\Content\Assets\title.xnb
+C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\title.xnb

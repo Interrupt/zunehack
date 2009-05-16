@@ -74,6 +74,7 @@
     <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameStates\GameState.cs" />
     <Compile Include="GameStates\IntroState.cs" />
+    <Compile Include="GameStates\InventoryState.cs" />
     <Compile Include="GameStates\PlayState.cs" />
     <Compile Include="GUI\Menu.cs" />
     <Compile Include="Helpers\Helpers.cs" />

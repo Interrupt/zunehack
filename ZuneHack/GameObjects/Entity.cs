@@ -52,6 +52,11 @@ namespace ZuneHack
             ownerMap = map;
         }
 
+        public Map GetMap()
+        {
+            return ownerMap;
+        }
+
         /// <summary>
         /// Gets called every game update, used for animation and logic
         /// </summary>

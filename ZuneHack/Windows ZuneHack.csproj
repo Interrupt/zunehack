@@ -62,6 +62,7 @@
     <Compile Include="GameObjects\Monsters.cs" />
     <Compile Include="GameObjects\NpcActor.cs" />
     <Compile Include="GameObjects\Player.cs" />
+    <Compile Include="GameStates\InventoryState.cs" />
     <Compile Include="GameStates\GameState.cs" />
     <Compile Include="GameStates\IntroState.cs" />
     <Compile Include="GameStates\PlayState.cs" />
