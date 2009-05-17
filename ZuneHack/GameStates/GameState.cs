@@ -36,7 +36,7 @@ namespace ZuneHack
 
         }
 
-        public virtual void Input(GamePadState gamepadState, KeyboardState keyState)
+        public virtual void Input(InputStates inputStates)
         {
 
         }

@@ -80,25 +80,25 @@ namespace ZuneHack
             {
                 case WeaponType.Longsword:
                     weaponClass = WeaponClass.Blade;
-                    name = "Longsword";
+                    name = "longsword";
                     texture = GameManager.GetInstance().GetTexture(@"Items\sword");
                     break;
                 case WeaponType.Shortsword:
                     weaponClass = WeaponClass.Blade;
-                    name = "Shortsword";
+                    name = "shortsword";
                     texture = GameManager.GetInstance().GetTexture(@"Items\sword");
                     break;
                 case WeaponType.Axe:
                     weaponClass = WeaponClass.Axe;
-                    name = "Axe";
+                    name = "axe";
                     break;
                 case WeaponType.Club:
                     weaponClass = WeaponClass.Blunt;
-                    name = "Club";
+                    name = "club";
                     break;
                 case WeaponType.Staff:
                     weaponClass = WeaponClass.Blunt;
-                    name = "Staff";
+                    name = "staff";
                     break;
 
             }
@@ -109,7 +109,7 @@ namespace ZuneHack
     {
         public static Item CreateGold(int goldAmount)
         {
-            Item newItem = new Item(ItemType.Money, String.Format("bag of {0} gold", goldAmount));
+            Item newItem = new Item(ItemType.Money, String.Format("{0} gold pieces", goldAmount));
             newItem.Amount = goldAmount;
             newItem.texture = GameManager.GetInstance().GetTexture(@"Items\moneybag");
             return newItem;

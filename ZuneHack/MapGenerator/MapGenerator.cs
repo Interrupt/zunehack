@@ -303,7 +303,7 @@ namespace ZuneHack.Generation
                     Item item = null;
 
                     if (type == 1)
-                        item = ItemCreator.CreateGold(100);
+                        item = ItemCreator.CreateGold(10);
                     else if (type == 2)
                         item = ItemCreator.CreateHealthPotion();
                     else if (type == 3)

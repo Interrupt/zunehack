@@ -10,6 +10,50 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ZuneHack
 {
+    public class InputStates
+    {
+        protected GamePadState curPadState;
+        protected GamePadState prvPadState;
+
+        protected KeyboardState curKeyState;
+        protected KeyboardState prvKeyState;
+
+        public void Tick()
+        {
+            prvPadState = curPadState;
+            prvKeyState = curKeyState;
+
+            curPadState = GamePad.GetState(PlayerIndex.One);
+            curKeyState = Keyboard.GetState(PlayerIndex.One);
+
+            if (prvPadState == null && prvKeyState == null)
+            {
+                prvPadState = curPadState;
+                prvKeyState = curKeyState;
+            }
+        }
+
+        public bool IsButtonPressed(Buttons btn)
+        {
+            return curPadState.IsButtonDown(btn);
+        }
+
+        public bool IsNewButtonPress(Buttons btn)
+        {
+            return curPadState.IsButtonDown(btn) && !prvPadState.IsButtonDown(btn);
+        }
+
+        public bool IsKeyPressed(Keys key)
+        {
+            return curKeyState.IsKeyDown(key);
+        }
+
+        public bool IsNewKeyPress(Keys key)
+        {
+            return curKeyState.IsKeyDown(key) && !prvKeyState.IsKeyDown(key);
+        }
+    }
+
     /// <summary>
     /// Handles the game state, implements the singleton pattern
     /// </summary>
@@ -23,6 +67,8 @@ namespace ZuneHack
 
         public bool doQuit = false;
         public float waitBeforeQuit = 0;
+
+        InputStates input_States;
 
         // The queue of gamestates to use
         protected Stack<GameState> gamestates;
@@ -38,8 +84,8 @@ namespace ZuneHack
             gamestates = new Stack<GameState>();
             contentManager = ContentManager;
             textures = new Hashtable();
-
             rnd = new Random();
+            input_States = new InputStates();
         }
 
         public GameManager Initialize(ContentManager ContentManager)
@@ -96,11 +142,15 @@ namespace ZuneHack
         /// </summary>
         public void Update(float timescale)
         {
+            //Update the input states
+            input_States.Tick();
+
             // Update the game states
             if (gamestates.Count > 0)
+            {
                 gamestates.Peek().Update(timescale);
-
-            Input();
+                gamestates.Peek().Input(input_States);
+            }
         }
 
         /// <summary>
@@ -111,15 +161,6 @@ namespace ZuneHack
             // Draw the game states
             if(gamestates.Count > 0)
                 gamestates.Peek().Draw(batch);
-        }
-
-        public void Input()
-        {
-            KeyboardState keyState = Keyboard.GetState(PlayerIndex.One);
-            GamePadState gamepadState = GamePad.GetState(PlayerIndex.One);
-
-            if (gamestates.Count > 0)
-                gamestates.Peek().Input(gamepadState, keyState);
         }
 
         public void Quit(float waitTime)

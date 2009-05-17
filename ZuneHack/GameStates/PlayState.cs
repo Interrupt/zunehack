@@ -80,31 +80,31 @@ namespace ZuneHack
         }
 
         // Takes input for the state
-        public override void Input(GamePadState gamepadState, KeyboardState keyState)
+        public override void Input(InputStates inputStates)
         {
             if (player.IsActionDone())
             {
-                if (gamepadState.DPad.Right == ButtonState.Pressed || keyState.IsKeyDown(Keys.Down))
+                if (inputStates.IsButtonPressed(Buttons.DPadRight) || inputStates.IsKeyPressed(Keys.Down))
                 {
                     player.TurnInput(PlayerInput.backward);
                 }
-                else if (gamepadState.DPad.Left == ButtonState.Pressed || keyState.IsKeyDown(Keys.Up))
+                else if (inputStates.IsButtonPressed(Buttons.DPadLeft) || inputStates.IsKeyPressed(Keys.Up))
                 {
                     player.TurnInput(PlayerInput.forward);
                 }
-                else if (gamepadState.DPad.Up == ButtonState.Pressed || keyState.IsKeyDown(Keys.Right))
+                else if (inputStates.IsButtonPressed(Buttons.DPadUp) || inputStates.IsKeyPressed(Keys.Right))
                 {
                     player.TurnInput(PlayerInput.right);
                 }
-                else if (gamepadState.DPad.Down == ButtonState.Pressed || keyState.IsKeyDown(Keys.Left))
+                else if (inputStates.IsButtonPressed(Buttons.DPadDown) || inputStates.IsKeyPressed(Keys.Left))
                 {
                     player.TurnInput(PlayerInput.left);
                 }
-                else if (gamepadState.Buttons.A == ButtonState.Pressed || keyState.IsKeyDown(Keys.Space))
+                else if (inputStates.IsNewButtonPress(Buttons.A) || inputStates.IsNewKeyPress(Keys.Space))
                 {
                     player.TurnInput(PlayerInput.button);
                 }
-                else if (gamepadState.Buttons.B == ButtonState.Pressed || keyState.IsKeyDown(Keys.Enter))
+                else if (inputStates.IsNewButtonPress(Buttons.B) || inputStates.IsNewKeyPress(Keys.Enter))
                 {
                     manager.PushState(new InventoryState(player, manager));
                 }

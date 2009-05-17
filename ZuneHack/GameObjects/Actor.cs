@@ -71,7 +71,22 @@ namespace ZuneHack
 
         public void Add(Item item)
         {
-            inventory.Add(item);
+            if (item.Type != ItemType.Money)
+            {
+                inventory.Add(item);
+            }
+            else
+            {
+                Item gold = FindGold();
+                if (gold == null)
+                {
+                    gold = new Item(ItemType.Money);
+                    inventory.Add(gold);
+                }
+
+                gold.Amount += item.Amount;
+                gold.Name = String.Format("{0} gold pieces", gold.Amount);
+            }
         }
 
         public void Remove(Item item)
@@ -89,6 +104,15 @@ namespace ZuneHack
             Item itm = inventory[index];
             inventory.RemoveAt(index);
             return itm;
+        }
+
+        protected Item FindGold()
+        {
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                if (inventory[i].Type == ItemType.Money) return inventory[i];
+            }
+            return null;
         }
     }
 

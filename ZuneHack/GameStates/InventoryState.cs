@@ -60,9 +60,9 @@ namespace ZuneHack
             }
         }
 
-        public override void Input(GamePadState gamepadState, KeyboardState keyState)
+        public override void Input(InputStates input)
         {
-            if (gamepadState.Buttons.A == ButtonState.Pressed || keyState.IsKeyDown(Keys.Space))
+            if (input.IsNewButtonPress(Buttons.A) || input.IsNewKeyPress(Keys.Space))
             {
                 if (mnu_inv.Count() < 1)
                 {
@@ -76,45 +76,28 @@ namespace ZuneHack
                     Item itm = ((Item)selected.value);
                     if (itm.Type == ItemType.Potion)
                     {
-                        player.inventory.Remove(itm);
-
                         player.AddHealth(player, itm.Amount);
+                        player.inventory.Remove(itm);
 
                         player.GetMap().Gamestate.AddMessage("You quaff the potion");
                         player.GetMap().Gamestate.AddMessage("You feel better");
+
+                        manager.PopState();
                     }
-
-                    manager.PopState();
                 }
             }
 
-            if (gamepadState.DPad.Right == ButtonState.Pressed || keyState.IsKeyDown(Keys.Down))
+            if (input.IsNewButtonPress(Buttons.DPadRight) || input.IsNewKeyPress(Keys.Down))
             {
-                if (!UpWasPressed)
-                {
-                    UpWasPressed = true;
-                    mnu_inv.Select(mnu_inv.GetSelectedIndex() + 1);
-                }
-            }
-            else
-            {
-                UpWasPressed = false;
+                mnu_inv.Select(mnu_inv.GetSelectedIndex() + 1);
             }
 
-            if (gamepadState.DPad.Left == ButtonState.Pressed || keyState.IsKeyDown(Keys.Up))
+            if (input.IsNewButtonPress(Buttons.DPadLeft) || input.IsNewKeyPress(Keys.Up))
             {
-                if (!DownWasPressed)
-                {
-                    DownWasPressed = true;
-                    mnu_inv.Select(mnu_inv.GetSelectedIndex() - 1);
-                }
-            }
-            else
-            {
-                DownWasPressed = false;
+                mnu_inv.Select(mnu_inv.GetSelectedIndex() - 1);
             }
 
-            if (gamepadState.Buttons.B == ButtonState.Pressed || keyState.IsKeyDown(Keys.Escape))
+            if (input.IsNewButtonPress(Buttons.B) || input.IsNewKeyPress(Keys.Enter))
             {
                 manager.PopState();
             }

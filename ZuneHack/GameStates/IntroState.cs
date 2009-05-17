@@ -59,9 +59,9 @@ namespace ZuneHack
             }
         }
 
-        public override void Input(GamePadState gamepadState, KeyboardState keyState)
+        public override void Input(InputStates input)
         {
-            if (gamepadState.Buttons.A == ButtonState.Pressed || keyState.IsKeyDown(Keys.Space))
+            if (input.IsNewButtonPress(Buttons.A) || input.IsNewKeyPress(Keys.Space))
             {
                 MenuItem selected = mainMenu.GetSelectedItem();
                 if (selected != null)
@@ -82,30 +82,14 @@ namespace ZuneHack
                 }
             }
 
-            if (gamepadState.DPad.Right == ButtonState.Pressed || keyState.IsKeyDown(Keys.Down))
+            if (input.IsNewButtonPress(Buttons.DPadRight) || input.IsNewKeyPress(Keys.Down))
             {
-                if (!UpWasPressed)
-                {
-                    UpWasPressed = true;
-                    mainMenu.Select(mainMenu.GetSelectedIndex() + 1);
-                }
-            }
-            else
-            {
-                UpWasPressed = false;
+                mainMenu.Select(mainMenu.GetSelectedIndex() + 1);
             }
 
-            if (gamepadState.DPad.Left == ButtonState.Pressed || keyState.IsKeyDown(Keys.Up))
+            if (input.IsNewButtonPress(Buttons.DPadLeft) || input.IsNewKeyPress(Keys.Up))
             {
-                if (!DownWasPressed)
-                {
-                    DownWasPressed = true;
-                    mainMenu.Select(mainMenu.GetSelectedIndex() - 1);
-                }
-            }
-            else
-            {
-                DownWasPressed = false;
+                mainMenu.Select(mainMenu.GetSelectedIndex() - 1);
             }
         }
     }
