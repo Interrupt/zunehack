@@ -43,6 +43,9 @@ namespace ZuneHack
             // TODO: Give the player some random starting items
             inventory = new Inventory();
 
+            inventory.Add(ItemCreator.CreateGold(10));
+            inventory.Add(ItemCreator.CreateHealthPotion());
+
             turnDone = false;
         }
 
@@ -123,7 +126,10 @@ namespace ZuneHack
                 }
                 else if (itemHit != null)
                 {
-                    ownerMap.Gamestate.AddMessage("You pick up a " + itemHit.Name);
+                    string message = "You pick up a ";
+                    if (itemHit.Amount > 1) message = "You pick up ";
+
+                    ownerMap.Gamestate.AddMessage(message + itemHit.Name);
                     inventory.Add(itemHit);
                     ownerMap.entities.Remove(itemHit);
                     action = new PlayerPauseAction(0.4f);

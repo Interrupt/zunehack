@@ -99,10 +99,6 @@ namespace ZuneHack
         {
             float timescale = gameTime.ElapsedGameTime.Milliseconds / 100.0f;
 
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
             // Update the game, unless we should quit
             if (!gameManager.doQuit)
             {

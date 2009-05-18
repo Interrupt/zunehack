@@ -118,7 +118,6 @@ namespace ZuneHack
         public static Item CreateHealthPotion()
         {
             Item newItem = new Item(ItemType.Potion, "potion of health");
-            newItem.Amount = 10;
             newItem.texture = GameManager.GetInstance().GetTexture(@"Items\potion-red");
             return newItem;
         }

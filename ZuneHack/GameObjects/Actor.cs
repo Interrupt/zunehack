@@ -80,12 +80,14 @@ namespace ZuneHack
                 Item gold = FindGold();
                 if (gold == null)
                 {
-                    gold = new Item(ItemType.Money);
-                    inventory.Add(gold);
+                    inventory.Add(item);
+                    item.Name = String.Format("{0} gold pieces", item.Amount);
                 }
-
-                gold.Amount += item.Amount;
-                gold.Name = String.Format("{0} gold pieces", gold.Amount);
+                else
+                {
+                    gold.Amount += item.Amount;
+                    gold.Name = String.Format("{0} gold pieces", gold.Amount);
+                }
             }
         }
 

@@ -9,18 +9,18 @@ using ZuneHack.GUI;
 
 namespace ZuneHack
 {
-    class IntroState : GameState
+    class PauseState : GameState
     {
         Texture2D bg;
         Menu mainMenu;
 
-        public IntroState(GameManager manager) : base(manager)
+        public PauseState(GameManager manager)
+            : base(manager)
         {
             bg = manager.LoadTexture("title");
 
-            mainMenu = new Menu();
-            mainMenu.AddItem("New Adventurer", "new");
-            //mainMenu.AddItem("Continue", "continue");
+            mainMenu = new Menu(3);
+            mainMenu.AddItem("Continue", "resume");
             mainMenu.AddItem("Quit", "quit");
         }
 
@@ -52,14 +52,9 @@ namespace ZuneHack
                 MenuItem selected = mainMenu.GetSelectedItem();
                 if (selected != null)
                 {
-                    if ((string)selected.value == "new")
+                    if ((string)selected.value == "resume")
                     {
                         manager.PopState();
-                        manager.PushState(new PlayState(manager));
-                    }
-                    else if ((string)selected.value == "continue")
-                    {
-                        // TODO: Implement loading a game to continue
                     }
                     else if ((string)selected.value == "quit")
                     {

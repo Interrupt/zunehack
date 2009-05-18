@@ -82,6 +82,12 @@ namespace ZuneHack
         // Takes input for the state
         public override void Input(InputStates inputStates)
         {
+            // Shows the pause screen
+            if (inputStates.IsNewButtonPress(Buttons.Back) || inputStates.IsNewKeyPress(Keys.Escape))
+            {
+                manager.PushState(new PauseState(manager));
+            }
+
             if (player.IsActionDone())
             {
                 if (inputStates.IsButtonPressed(Buttons.DPadRight) || inputStates.IsKeyPressed(Keys.Down))

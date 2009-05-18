@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace ZuneHack.GUI
 {
@@ -16,6 +18,18 @@ namespace ZuneHack.GUI
     {
         protected List<MenuItem> items;
         protected int selectedNum;
+        protected int visibleLength;
+        protected int scrollPos = 0;
+
+        public Menu()
+        {
+            visibleLength = 9;
+        }
+
+        public Menu(int numShown)
+        {
+            visibleLength = numShown;
+        }
 
         public void AddItem(string text, object value)
         {
@@ -85,6 +99,30 @@ namespace ZuneHack.GUI
                 return items[selectedNum];
             }
             return null;
+        }
+
+        /// <summary>
+        /// Draws the menu as a simple list
+        /// </summary>
+        public void DrawList(SpriteFont font, SpriteBatch batch, Vector2 pos, Vector2 spacing)
+        {
+            if (items == null) return;
+
+            if (items.Count > visibleLength)
+            {
+                if (selectedNum > (visibleLength - 1) + scrollPos) scrollPos++;
+                else if (selectedNum < scrollPos) scrollPos--;
+            }
+
+            for (int i = scrollPos; i < scrollPos + visibleLength && i < items.Count; i++)
+            {
+                MenuItem item = items[i];
+                if (item != null)
+                {
+                    batch.DrawString(font, item.text, pos, item.selected == true ? Color.White : Color.DarkGray);
+                    pos += spacing;
+                }
+            }
         }
     }
 }
