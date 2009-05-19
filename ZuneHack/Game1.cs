@@ -79,6 +79,9 @@ namespace ZuneHack
             gameManager.LoadTexture(@"background-gradient");
             gameManager.LoadTexture(@"Items\moneybag");
             gameManager.LoadTexture(@"Items\potion-red");
+            gameManager.LoadTexture(@"Items\potion-blue");
+            gameManager.LoadTexture(@"Items\potion-orange");
+            gameManager.LoadTexture(@"Items\potion-green");
             gameManager.LoadTexture(@"Items\sword");
             gameManager.LoadFont(@"Gebrider");
 

@@ -44,7 +44,8 @@ namespace ZuneHack
             inventory = new Inventory();
 
             inventory.Add(ItemCreator.CreateGold(10));
-            inventory.Add(ItemCreator.CreateHealthPotion());
+            inventory.Add(new Potion(PotionType.Health));
+            inventory.Add(new Weapon(WeaponType.Dagger));
 
             turnDone = false;
         }

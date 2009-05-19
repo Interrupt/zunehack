@@ -47,13 +47,13 @@ namespace ZuneHack
             mnu_inv = new Menu();
             List<Item> inv = player.inventory.Items;
 
-            if (filter == "weapons")
-                inv = inv.Where(p => p.Type == ItemType.Weapon).ToList();
-            else if (filter == "potions")
-                inv = inv.Where(p => p.Type == ItemType.Potion).ToList();
-            else if (filter == "scrolls")
+            if (filter == "equippable")
+                inv = inv.Where(p => p.Type == ItemType.Weapon || p.Type == ItemType.Armor).ToList();
+            else if (filter == "useable")
+                inv = inv.Where(p => p.Type == ItemType.Potion || p.Type == ItemType.Wand).ToList();
+            else if (filter == "readable")
                 inv = inv.Where(p => p.Type == ItemType.Scroll).ToList();
-            else if (filter == "food")
+            else if (filter == "edible")
                 inv = inv.Where(p => p.Type == ItemType.Food).ToList();
 
             for (int i = 0; i < inv.Count; i++)
@@ -99,13 +99,13 @@ namespace ZuneHack
                         else if ((string)selected.value == "equip")
                         {
                             onSecondaryList = true;
-                            MakeInventoryList("weapons");
+                            MakeInventoryList("equippable");
                             secondaryTitle = "Equip Which?";
                         }
                         else if ((string)selected.value == "use")
                         {
                             onSecondaryList = true;
-                            MakeInventoryList("potions");
+                            MakeInventoryList("useable");
                             secondaryTitle = "Use Which?";
                         }
                         else if ((string)selected.value == "drop")
@@ -117,7 +117,7 @@ namespace ZuneHack
                         else if ((string)selected.value == "read")
                         {
                             onSecondaryList = true;
-                            MakeInventoryList("scrolls");
+                            MakeInventoryList("readable");
                             secondaryTitle = "Read Which?";
                         }
                     }
@@ -179,11 +179,29 @@ namespace ZuneHack
         {
             if (itm.Type == ItemType.Potion)
             {
-                player.AddHealth(player, 4);
+                PotionType type = ((Potion)itm).potionType;
+                player.GetMap().Gamestate.AddMessage("You quaff the potion");
                 player.inventory.Remove(itm);
 
-                player.GetMap().Gamestate.AddMessage("You quaff the potion");
-                player.GetMap().Gamestate.AddMessage("You feel better");
+                if (type == PotionType.Health)
+                {
+                    player.AddHealth(player, 6);
+                    player.GetMap().Gamestate.AddMessage("You are soothed");
+                }
+                else if (type == PotionType.Magic)
+                {
+                    player.AddMana(player, 6);
+                    player.GetMap().Gamestate.AddMessage("Magic courses through you");
+                }
+                else if (type == PotionType.Poison)
+                {
+                    player.TakeDamage(player, 4);
+                    player.GetMap().Gamestate.AddMessage("You burn from within");
+                }
+                else if (type == PotionType.Speed)
+                {
+                    player.GetMap().Gamestate.AddMessage("Your thoughts race");
+                }
 
                 manager.PopState();
             }
@@ -209,7 +227,22 @@ namespace ZuneHack
 
         public void Equip(Item itm)
         {
+            if (itm as Weapon != null)
+            {
+                if (player.inventory.equipped != itm)
+                {
+                    player.inventory.equipped = itm as Weapon;
+                    player.GetMap().Gamestate.AddMessage("You equip a " + itm.Name);
+                }
+                else
+                {
+                    // Unequip this weapon
+                    player.GetMap().Gamestate.AddMessage("You unequip a " + itm.Name);
+                    player.inventory.equipped = null;
+                }
+            }
 
+            manager.PopState();
         }
 
         public void View(Item itm)

@@ -299,16 +299,26 @@ namespace ZuneHack.Generation
                     bool doMake = rnd.Next(-4, 2) >= 0;
                     if (!doMake) return;
 
-                    int type = rnd.Next(1, 4);
+                    // Pick a random type
+                    ItemType type = (ItemType)Enum.ToObject(typeof(ItemType), rnd.Next(1, 5));
                     Item item = null;
 
-                    if (type == 1)
-                        item = ItemCreator.CreateGold(10);
-                    else if (type == 2)
-                        item = ItemCreator.CreateHealthPotion();
-                    else if (type == 3)
-                        item = new Weapon(WeaponType.Longsword);
+                    // Create an item
+                    if (type == ItemType.Money)
+                    {
+                        item = ItemCreator.CreateGold(rnd.Next(4, 17));
+                    }
+                    else if (type == ItemType.Potion)
+                    {
+                        item = new Potion((PotionType)Enum.ToObject(typeof(PotionType),rnd.Next(1,5)));
+                    }
+                    else if (type == ItemType.Weapon)
+                    {
+                        WeaponType wpnType = (WeaponType)Enum.ToObject(typeof(WeaponType), rnd.Next(1, 9));
+                        item = new Weapon(wpnType);
+                    }
 
+                    // Add the item, if one was created
                     if (item != null)
                     {
                         item.pos = new Vector2(x + 0.5f, y + 0.5f);

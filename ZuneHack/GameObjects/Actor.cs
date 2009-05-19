@@ -63,6 +63,7 @@ namespace ZuneHack
         List<Item> inventory;
 
         public List<Item> Items { get { return inventory; } }
+        public Weapon equipped;
 
         public Inventory()
         {
@@ -200,7 +201,12 @@ namespace ZuneHack
         {
             if (attributes.CheckHit(target.Attributes))
             {
-                target.TakeDamage(this, attributes.CheckMeleeDamage());
+                int attack_damage = attributes.CheckMeleeDamage();
+
+                if (inventory != null && inventory.equipped != null)
+                    attack_damage += GameManager.GetInstance().Random.Next(1, inventory.equipped.Damage);
+
+                target.TakeDamage(this, attack_damage);
             }
             else
             {
