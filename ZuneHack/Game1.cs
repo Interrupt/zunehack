@@ -83,6 +83,11 @@ namespace ZuneHack
             gameManager.LoadTexture(@"Items\potion-orange");
             gameManager.LoadTexture(@"Items\potion-green");
             gameManager.LoadTexture(@"Items\sword");
+            gameManager.LoadTexture(@"Items\shortsword");
+            gameManager.LoadTexture(@"Items\dagger");
+            gameManager.LoadTexture(@"Items\axe");
+            gameManager.LoadTexture(@"Items\club");
+            gameManager.LoadTexture(@"Items\staff");
             gameManager.LoadFont(@"Gebrider");
 
             gameManager.PushState(new IntroState(gameManager));

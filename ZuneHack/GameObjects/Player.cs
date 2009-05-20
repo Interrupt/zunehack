@@ -149,9 +149,13 @@ namespace ZuneHack
         {
             if (attributes.CheckHit(target.Attributes))
             {
-                int dmgPoints = attributes.CheckMeleeDamage();
-                ownerMap.Gamestate.AddMessage(String.Format("You hit the {0} for {1} damage.", target.Name, dmgPoints));
-                target.TakeDamage(this, dmgPoints);
+                int attack_damage = attributes.CheckMeleeDamage();
+
+                if (inventory != null && inventory.equipped != null)
+                    attack_damage += GameManager.GetInstance().Random.Next(1, inventory.equipped.Damage + 1);
+
+                ownerMap.Gamestate.AddMessage(String.Format("You hit the {0} for {1} damage.", target.Name, attack_damage));
+                target.TakeDamage(this, attack_damage);
             }
             else
             {
@@ -161,7 +165,8 @@ namespace ZuneHack
 
         public override void TakeDamage(Actor from, int dmgPoints)
         {
-            ownerMap.Gamestate.AddMessage(String.Format("The {0} attacks for {1} damage.", from.Name, dmgPoints));
+            if(from != this)
+                ownerMap.Gamestate.AddMessage(String.Format("The {0} attacks for {1} damage.", from.Name, dmgPoints));
 
             stats.curHealth -= dmgPoints;
             if (stats.curHealth <= 0)

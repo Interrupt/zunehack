@@ -162,7 +162,7 @@ namespace ZuneHack
                 case WeaponType.Dagger:
                     name = "dagger";
                     weaponClass = WeaponClass.Blade;
-                    texture = GameManager.GetInstance().GetTexture(@"Items\sword");
+                    texture = GameManager.GetInstance().GetTexture(@"Items\dagger");
                     damage = 2;
                     break;
                 case WeaponType.Longsword:
@@ -174,37 +174,37 @@ namespace ZuneHack
                 case WeaponType.Shortsword:
                     name = "shortsword";
                     weaponClass = WeaponClass.Blade;
-                    texture = GameManager.GetInstance().GetTexture(@"Items\sword");
+                    texture = GameManager.GetInstance().GetTexture(@"Items\shortsword");
                     damage = 4;
                     break;
                 case WeaponType.Axe:
                     name = "axe";
                     weaponClass = WeaponClass.Axe;
-                    texture = GameManager.GetInstance().GetTexture(@"Items\sword");
+                    texture = GameManager.GetInstance().GetTexture(@"Items\axe");
                     damage = 5;
                     break;
                 case WeaponType.Waraxe:
                     name = "waraxe";
                     weaponClass = WeaponClass.Axe;
-                    texture = GameManager.GetInstance().GetTexture(@"Items\sword");
+                    texture = GameManager.GetInstance().GetTexture(@"Items\axe");
                     damage = 7;
                     break;
                 case WeaponType.Club:
                     name = "club";
                     weaponClass = WeaponClass.Blunt;
-                    texture = GameManager.GetInstance().GetTexture(@"Items\sword");
+                    texture = GameManager.GetInstance().GetTexture(@"Items\club");
                     damage = 3;
                     break;
                 case WeaponType.Staff:
                     name = "staff";
                     weaponClass = WeaponClass.Blunt;
-                    texture = GameManager.GetInstance().GetTexture(@"Items\sword");
+                    texture = GameManager.GetInstance().GetTexture(@"Items\staff");
                     damage = 6;
                     break;
                 case WeaponType.Spear:
                     name = "spear";
                     weaponClass = WeaponClass.Piercing;
-                    texture = GameManager.GetInstance().GetTexture(@"Items\sword");
+                    texture = GameManager.GetInstance().GetTexture(@"Items\staff");
                     damage = 8;
                     break;
             }

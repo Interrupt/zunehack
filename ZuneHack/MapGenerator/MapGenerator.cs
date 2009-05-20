@@ -295,12 +295,12 @@ namespace ZuneHack.Generation
             {
                 for (int y = area.Top; y < area.Bottom; y++)
                 {
-                    // A 1 in 10 chance of making an item
-                    bool doMake = rnd.Next(-4, 2) >= 0;
+                    // A 15% chance of making an item
+                    bool doMake = rnd.Next(0, 100) < 35;
                     if (!doMake) return;
 
                     // Pick a random type
-                    ItemType type = (ItemType)Enum.ToObject(typeof(ItemType), rnd.Next(1, 5));
+                    ItemType type = (ItemType)Enum.ToObject(typeof(ItemType), rnd.Next(1, 4));
                     Item item = null;
 
                     // Create an item

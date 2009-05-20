@@ -204,7 +204,7 @@ namespace ZuneHack
                 int attack_damage = attributes.CheckMeleeDamage();
 
                 if (inventory != null && inventory.equipped != null)
-                    attack_damage += GameManager.GetInstance().Random.Next(1, inventory.equipped.Damage);
+                    attack_damage += GameManager.GetInstance().Random.Next(1, inventory.equipped.Damage + 1);
 
                 target.TakeDamage(this, attack_damage);
             }
