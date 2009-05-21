@@ -83,9 +83,6 @@ namespace ZuneHack
             mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\brick-torch");
             mapTextures[mdx++] = GameManager.GetInstance().GetTexture(@"Walls\door");
 
-            AddEntity(new Rat(1, new Vector2(20.5f, 12.5f)));
-            AddEntity(new Kobold(1, new Vector2(1.5f, 19.5f)));
-            AddEntity(new Goblin(1, new Vector2(2.5f, 2.5f)));
             AddEntity(new Entity(new Vector2(2.5f, 3.5f), @"Deco\column", true));
             AddEntity(new Entity(new Vector2(3.5f, 2.5f), @"Deco\column", true));
             AddEntity(new Door(new Vector2(19.5f, 10.5f), @"Walls\door", true, true));

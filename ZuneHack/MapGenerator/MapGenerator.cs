@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Storage;
 using System.Collections;
 using Newtonsoft.Json;
 using ZuneHack;
+using ZuneHack.DataLoader;
 
 namespace ZuneHack.Generation
 {
@@ -49,6 +50,7 @@ namespace ZuneHack.Generation
         int height;
         List<Connector> available_conns;
         List<MonsterData> monsters;
+        List<WeaponData> weapons;
         Random rnd;
 
         public MapGenerator(MapType Type, Map Map)
@@ -70,7 +72,8 @@ namespace ZuneHack.Generation
             map.entities = new List<Entity>();
 
             SetTypeTextures();
-            monsters = LoadMonsters();
+            monsters = Loader.LoadMonsters();
+            weapons = Loader.LoadWeapons();
 
             // Fills map
             FillRandRect(0, 0, width - 1, height - 1, 1, 3);
@@ -314,8 +317,8 @@ namespace ZuneHack.Generation
                     }
                     else if (type == ItemType.Weapon)
                     {
-                        WeaponType wpnType = (WeaponType)Enum.ToObject(typeof(WeaponType), rnd.Next(1, 9));
-                        item = new Weapon(wpnType);
+                        WeaponData wpnData = weapons[rnd.Next(0, weapons.Count)];
+                        item = new Weapon(wpnData);
                     }
 
                     // Add the item, if one was created
@@ -410,60 +413,6 @@ namespace ZuneHack.Generation
             int f = (int)first % 2;
             int s = (int)second % 2;
             return f == s;
-        }
-
-        protected static List<MonsterData> LoadMonsters()
-        {
-            string path = StorageContainer.TitleLocation + @"\Data\monsters.json";
-            System.IO.TextReader reader = new System.IO.StreamReader(path);
-            List<MonsterData> monsters = new List<MonsterData>();
-
-            Hashtable cur = null;
-
-            // Read through each object in the file
-            JsonTextReader json = new JsonTextReader(reader);
-            while (json.Read())
-            {
-                if (json.Value == null && (json.TokenType == JsonToken.StartObject || json.TokenType == JsonToken.EndObject))
-                {
-                    json.Read();
-                    if (json.TokenType == JsonToken.PropertyName)
-                    {
-                        if (cur != null) monsters.Add(MonsterFromHash(cur));
-                        cur = new Hashtable();
-                        cur["name"] = (string)json.Value;
-                        json.Read();
-                    }
-                }
-                else if(json.TokenType == JsonToken.PropertyName)
-                {
-                    string val = (string)json.Value;
-                    json.Read();
-                    cur[val] = json.Value;
-                }
-            }
-
-            // Add the last monster
-            if (cur != null) monsters.Add(MonsterFromHash(cur));
-
-            return monsters;
-        }
-
-        protected static MonsterData MonsterFromHash(Hashtable data)
-        {
-            MonsterData mon = new MonsterData();
-            mon.name = (string)data["name"];
-            mon.image = (string)data["image"];
-            mon.level = 1;
-
-            mon.attribs.agility = Convert.ToInt32(data["agility"]);
-            mon.attribs.constitution = Convert.ToInt32(data["constitution"]);
-            mon.attribs.endurance = Convert.ToInt32(data["endurance"]);
-            mon.attribs.intelligence = Convert.ToInt32(data["intelligence"]);
-            mon.attribs.speed = Convert.ToInt32(data["speed"]);
-            mon.attribs.strength = Convert.ToInt32(data["strength"]);
-
-            return mon;
         }
     }
 }

@@ -1,0 +1,50 @@
+{
+	dagger: {
+		image: "Items/dagger",
+		class: "Blade",
+		damage: 2,
+		lvl: 1
+	},
+	
+	shortsword: {
+		image: "Items/shortsword",
+		class: "Blade",
+		damage: 3,
+		lvl: 1
+	},
+	
+	longsword: {
+		image: "Items/sword",
+		class: "Blade",
+		damage: 5,
+		lvl: 1
+	},
+	
+	"hand axe": {
+		image: "Items/axe",
+		class: "Axe",
+		damage: 3,
+		lvl: 1
+	},
+	
+	axe: {
+		image: "Items/axe",
+		class: "Axe",
+		damage: 5,
+		lvl: 1
+	},
+	
+	club: {
+		image: "Items/club",
+		class: "Blunt",
+		damage: 2,
+		lvl: 1
+	},
+	
+	staff: {
+		image: "Items/staff",
+		class: "Blunt",
+		damage: 3,
+		lvl: 1
+	}
+}

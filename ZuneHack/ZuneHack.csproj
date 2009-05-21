@@ -66,9 +66,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="DataLoader\DataLoader.cs" />
     <Compile Include="GameObjects\ActorAction.cs" />
     <Compile Include="GameObjects\Actor.cs" />
-    <Compile Include="GameObjects\Items.cs" />
+    <Compile Include="GameObjects\Items\Armor.cs" />
+    <Compile Include="GameObjects\Items\Item.cs" />
+    <Compile Include="GameObjects\Items\Potion.cs" />
+    <Compile Include="GameObjects\Items\Weapon.cs" />
     <Compile Include="GameObjects\Monsters.cs" />
     <Compile Include="GameObjects\NpcActor.cs" />
     <Compile Include="GameObjects\Player.cs" />
@@ -101,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\monsters.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\weapons.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
