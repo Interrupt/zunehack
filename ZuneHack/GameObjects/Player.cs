@@ -27,7 +27,7 @@ namespace ZuneHack
 
         public Player(Camera cam)
         {
-            // The camera for the player to look out of
+            inventory = new Inventory();
             camera = cam;
 
             // Bam, average player.
@@ -38,15 +38,17 @@ namespace ZuneHack
             attributes.speed = 5;
             attributes.constitution = 6;
 
+            // Set the players stats from their attributes
             stats.Initialize(1, attributes);
 
-            // TODO: Give the player some random starting items
-            inventory = new Inventory();
-
-            inventory.Add(ItemCreator.CreateGold(10));
-            inventory.Add(new Potion(PotionType.Health));
-
             turnDone = false;
+        }
+
+        public void CreateStartingItems()
+        {
+            // Add some starting items
+            inventory.Add(GetMap().Gamestate.MakeWeapon("dagger"));
+            inventory.Add(new Potion(PotionType.Health));
         }
 
         public void EndTurn()

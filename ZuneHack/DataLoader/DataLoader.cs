@@ -13,11 +13,25 @@ namespace ZuneHack.DataLoader
 {
     class Loader
     {
-        public static List<MonsterData> LoadMonsters()
+        /// <summary>
+        /// Performs an action for each record in the list
+        /// </summary>
+        public static void ForEachRecord(List<Hashtable> records, Action<Hashtable> action)
         {
-            string path = StorageContainer.TitleLocation + @"\Data\monsters.json";
+            for (int i = 0; i < records.Count; i++)
+            {
+                action.Invoke(records[i]);
+            }
+        }
+
+        /// <summary>
+        /// Loads a list from a json file and returns a hashtable for each record
+        /// </summary>
+        public static List<Hashtable> RecordsFromFile(string file)
+        {
+            string path = StorageContainer.TitleLocation + file;
             System.IO.TextReader reader = new System.IO.StreamReader(path);
-            List<MonsterData> monsters = new List<MonsterData>();
+            List<Hashtable> list = new List<Hashtable>();
 
             Hashtable cur = null;
 
@@ -30,7 +44,7 @@ namespace ZuneHack.DataLoader
                     json.Read();
                     if (json.TokenType == JsonToken.PropertyName)
                     {
-                        if (cur != null) monsters.Add(MonsterFromHash(cur));
+                        if (cur != null) list.Add(cur);
                         cur = new Hashtable();
                         cur["name"] = (string)json.Value;
                         json.Read();
@@ -44,13 +58,30 @@ namespace ZuneHack.DataLoader
                 }
             }
 
-            // Add the last monster
-            if (cur != null) monsters.Add(MonsterFromHash(cur));
+            // Add the last record
+            if (cur != null) list.Add(cur);
 
-            return monsters;
+            json.Close();
+            return list;
         }
 
-        protected static MonsterData MonsterFromHash(Hashtable data)
+        public static List<MonsterData> LoadMonsters()
+        {
+            List<Hashtable> records = RecordsFromFile(@"\Data\monsters.json");
+            List<MonsterData> data = new List<MonsterData>();
+            ForEachRecord(records, i => data.Add(MonsterDataFromHash(i)));
+            return data;
+        }
+
+        public static List<WeaponData> LoadWeapons()
+        {
+            List<Hashtable> records = RecordsFromFile(@"\Data\weapons.json");
+            List<WeaponData> data = new List<WeaponData>();
+            ForEachRecord(records, i => data.Add(WeaponDataFromHash(i)));
+            return data;
+        }
+
+        protected static MonsterData MonsterDataFromHash(Hashtable data)
         {
             MonsterData mon = new MonsterData();
             mon.name = (string)data["name"];
@@ -67,44 +98,7 @@ namespace ZuneHack.DataLoader
             return mon;
         }
 
-        public static List<WeaponData> LoadWeapons()
-        {
-            string path = StorageContainer.TitleLocation + @"\Data\weapons.json";
-            System.IO.TextReader reader = new System.IO.StreamReader(path);
-            List<WeaponData> list = new List<WeaponData>();
-
-            Hashtable cur = null;
-
-            // Read through each object in the file
-            JsonTextReader json = new JsonTextReader(reader);
-            while (json.Read())
-            {
-                if (json.Value == null && (json.TokenType == JsonToken.StartObject || json.TokenType == JsonToken.EndObject))
-                {
-                    json.Read();
-                    if (json.TokenType == JsonToken.PropertyName)
-                    {
-                        if (cur != null) list.Add(WeaponFromHash(cur));
-                        cur = new Hashtable();
-                        cur["name"] = (string)json.Value;
-                        json.Read();
-                    }
-                }
-                else if (json.TokenType == JsonToken.PropertyName)
-                {
-                    string val = (string)json.Value;
-                    json.Read();
-                    cur[val] = json.Value;
-                }
-            }
-
-            // Add the last monster
-            if (cur != null) list.Add(WeaponFromHash(cur));
-
-            return list;
-        }
-
-        protected static WeaponData WeaponFromHash(Hashtable data)
+        protected static WeaponData WeaponDataFromHash(Hashtable data)
         {
             WeaponData itm = new WeaponData();
             itm.name = (string)data["name"];

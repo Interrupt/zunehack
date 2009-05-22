@@ -32,7 +32,7 @@
 		lvl: 1
 	},
 
-	rat: {
+	"giant rat": {
 		image: "Actors/rat",
 		agility: 6,
 		speed: 5,
@@ -84,6 +84,72 @@
 		constitution: 4,
 		endurance: 4,
 		intelligence: 1,
-		lvl: 1
+		lvl: 2
+	},
+	
+	"goblin warrior": {
+		image: "Actors/goblin",
+		agility: 5,
+		speed: 4,
+		strength: 6,
+		constitution: 5,
+		endurance: 6,
+		intelligence: 4,
+		lvl: 2
+	},
+	
+	"kobold shaman": {
+		image: "Actors/kobold",
+		agility: 6,
+		speed: 5,
+		strength: 4,
+		constitution: 4,
+		endurance: 4,
+		intelligence: 5,
+		lvl: 2
+	},
+	
+	"vampire bat": {
+		image: "Actors/bat",
+		agility: 6,
+		speed: 5,
+		strength: 4,
+		constitution: 4,
+		endurance: 4,
+		intelligence: 1,
+		lvl: 3
+	},
+	
+	"goblin berserker": {
+		image: "Actors/goblin",
+		agility: 5,
+		speed: 5,
+		strength: 7,
+		constitution: 7,
+		endurance: 8,
+		intelligence: 4,
+		lvl: 3
+	},
+	
+	"kobold warlord": {
+		image: "Actors/kobold",
+		agility: 6,
+		speed: 5,
+		strength: 6,
+		constitution: 6,
+		endurance: 6,
+		intelligence: 5,
+		lvl: 3
+	},
+	
+	"gelatinous cube": {
+		image: "Actors/blue-slime",
+		agility: 8,
+		speed: 4,
+		strength: 6,
+		constitution: 5,
+		endurance: 5,
+		intelligence: 1,
+		lvl: 5
 	}
 }

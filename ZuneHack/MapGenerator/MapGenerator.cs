@@ -72,8 +72,8 @@ namespace ZuneHack.Generation
             map.entities = new List<Entity>();
 
             SetTypeTextures();
-            monsters = Loader.LoadMonsters();
-            weapons = Loader.LoadWeapons();
+            monsters = map.Gamestate.MonsterData.Where(i => i.level <= map.level).ToList();
+            weapons = map.Gamestate.WeaponData.Where(i => i.level <= map.level).ToList();
 
             // Fills map
             FillRandRect(0, 0, width - 1, height - 1, 1, 3);
