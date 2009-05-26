@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
+using ZuneHack.DataLoader;
 
 namespace ZuneHack
 {
@@ -16,10 +17,20 @@ namespace ZuneHack
         protected Raycaster raycaster;
         protected string messages;
         public int numMessages;
+        public int turn;
+
+        // Lists of data from loaded items
+        protected List<MonsterData> monsters;
+        protected List<WeaponData> weapons;
+        public List<MonsterData> MonsterData { get { return monsters; } }
+        public List<WeaponData> WeaponData { get { return weapons; } }
 
         // Initializes the game state
         public PlayState(GameManager manager) : base(manager)
         {
+            monsters = Loader.LoadMonsters();
+            weapons = Loader.LoadWeapons();
+
             cam = new Camera();
             cam.Turn((float)(Math.PI * 2) / 4.0f);
 
@@ -39,6 +50,7 @@ namespace ZuneHack
             raycaster.SetMap(map);
 
             cam.SetPosition(map.GetStairUpLoc());
+            player.CreateStartingItems();
 
             AddMessage("You step down into the musty air of the dungeon.");
         }
@@ -144,6 +156,14 @@ namespace ZuneHack
         // Runs each entities turn
         public void UpdateTurn()
         {
+            turn++;
+
+            // Make some monsters occasionally to keep the player on their toes
+            if (turn % 13 == 0)
+            {
+                map.CreateMonster(true);
+            }
+
             for (int i = 0; i < map.entities.Count; i++)
             {
                 if (map.entities[i] as Actor != null)
@@ -159,6 +179,52 @@ namespace ZuneHack
         public void didTurnAction()
         {
             messages = "";
+        }
+
+        /// <summary>
+        /// Create a monster from it's name
+        /// </summary>
+        public Monster MakeMonster(string name)
+        {
+            int i = monsters.FindIndex(m => m.name == name);
+            if(i != -1)
+                return new Monster(monsters[i]);
+            return null;
+        }
+
+        /// <summary>
+        /// Create a random monster at a specified level
+        /// </summary>
+        public Monster MakeRandomMonster(int maxLevel)
+        {
+            List<MonsterData> range = monsters.Where(m => m.level <= maxLevel).ToList();
+
+            if (range.Count() > 0)
+                return new Monster(monsters[manager.Random.Next(0, range.Count())]);
+            return null;
+        }
+
+        /// <summary>
+        /// Create a weapon by it's name
+        /// </summary>
+        public Weapon MakeRandomWeapon(int maxLevel)
+        {
+            List<WeaponData> range = weapons.Where(m => m.level <= maxLevel).ToList();
+
+            if (range.Count() > 0)
+                return new Weapon(weapons[manager.Random.Next(0, range.Count())]);
+            return null;
+        }
+
+        /// <summary>
+        /// Create a random weapon at a specified level
+        /// </summary>
+        public Weapon MakeWeapon(string name)
+        {
+            int i = weapons.FindIndex(m => m.name == name);
+            if (i != -1)
+                return new Weapon(weapons[i]);
+            return null;
         }
     }
 }

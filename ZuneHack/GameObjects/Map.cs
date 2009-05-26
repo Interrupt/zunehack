@@ -109,7 +109,7 @@ namespace ZuneHack
             gamestate = theState;
 
             player = gamestate.Player;
-            player.SetMap(this);
+            if(player != null) player.SetMap(this);
 
             level = Level;
             MapGenerator generator = new MapGenerator(type, this);
@@ -308,6 +308,59 @@ namespace ZuneHack
                 }
             }
             return true;
+        }
+
+        public Vector2 FindFreeTile()
+        {
+            bool didPlace = false;
+            int tries = 0;
+            while (didPlace == false && tries < 1000)
+            {
+                int locX = GameManager.GetInstance().Random.Next(1, width - 1);
+                int locY = GameManager.GetInstance().Random.Next(1, height - 1);
+                didPlace = CheckIsClear(locX, locY);
+
+                if (didPlace)
+                {
+                    return new Vector2(locX, locY);
+                }
+                else
+                {
+                    tries++;
+                }
+            }
+            return new Vector2(-1, -1);
+        }
+
+        // Checks if this area is clear
+        protected bool CheckIsClear(int x, int y)
+        {
+            return mapData[x, y] == 0;
+        }
+
+        public void CreateMonster(bool offScreen)
+        {
+            Monster monster = Gamestate.MakeRandomMonster(level);
+            if (monster != null)
+            {
+                Vector2 tile = FindFreeTile();
+
+                // If we're trying to generating offscreen, find out if this is a valid spot
+                if (offScreen)
+                {
+                    if (Math.Abs((tile - player.pos).Length()) < 10)
+                        return;
+                }
+
+                if (tile != new Vector2(-1, -1))
+                {
+                    tile += new Vector2(0.5f, 0.5f);
+                    monster.pos = tile;
+                    monster.displayPos = tile;
+
+                    AddEntity(monster);
+                }
+            }
         }
     }
 }

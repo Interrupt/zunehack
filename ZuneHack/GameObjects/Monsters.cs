@@ -22,16 +22,13 @@ namespace ZuneHack
     /// </summary>
     public class Monster : NpcActor
     {
-        public Monster(MonsterData data, Vector2 startPos)
+        public Monster(MonsterData data)
         {
             name = data.name;
 
             // Get or load a texture
             texture = GameManager.GetInstance().GetTexture(data.image);
             if (texture == null) texture = GameManager.GetInstance().LoadTexture(data.image);
-
-            pos = startPos;
-            displayPos = pos;
 
             attributes.agility = data.attribs.agility;
             attributes.speed = data.attribs.speed;
@@ -40,6 +37,12 @@ namespace ZuneHack
             attributes.endurance = data.attribs.endurance;
 
             stats.Initialize(data.level, attributes);
+        }
+
+        public Monster(MonsterData data, Vector2 startPos) : this(data)
+        {
+            pos = startPos;
+            displayPos = pos;
         }
     }
 }
