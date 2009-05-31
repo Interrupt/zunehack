@@ -104,6 +104,9 @@
     </NestedContentProject>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\armor.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Data\monsters.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

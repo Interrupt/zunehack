@@ -85,6 +85,9 @@
     <Compile Include="GameObjects\Entity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\armor.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Data\weapons.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

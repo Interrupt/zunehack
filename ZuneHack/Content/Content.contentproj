@@ -132,7 +132,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\sword.png">
+    <Compile Include="Assets\Items\Weapons\sword.png">
       <Name>sword</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -273,77 +273,77 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Items\armor-chain.png">
+    <Compile Include="Assets\Items\Armor\armor-chain.png">
       <Name>armor-chain</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\armor-leather.png">
+    <Compile Include="Assets\Items\Armor\armor-leather.png">
       <Name>armor-leather</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\armor-plate.png">
+    <Compile Include="Assets\Items\Armor\armor-plate.png">
       <Name>armor-plate</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\axe.png">
+    <Compile Include="Assets\Items\Weapons\axe.png">
       <Name>axe</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\boots-chain.png">
+    <Compile Include="Assets\Items\Armor\boots-chain.png">
       <Name>boots-chain</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\boots-leather.png">
+    <Compile Include="Assets\Items\Armor\boots-leather.png">
       <Name>boots-leather</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\boots-plate.png">
+    <Compile Include="Assets\Items\Armor\boots-plate.png">
       <Name>boots-plate</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\buckler.png">
+    <Compile Include="Assets\Items\Armor\buckler.png">
       <Name>buckler</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\cap.png">
+    <Compile Include="Assets\Items\Armor\cap.png">
       <Name>cap</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\club.png">
+    <Compile Include="Assets\Items\Weapons\club.png">
       <Name>club</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\dagger.png">
+    <Compile Include="Assets\Items\Weapons\dagger.png">
       <Name>dagger</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\helmet.png">
+    <Compile Include="Assets\Items\Armor\helmet.png">
       <Name>helmet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\shield.png">
+    <Compile Include="Assets\Items\Armor\shield.png">
       <Name>shield</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\shortsword.png">
+    <Compile Include="Assets\Items\Weapons\shortsword.png">
       <Name>shortsword</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Assets\Items\staff.png">
+    <Compile Include="Assets\Items\Weapons\staff.png">
       <Name>staff</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>

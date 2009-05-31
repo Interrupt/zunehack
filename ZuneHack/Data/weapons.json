@@ -1,45 +1,45 @@
 {
 	dagger: {
-		image: "Items/dagger",
+		image: "Items/Weapons/dagger",
 		class: "Blade",
 		damage: 2,
 	},
 	
 	"glowing dagger": {
-		image: "Items/dagger",
+		image: "Items/Weapons/dagger",
 		class: "Blade",
 		damage: 4,
 		lvl: 3
 	},
 	
 	shortsword: {
-		image: "Items/shortsword",
+		image: "Items/Weapons/shortsword",
 		class: "Blade",
 		damage: 3,
 	},
 	
 	"silver shortsword": {
-		image: "Items/shortsword",
+		image: "Items/Weapons/shortsword",
 		class: "Blade",
 		damage: 5,
 		lvl: 3
 	},
 	
 	longsword: {
-		image: "Items/sword",
+		image: "Items/Weapons/sword",
 		class: "Blade",
 		damage: 5,
 	},
 	
 	"elven longsword": {
-		image: "Items/sword",
+		image: "Items/Weapons/sword",
 		class: "Blade",
 		damage: 7,
 		lvl: 3
 	},
 	
 	broadsword: {
-		image: "Items/sword",
+		image: "Items/Weapons/sword",
 		class: "Blade",
 		damage: 7,
 		twohanded: true,
@@ -47,19 +47,19 @@
 	},
 	
 	"hand axe": {
-		image: "Items/axe",
+		image: "Items/Weapons/axe",
 		class: "Axe",
 		damage: 3,
 	},
 	
 	axe: {
-		image: "Items/axe",
+		image: "Items/Weapons/axe",
 		class: "Axe",
 		damage: 5,
 	},
 	
 	"great axe": {
-		image: "Items/axe",
+		image: "Items/Weapons/axe",
 		class: "Axe",
 		damage: 7,
 		twohanded: true,
@@ -67,26 +67,26 @@
 	},
 	
 	club: {
-		image: "Items/club",
+		image: "Items/Weapons/club",
 		class: "Blunt",
 		damage: 2,
 	},
 	
 	"heavy club": {
-		image: "Items/club",
+		image: "Items/Weapons/club",
 		class: "Blunt",
 		damage: 4,
 	},
 	
 	staff: {
-		image: "Items/staff",
+		image: "Items/Weapons/staff",
 		class: "Blunt",
 		damage: 3,
 		twohanded: true
 	},
 	
 	"wizard's staff": {
-		image: "Items/staff",
+		image: "Items/Weapons/staff",
 		class: "Blunt",
 		damage: 5,
 		twohanded: true,
