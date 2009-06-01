@@ -22,14 +22,17 @@ namespace ZuneHack
         // Lists of data from loaded items
         protected List<MonsterData> monsters;
         protected List<WeaponData> weapons;
+        protected List<ArmorData> armor;
         public List<MonsterData> MonsterData { get { return monsters; } }
         public List<WeaponData> WeaponData { get { return weapons; } }
+        public List<ArmorData> ArmorData { get { return armor; } }
 
         // Initializes the game state
         public PlayState(GameManager manager) : base(manager)
         {
             monsters = Loader.LoadMonsters();
             weapons = Loader.LoadWeapons();
+            armor = Loader.LoadArmor();
 
             cam = new Camera();
             cam.Turn((float)(Math.PI * 2) / 4.0f);

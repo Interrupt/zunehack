@@ -51,6 +51,7 @@ namespace ZuneHack.Generation
         List<Connector> available_conns;
         List<MonsterData> monsters;
         List<WeaponData> weapons;
+        List<ArmorData> armor;
         Random rnd;
 
         public MapGenerator(MapType Type, Map Map)
@@ -74,6 +75,7 @@ namespace ZuneHack.Generation
             SetTypeTextures();
             monsters = map.Gamestate.MonsterData.Where(i => i.level <= map.level).ToList();
             weapons = map.Gamestate.WeaponData.Where(i => i.level <= map.level).ToList();
+            armor = map.Gamestate.ArmorData.Where(i => i.level <= map.level).ToList();
 
             // Fills map
             FillRandRect(0, 0, width - 1, height - 1, 1, 3);
@@ -303,7 +305,7 @@ namespace ZuneHack.Generation
                     if (!doMake) return;
 
                     // Pick a random type
-                    ItemType type = (ItemType)Enum.ToObject(typeof(ItemType), rnd.Next(1, 4));
+                    ItemType type = (ItemType)Enum.ToObject(typeof(ItemType), rnd.Next(1, 5));
                     Item item = null;
 
                     // Create an item
@@ -319,6 +321,11 @@ namespace ZuneHack.Generation
                     {
                         WeaponData wpnData = weapons[rnd.Next(0, weapons.Count)];
                         item = new Weapon(wpnData);
+                    }
+                    else if (type == ItemType.Armor)
+                    {
+                        ArmorData armorData = armor[rnd.Next(0, armor.Count)];
+                        item = new Armor(armorData);
                     }
 
                     // Add the item, if one was created

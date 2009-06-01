@@ -1,0 +1,79 @@
+{
+	"leather vest": {
+		image: "Items/Armor/armor-leather",
+		class: "leather",
+		location: "body",
+		armor: 1
+	},
+	
+	"chainmail vest": {
+		image: "Items/Armor/armor-chain",
+		class: "chainmail",
+		location: "body",
+		armor: 2
+	},
+	
+	"plate vest": {
+		image: "Items/Armor/armor-plate",
+		class: "plate",
+		location: "body",
+		armor: 4
+	},
+	
+	cap: {
+		image: "Items/Armor/cap",
+		class: "leather",
+		location: "head",
+		armor: 1
+	},
+	
+	helmet: {
+		image: "Items/Armor/helmet",
+		class: "chainmail",
+		location: "head",
+		armor: 2
+	},
+	
+	"leather boots": {
+		image: "Items/Armor/boots-leather",
+		class: "leather",
+		location: "feet",
+		armor: 1
+	},
+	
+	"light boots": {
+		image: "Items/Armor/boots-chain",
+		class: "chainmail",
+		location: "feet",
+		armor: 2
+	},
+	
+	"heavy boots": {
+		image: "Items/Armor/boots-plate",
+		class: "plate",
+		location: "feet",
+		armor: 4
+	},
+	
+	buckler: {
+		image: "Items/Armor/buckler",
+		class: "leather",
+		location: "offhand",
+		armor: 1
+	},
+	
+	shield: {
+		image: "Items/Armor/shield",
+		class: "chainmail",
+		location: "offhand",
+		armor: 2
+	},
+	
+	"tower shield": {
+		image: "Items/Armor/shield",
+		class: "plate",
+		location: "offhand",
+		armor: 4,
+		lvl: 2
+	}
+}

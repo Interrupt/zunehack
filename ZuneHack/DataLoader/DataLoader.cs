@@ -81,6 +81,16 @@ namespace ZuneHack.DataLoader
             return data;
         }
 
+        public static List<ArmorData> LoadArmor()
+        {
+            List<Hashtable> records = RecordsFromFile(@"\Data\armor.json");
+            List<ArmorData> data = new List<ArmorData>();
+            ForEachRecord(records, i => data.Add(ArmorDataFromHash(i)));
+            return data;
+        }
+
+        // --------------- Data Records From Hash Functions ---------------- //
+
         protected static MonsterData MonsterDataFromHash(Hashtable data)
         {
             MonsterData mon = new MonsterData();
@@ -106,6 +116,7 @@ namespace ZuneHack.DataLoader
 
             itm.level = Convert.ToInt32(data["lvl"]);
             itm.damage = Convert.ToInt32(data["damage"]);
+            itm.bonus = Convert.ToInt32(data["bonus"]);
 
             switch (((string)data["class"]).ToLower())
             {
@@ -120,6 +131,44 @@ namespace ZuneHack.DataLoader
                     break;
                 case "piercing":
                     itm.wpnclass = WeaponClass.Piercing;
+                    break;
+                default:
+                    itm.wpnclass = WeaponClass.Blade;
+                    break;
+            }
+
+            return itm;
+        }
+
+        protected static ArmorData ArmorDataFromHash(Hashtable data)
+        {
+            ArmorData itm = new ArmorData();
+            itm.name = (string)data["name"];
+            itm.image = (string)data["image"];
+
+            itm.level = Convert.ToInt32(data["lvl"]);
+            itm.armor = Convert.ToInt32(data["armor"]);
+            itm.bonus = Convert.ToInt32(data["bonus"]);
+
+            switch (((string)data["location"]).ToLower())
+            {
+                case "arms":
+                    itm.slot = ArmorBodySlot.Arms;
+                    break;
+                case "body":
+                    itm.slot = ArmorBodySlot.Body;
+                    break;
+                case "feet":
+                    itm.slot = ArmorBodySlot.Feet;
+                    break;
+                case "head":
+                    itm.slot = ArmorBodySlot.Head;
+                    break;
+                case "offhand":
+                    itm.slot = ArmorBodySlot.Offhand;
+                    break;
+                default:
+                    itm.slot = ArmorBodySlot.Body;
                     break;
             }
 
