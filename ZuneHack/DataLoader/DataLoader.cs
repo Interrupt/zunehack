@@ -117,6 +117,7 @@ namespace ZuneHack.DataLoader
             itm.level = Convert.ToInt32(data["lvl"]);
             itm.damage = Convert.ToInt32(data["damage"]);
             itm.bonus = Convert.ToInt32(data["bonus"]);
+            itm.chance = data["chance"] != null ? Convert.ToInt32(data["chance"]) : 10;
 
             switch (((string)data["class"]).ToLower())
             {
@@ -149,6 +150,7 @@ namespace ZuneHack.DataLoader
             itm.level = Convert.ToInt32(data["lvl"]);
             itm.armor = Convert.ToInt32(data["armor"]);
             itm.bonus = Convert.ToInt32(data["bonus"]);
+            itm.chance = data["chance"] != null ? Convert.ToInt32(data["chance"]) : 10;
 
             switch (((string)data["location"]).ToLower())
             {

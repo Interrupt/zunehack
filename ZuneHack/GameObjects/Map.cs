@@ -22,6 +22,8 @@ namespace ZuneHack
         protected int width;
         protected int height;
 
+        protected MapGenerator generator;
+
         protected PlayState gamestate;
         protected Player player;
         public List<Entity> entities;
@@ -112,7 +114,7 @@ namespace ZuneHack
             if(player != null) player.SetMap(this);
 
             level = Level;
-            MapGenerator generator = new MapGenerator(type, this);
+            generator = new MapGenerator(type, this);
         }
 
         // Returns the playstate that owns the map
@@ -340,7 +342,7 @@ namespace ZuneHack
 
         public void CreateMonster(bool offScreen)
         {
-            Monster monster = Gamestate.MakeRandomMonster(level);
+            Monster monster = generator.MakeRandomMonster();
             if (monster != null)
             {
                 Vector2 tile = FindFreeTile();
@@ -361,6 +363,24 @@ namespace ZuneHack
                     AddEntity(monster);
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns a random weapon based on the level and item chance
+        /// </summary>
+        /// <returns></returns>
+        public Weapon MakeRandomWeapon()
+        {
+            return generator.PickRandomWeapon();
+        }
+
+        /// <summary>
+        /// Returns a random weapon based on the level and item chance
+        /// </summary>
+        /// <returns></returns>
+        public Armor MakeRandomArmor()
+        {
+            return generator.PickRandomArmor();
         }
     }
 }

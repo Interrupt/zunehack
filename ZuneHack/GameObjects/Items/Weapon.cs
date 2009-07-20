@@ -22,6 +22,7 @@ namespace ZuneHack
         public WeaponClass wpnclass;
         public int damage;
         public int bonus;
+        public int chance;
     }
 
     public class Weapon : Item

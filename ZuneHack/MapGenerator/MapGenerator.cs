@@ -12,7 +12,7 @@ using ZuneHack.DataLoader;
 
 namespace ZuneHack.Generation
 {
-    enum Direction
+    public enum Direction
     {
         north = 1,
         east,
@@ -23,7 +23,7 @@ namespace ZuneHack.Generation
     /// <summary>
     /// Data for a generated room feature
     /// </summary>
-    struct Room
+    public struct Room
     {
         public int width;
         public int height;
@@ -34,7 +34,7 @@ namespace ZuneHack.Generation
     /// <summary>
     /// Connections between features
     /// </summary>
-    struct Connector
+    public struct Connector
     {
         public bool noDoor;
         public int posX;
@@ -42,7 +42,7 @@ namespace ZuneHack.Generation
         public Direction dir;
     }
 
-    class MapGenerator
+    public class MapGenerator
     {
         MapType type;
         Map map;
@@ -51,7 +51,9 @@ namespace ZuneHack.Generation
         List<Connector> available_conns;
         List<MonsterData> monsters;
         List<WeaponData> weapons;
+        int weapon_total_chance;
         List<ArmorData> armor;
+        int armor_total_chance;
         Random rnd;
 
         public MapGenerator(MapType Type, Map Map)
@@ -76,6 +78,14 @@ namespace ZuneHack.Generation
             monsters = map.Gamestate.MonsterData.Where(i => i.level <= map.level).ToList();
             weapons = map.Gamestate.WeaponData.Where(i => i.level <= map.level).ToList();
             armor = map.Gamestate.ArmorData.Where(i => i.level <= map.level).ToList();
+
+            // Build the total chance of all weapons
+            weapon_total_chance = 0;
+            foreach (WeaponData d in weapons) weapon_total_chance += d.chance;
+
+            // Build the total chance of all armor
+            armor_total_chance = 0;
+            foreach (ArmorData d in armor) armor_total_chance += d.chance;
 
             // Fills map
             FillRandRect(0, 0, width - 1, height - 1, 1, 3);
@@ -271,7 +281,6 @@ namespace ZuneHack.Generation
         {
             MonsterData data = monsters[rnd.Next(0, monsters.Count)];
             Actor m = new Monster(data, pos);
-
             if (m != null) map.AddEntity(m);
         }
 
@@ -289,6 +298,47 @@ namespace ZuneHack.Generation
                 Vector2 genpos = new Vector2(rnd.Next(area.Left, area.Right) + 0.5f, rnd.Next(area.Top, area.Bottom) + 0.5f);
                 AddRandomMonster(genpos);
             }
+        }
+
+        /// <summary>
+        /// Create a random monster at a specified level
+        /// </summary>
+        public Monster MakeRandomMonster()
+        {
+            if (monsters.Count() == 0) return null;
+            return new Monster(monsters[rnd.Next(0, monsters.Count())]);
+        }
+
+        /// <summary>
+        /// Pick a random weapon based on item chances
+        /// </summary>
+        public Weapon PickRandomWeapon()
+        {
+            if (weapons.Count == 0) return null;
+
+            // Find list item by the corresponding chance
+            int r = rnd.Next(0, weapon_total_chance);
+            int pick = 0;
+
+            // Go through the list until the correct item is found
+            for (int i = 0; i < weapon_total_chance && i <= r; i += weapons[pick].chance, pick++) { }
+            return new Weapon(weapons[pick - 1]);
+        }
+
+        /// <summary>
+        /// Pick a random armor based on item chances
+        /// </summary>
+        public Armor PickRandomArmor()
+        {
+            if (armor.Count == 0) return null;
+
+            // Find list item by the corresponding chance
+            int r = rnd.Next(0, armor_total_chance);
+            int pick = 0;
+
+            // Go through the list until the correct item is found
+            for (int i = 0; i < armor_total_chance && i <= r; i += armor[pick].chance, pick++) { }
+            return new Armor(armor[pick - 1]);
         }
 
         /// <summary>
@@ -319,13 +369,11 @@ namespace ZuneHack.Generation
                     }
                     else if (type == ItemType.Weapon)
                     {
-                        WeaponData wpnData = weapons[rnd.Next(0, weapons.Count)];
-                        item = new Weapon(wpnData);
+                        item = PickRandomWeapon();
                     }
                     else if (type == ItemType.Armor)
                     {
-                        ArmorData armorData = armor[rnd.Next(0, armor.Count)];
-                        item = new Armor(armorData);
+                        item = PickRandomArmor();
                     }
 
                     // Add the item, if one was created
@@ -350,8 +398,13 @@ namespace ZuneHack.Generation
 
                 if (didPlace)
                 {
+                    Vector2 pos = new Vector2(locX + 0.5f, locY + 0.5f);
                     map.mapData[locX, locY] = -1;
-                    map.AddEntity(new Entity(new Vector2(locX + 0.5f, locY + 0.5f), @"Deco\up", false));
+                    map.AddEntity(new Entity(pos, @"Deco\up", false));
+
+                    // Remove monsters too close to the stairs
+                    Entity[] to_remove = map.entities.Where(m => m as Monster != null && Math.Abs((m.pos - pos).Length()) < 2).ToArray();
+                    foreach (Entity m in to_remove) map.entities.Remove(m);
                 }
             }
         }

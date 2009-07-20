@@ -9,7 +9,8 @@
 		image: "Items/Weapons/dagger",
 		class: "Blade",
 		damage: 4,
-		lvl: 3
+		lvl: 3,
+		chance: 5
 	},
 	
 	shortsword: {
@@ -22,7 +23,8 @@
 		image: "Items/Weapons/shortsword",
 		class: "Blade",
 		damage: 5,
-		lvl: 3
+		lvl: 3,
+		chance: 5
 	},
 	
 	longsword: {
@@ -35,7 +37,8 @@
 		image: "Items/Weapons/sword",
 		class: "Blade",
 		damage: 7,
-		lvl: 3
+		lvl: 3,
+		chance: 5
 	},
 	
 	broadsword: {

@@ -173,6 +173,15 @@
       <Time>2009-04-24T22:23:06.265625-05:00</Time>
     </Item>
     <Item>
+      <Source>Assets\Items\Weapons\sword.png</Source>
+      <Name>Assets\Items\Weapons\sword</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\Weapons\sword.xnb</Output>
+      <Time>2009-04-24T22:23:06.265625-05:00</Time>
+    </Item>
+    <Item>
       <Source>Assets\Deco\column.png</Source>
       <Name>Assets\Deco\column</Name>
       <Importer>TextureImporter</Importer>
@@ -344,24 +353,6 @@
       <Time>2009-05-16T12:13:34.0625-05:00</Time>
     </Item>
     <Item>
-      <Source>Assets\Gebrider.spritefont</Source>
-      <Name>Assets\Gebrider</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Gebrider.xnb</Output>
-      <Time>2009-04-26T17:14:08.1875-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Assets\Items\Weapons\sword.png</Source>
-      <Name>Assets\Items\Weapons\sword</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\Weapons\sword.xnb</Output>
-      <Time>2009-04-24T22:23:06.265625-05:00</Time>
-    </Item>
-    <Item>
       <Source>Assets\Items\Armor\armor-chain.png</Source>
       <Name>Assets\Items\Armor\armor-chain</Name>
       <Importer>TextureImporter</Importer>
@@ -495,6 +486,15 @@
       <Options>None</Options>
       <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Items\Weapons\staff.xnb</Output>
       <Time>2009-05-20T23:01:38.734375-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Gebrider.spritefont</Source>
+      <Name>Assets\Gebrider</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Devspace\ZuneHack\zunehack\ZuneHack\bin\x86\Debug\Content\Assets\Gebrider.xnb</Output>
+      <Time>2009-04-26T17:14:08.1875-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

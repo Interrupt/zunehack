@@ -23,6 +23,7 @@ namespace ZuneHack
         public ArmorBodySlot slot;
         public int armor;
         public int bonus;
+        public int chance;
     }
 
     public class Armor : Item

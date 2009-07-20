@@ -162,7 +162,7 @@ namespace ZuneHack
             turn++;
 
             // Make some monsters occasionally to keep the player on their toes
-            if (turn % 13 == 0)
+            if (turn % 10 == 0)
             {
                 map.CreateMonster(true);
             }
@@ -196,31 +196,7 @@ namespace ZuneHack
         }
 
         /// <summary>
-        /// Create a random monster at a specified level
-        /// </summary>
-        public Monster MakeRandomMonster(int maxLevel)
-        {
-            List<MonsterData> range = monsters.Where(m => m.level <= maxLevel).ToList();
-
-            if (range.Count() > 0)
-                return new Monster(monsters[manager.Random.Next(0, range.Count())]);
-            return null;
-        }
-
-        /// <summary>
-        /// Create a weapon by it's name
-        /// </summary>
-        public Weapon MakeRandomWeapon(int maxLevel)
-        {
-            List<WeaponData> range = weapons.Where(m => m.level <= maxLevel).ToList();
-
-            if (range.Count() > 0)
-                return new Weapon(weapons[manager.Random.Next(0, range.Count())]);
-            return null;
-        }
-
-        /// <summary>
-        /// Create a random weapon at a specified level
+        /// Create a weapon from it's name
         /// </summary>
         public Weapon MakeWeapon(string name)
         {
